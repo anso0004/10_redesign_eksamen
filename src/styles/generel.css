@@ -7,7 +7,7 @@ img {
 }
 body {
   margin: auto 0;
-  /* background-color: var(--black_90); */
+  background-color: var(--baggrund_50);
 }
 
 /*********** VARIABLER ***********/
@@ -63,11 +63,13 @@ h4 {
   font-family: var(--mulish);
   font-size: 10px;
   font-weight: 600;
+  color: var(--gray_80);
 }
 .produktfarve_forside_mobil {
   font-family: var(--mulish);
   font-size: 8px;
   font-weight: 600;
+  color: var(--gray_80);
 }
 .produkt_pris,
 .ny_pris,
