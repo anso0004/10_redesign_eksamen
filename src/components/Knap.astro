@@ -1,0 +1,82 @@
+---
+import "../styles/generel.css";
+const { variant, size } = Astro.props;
+---
+
+<button class={variant + " " + size}>Læs mere</button>
+
+<style>
+  button {
+    font-family: var(--mulish);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.5px;
+    padding: 5px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button div {
+    display: flex;
+    justify-content: space-around;
+  }
+  /* Første knap */
+  .primary {
+    border: solid var(--green_100);
+    background-color: #ffffff00;
+    color: var(--sort_100);
+    color: var(--green_100);
+    position: relative;
+  }
+
+  .primary:hover {
+    background-color: var(--green_100);
+    color: var(--baggrund_50);
+    z-index: 1;
+  }
+  /* Mousedown/klik */
+  .primary:active {
+    content: "";
+    border: solid var(--green_200);
+    background-color: var(--green_200);
+    color: var(--baggrund_50);
+    z-index: -1;
+  }
+  /***** Anden knap *****/
+  .secondary {
+    font-family: var(--nunito);
+    border: solid var(--green_100);
+    background-color: var(--green_100);
+    color: var(--baggrund_50);
+    /* color: var(--green_100); */
+    position: relative;
+  }
+
+  .secondary:hover {
+    background-color: var(--green_200);
+    color: var(--baggrund_50);
+    z-index: 1;
+  }
+  /**** Tredje knap *****/
+  .third {
+    border: solid var(--baggrund_50);
+    background-color: #ffffff00;
+    color: var(--baggrund_70);
+  }
+
+  .third:hover {
+    background-color: var(--baggrund_50);
+    color: var(--green_100);
+    z-index: 1;
+  }
+  /* Mousedown/klik */
+  .third:active {
+    border: solid var(--baggrund_70);
+    background-color: var(--baggrund_70);
+    color: var(--green_100);
+    z-index: 1;
+  }
+</style>
