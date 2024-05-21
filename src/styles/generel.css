@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  margin: auto 0;
+  /* background-color: var(--black_90); */
+}
+
+/*********** VARIABLER ***********/
+html {
+  --baggrund_50: #faf9f4;
+  --baggrund_70: #f0eddf;
+  --baggrund_80: #bfbaa4;
+  --gray_80: #868686;
+  --green_100: #28725c;
+  --green_200: #165c48;
+  --hvid_100: #ffffff;
+  --sort_100: #000000;
+}
