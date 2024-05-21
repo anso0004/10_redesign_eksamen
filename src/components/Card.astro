@@ -1,3 +1,26 @@
-<div>
+<div class="boks">
   <img src="public/img/produktliste/test_kop.jpeg" alt="Produktbillede" />
+  <div class="grid_1-1">
+    <p class="produktbeskrivelse">Høj kop med hank</p>
+    <p class="produkt_pris">kr. 250,-</p>
+  </div>
+  <p class="produktfarve">Gul</p>
 </div>
+
+<style>
+  img {
+    max-width: 200px;
+  }
+  .boks {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+</style>
