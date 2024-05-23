@@ -119,3 +119,8 @@ p {
     font-size: 16px;
   }
 }
+
+/*********** SKJUL ***********/
+.hide {
+  display: none;
+}
