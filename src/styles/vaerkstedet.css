@@ -1,3 +1,10 @@
+/* .baeredygtigt {
+  width: 348px;
+} */
+.centreret_overskrift {
+  text-align: center;
+}
+
 @media (min-width: 800px) {
   .afsnit1 {
     display: grid;
@@ -7,5 +14,14 @@
   }
   .order_1 {
     order: 1;
+  }
+  .afsnit3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .afsnit4 {
+    display: flex;
+    gap: 62px;
   }
 }
