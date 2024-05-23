@@ -3,6 +3,11 @@
 ---
 
 <header>
+  <div class="burger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
   <div class="logo_header">
     <a href="/">
       <svg width="72" height="108" viewBox="0 0 72 108" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +39,8 @@
           <a href="#">PRIKKOLLEKTION</a>
         </div>
       </li>
-      <li><a href="/vaerkstedet">VÆRKSTEDET</a></li>
-      <li><a href="/kontakt">KONTAKT</a></li>
+      <li class="menupunkt"><a href="/vaerkstedet">VÆRKSTEDET</a></li>
+      <li class="menupunkt"><a href="/kontakt">KONTAKT</a></li>
     </ul>
     <div class="head_icons">
       <iconify-icon icon="ph:heart-thin">
@@ -72,11 +77,6 @@
         </svg>
       </iconify-icon>
     </div>
-    <div class="burger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
   </nav>
   <script>
     const burger = document.querySelector(".burger");
@@ -108,51 +108,27 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px;
-      /* background-color: var(--lysgrøn); */
       position: sticky;
     }
     header a {
       text-decoration: none;
-      font-size: 75px;
+      font-size: 15px;
+      font-family: var(--nunito);
+      color: var(--green_100);
     }
-    nav {
-      display: flex;
-      align-items: center;
+    .dropdown_button,
+    .menupunkt {
+      font-weight: 800;
     }
     .menu {
-      display: flex;
+      display: block;
       list-style: none;
       padding: 0;
     }
-    .menu a {
-      font-family: var(--font1);
-      font-weight: 600;
-      color: var(--white_100);
-      margin-right: 60px;
-      padding: 10px 30px 10px 30px;
-      border-radius: 6px;
-      text-transform: uppercase;
-      line-height: 120px;
-      word-wrap: break-word;
-      background-image: var(--gradientRegnbue);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      width: fit-content;
-    }
-    .logo_header a {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
+
     .logo_header img {
       width: 30%;
     }
-    .logo_header p {
-      font-family: var(--font2);
-      /* color: var(--mørkgrøn); */
-    }
-
     .burger {
       width: 48px;
       height: 20px;
@@ -162,24 +138,17 @@
     .burger .line {
       width: 50%;
       height: 2px;
-      background-color: green;
+      background-color: var(--green_100);
       margin-bottom: 4px;
       transition: 0.2s linear;
       border-radius: 5px;
-    }
-    .burger {
-      display: none;
     }
     nav li {
       margin: 0;
       padding: 0;
     }
-
     .menu {
       display: none;
-    }
-    .burger {
-      display: block;
     }
     .burger.active .line:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
@@ -195,24 +164,30 @@
     }
     nav.active .menu {
       display: block;
-      background-color: var(--black_90);
+      background-color: var(--baggrund_70);
       position: absolute;
       left: 0;
       top: 75px;
-      width: 100%;
       height: 1000%;
       z-index: 1;
+    }
+    nav.active header {
+      background-color: var(--baggrund_70);
     }
     nav.active .menu li {
       margin-left: 20px;
       margin-top: 8px;
       padding-top: 10px;
+      display: block;
     }
     .line {
       margin-right: 50%;
     }
-    .logo_header {
-      margin-left: 50%;
+    .head_icons {
+      display: flex;
+      position: absolute;
+      right: 10px;
+      gap: 11px;
     }
   }
   /* -------------- DESKTOP -------------- */
@@ -221,7 +196,12 @@
       margin-left: 2%;
       margin-top: 30px;
     }
-
+    header:hover {
+      background-color: var(--baggrund_70); /* Definér din nye baggrundsfarve her */
+    }
+    .dropdown:hover .dropdown_content {
+      background-color: var(--baggrund_70); /* Samme baggrundsfarve */
+    }
     header {
       display: flex;
       justify-content: space-between;
@@ -248,7 +228,7 @@
 
     /* Laver afstand mellem menupunkterne */
     nav ul li {
-      display: inline;
+      display: inline-block;
       margin-right: 35px;
     }
 
@@ -262,31 +242,31 @@
       list-style: none;
       color: var(--green_100);
     }
-    .dropdown {
-      /* position: relative; */
-      float: left;
-      overflow: hidden;
-    }
 
     .dropdown_button:hover {
       background-color: var(--baggrund_70);
     }
-    /* header a:hover  {
-    background-color: var(--baggrund_70);
-  } */
+
     .dropdown_content {
       display: none;
       position: absolute;
+      background: content-box;
       background-color: var(--baggrund_70);
-      width: 100%;
+      /* width: 100%; */
       height: 40%;
       line-height: 2rem;
+      left: 0;
+      /* width: 100vw; */
+      z-index: 1000;
+      padding: 1rem 0; /* Tilføjer lidt polstring til indholdet */
+      box-sizing: border-box; /* Sikrer, at padding er inkluderet i bredde/højde */
     }
     .dropdown_content a {
       display: block;
       text-decoration: none;
       color: var(--green_100);
-      top: 5rem;
+      padding: 0.5rem 1.5rem; /* Tilføjer lidt polstring til linkene */
+      white-space: nowrap; /* Sikrer, at tekst ikke brydes */
     }
     .dropdown_content a:hover {
       text-decoration: underline;
@@ -294,14 +274,14 @@
     }
     .dropdown:hover .dropdown_content {
       display: block;
+      left: 0;
+      right: 0; /* Sikrer, at dropdown-content fylder hele bredden af skærmen */
     }
     .head_icons {
       display: flex;
       position: absolute;
       right: 100px;
-    }
-    .basket {
-      margin-left: 10%;
+      gap: 11px;
     }
   }
 </style>

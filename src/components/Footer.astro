@@ -3,9 +3,9 @@
 ---
 
 <footer>
-  <section class="index_grid_1_1_1_1">
+  <section class="footer_grid">
     <div class="fællesskabet">
-      <h4>BLIV EN DEL AF FÆLLESSKABET</h4>
+      <h4 class="footer_overskrift">BLIV EN DEL AF FÆLLESSKABET</h4>
       <p>Tilmeld dig vores nyhedsbrev her og få 10% på din første ordre, eksklusive tilbud og nyheder direkte i din indbakke.</p>
       <div class="form_felt">
         <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" />
@@ -16,24 +16,24 @@
 
     <div>
       <ul>
-        <h4>HANNE BERTELSEN KERAMIK</h4>
-        <li><a href="/vaerkstedet">OM OS</a></li>
-        <li><a href="#">SPECIALFREMSTILLING</a></li>
-        <li><a href="/vaerkstedet">PROCESSEN</a></li>
-        <h4 class="linje2">ADRESSE</h4>
+        <h4 class="footer_overskrift">HANNE BERTELSEN KERAMIK</h4>
+        <li class="footer_tekst"><a href="/vaerkstedet">OM OS</a></li>
+        <li class="footer_tekst"><a href="#">SPECIALFREMSTILLING</a></li>
+        <li class="footer_tekst"><a href="/vaerkstedet">PROCESSEN</a></li>
+        <h4 class="linje2 footer_overskrift">ADRESSE</h4>
         <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank">Sankt Paulsgade 72, 1313 K</a></li>
       </ul>
     </div>
     <div>
       <ul>
-        <h4>ÅBNINGSTIDER</h4>
-        <li>MANDAG: LUKKET</li>
-        <li>TIRSDAG-FREDAG: 11-18</li>
-        <li>LØRDAG: 11-14</li>
-        <h4 class="linje2">KONTAKT</h4>
-        <li><a href="#">TEL. +45 2398 2309</a></li>
-        <li><a href="#">MAIL@HANNEBERTELSEN.DK</a></li>
-        <li><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">INSTAGRAM /</a><a href="https://www.facebook.com/HanneBertelsenKeramik" target="_blank"> FACEBOOK</a></li>
+        <h4 class="footer_overskrift">ÅBNINGSTIDER</h4>
+        <li class="footer_tekst">MANDAG: LUKKET</li>
+        <li class="footer_tekst">TIRSDAG-FREDAG: 11-18</li>
+        <li class="footer_tekst">LØRDAG: 11-14</li>
+        <h4 class="linje2 footer_overskrift">KONTAKT</h4>
+        <li class="footer_tekst"><a href="#">TEL. +45 2398 2309</a></li>
+        <li class="footer_tekst"><a href="#">MAIL@HANNEBERTELSEN.DK</a></li>
+        <li class="footer_tekst"><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">INSTAGRAM /</a><a href="https://www.facebook.com/HanneBertelsenKeramik" target="_blank"> FACEBOOK</a></li>
       </ul>
     </div>
   </section>
@@ -41,13 +41,13 @@
     <div class="nederste_linje">
       <p class="cvr_txt">CVR: 12 34 56 78</p>
 
-      <div>
+      <div class="betalingsmetoder">
         <ul>
           <li>
-            <img src="billeder/dankort-02.svg" alt="" />
-            <img src="billeder/masterCard-01.svg" alt="" />
-            <img src="billeder/MobilePay-02.svg" alt="" />
-            <img src="billeder/Visa-01.svg" alt="" />
+            <img src="public/img/visa.svg" alt="" />
+            <img src="public/img/dk.svg" alt="" />
+            <img src="public/img/mastercard.svg" alt="" />
+            <img src="public/img/mobilepay.svg" alt="" />
           </li>
         </ul>
       </div>
@@ -76,7 +76,7 @@
   }
   a:visited {
     text-decoration: none;
-    color: black; /* Ændr farven til sort eller den ønskede farve */
+    color: black;
   }
   * {
     margin: 0;
@@ -88,16 +88,21 @@
   }
   .nederste_linje {
     background-color: var(--green_100);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 1.5rem;
+  }
+  .cvr_txt {
+    color: var(--baggrund_70);
   }
   footer {
     background-color: var(--baggrund_70);
     padding-top: 5%;
   }
-  .cvr_txt {
-    padding-left: 2rem;
-    color: var(--baggrund_70);
-    padding-top: 1.5rem;
-  }
+
   li a:hover {
     text-decoration: underline;
   }
@@ -110,7 +115,7 @@
 
   @media (min-width: 800px) {
     /* ---------------------------Footer Desktop------------------------ */
-    .index_grid_1_1_1_1 {
+    .footer_grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       margin-left: 90px;
@@ -157,7 +162,7 @@
     }
   }
   .linje2 {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   @media (max-width: 768px) {
@@ -195,8 +200,12 @@
       font-size: 15px;
       font-family: var(--nunito);
     }
-    footer {
-      padding-left: 2rem;
+    footer ul,
+    .fællesskabet,
+    .fællesskabet p,
+    .form_felt,
+    .nederste_linje {
+      padding-left: 1.5rem;
     }
 
     ul {
