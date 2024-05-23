@@ -49,6 +49,12 @@ h4 {
   font-weight: 600;
 }
 
+.produkt {
+  font-family: var(--nunito);
+  font-size: 70vw;
+  font-weight: 200;
+  text-transform: uppercase;
+}
 .produktbeskrivelse {
   font-family: var(--mulish);
   font-size: 14px;
