@@ -1,17 +1,26 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
 import Card from "../components/Card.astro";
+
+const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1dmpvdnd3dXpqbGt5d3JzdWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyNzYyOTQsImV4cCI6MjAzMTg1MjI5NH0.HwPdPpwdrXR9WhOCP1MwJCnXJNM9Kg8hd1YGu_s7lR8",
+  },
+}).then((res) => res.json());
+
+// console.log(data);
+// const data = await response.json();
 ---
 
 <Mainlayout>
   <p class="produkt">KOPPER</p>
   <div class="grid_1-1-1">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    {
+      data.map((card) => {
+        return <Card data={card} />;
+      })
+    }
   </div>
 </Mainlayout>
 

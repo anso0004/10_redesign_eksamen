@@ -1,5 +1,57 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
+import Knap from "../components/Knap.astro";
 ---
 
-<Mainlayout />
+<Mainlayout>
+  <div class="øverste_billeder">
+    <img src="public/img/forside_store_billede.png" alt="" />
+  </div>
+  <!-- Indsæt karrusel her -->
+  <div class="inspiration_sektion">
+    <div class="inspiration">
+      <img src="public/img/skaale.png" alt="" />
+      <div class="lille_billede">
+        <img src="public/img/rillevase.png" alt="" />
+        <h3>RILLEKOLLEKTION</h3>
+        <p>Rillekollektionen består af krukker, skåle og vaser, der vil pryde et hvert hjem.</p>
+        <Knap variant="primary" />
+      </div>
+    </div>
+    <div class="inspiration">
+      <div class="lille_billede">
+        <img src="public/img/blomsterfad.png" alt="" />
+        <h3>BLOMSTERKOLLEKTION</h3>
+        <p>Blomsterkollektionen består af fade og tallerkner, der skaber den perfekte sommerstemning.</p>
+        <Knap variant="primary" />
+      </div>
+      <img src="public/img/blomster_skaal.png" alt="" />
+    </div>
+  </div>
+</Mainlayout>
+
+<style>
+  .lille_billede {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+  }
+  @media (min-width: 800px) {
+    .inspiration_sektion {
+      padding-bottom: 10rem;
+    }
+    .inspiration {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      text-align: center;
+    }
+    h3 {
+      margin: auto;
+    }
+    p {
+      width: 50%;
+      justify-content: center;
+      margin: auto;
+    }
+  }
+</style>

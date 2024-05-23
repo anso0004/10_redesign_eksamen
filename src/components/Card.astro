@@ -1,32 +1,45 @@
-<div class="boks">
-  <div class="tilbud_boks">
-    <img src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
-    <p class="tilbud_procent">50%</p>
-  </div>
-  <img src="public/img/produktliste/test_kop.jpeg" class="center_img" alt="Produktbillede" />
-  <div class="tekstfelt">
-    <div class="flex_1">
-      <p class="produktbeskrivelse">Høj kop med hank</p>
-      <p class="produkt_pris">kr. 250,-</p>
-      <p class="produkt_pris_foer">kr. 250,-</p>
-    </div>
-    <div class="flex_1">
-      <p class="produktfarve">Gul</p>
-      <p class="produkt_pris_efter">kr. 125,-</p>
-    </div>
+---
+const {data} = Astro.props;
+console.log(data);
+---
+
+  <article class="boks">
+    <a href={`singleview/${data.slug}`}>
+      <div class="tilbud_boks hide">
+        <img src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
+        <p class="tilbud_procent">50%</p>
+      </div>
+      <img src={data.billede} class="center_img" alt="Produktbillede" />
+      <div class="tekstfelt">
+        <div class="flex_1">
+          <p class="produktbeskrivelse">{data.navn}</p>
+          <p class="produkt_pris">{data.pris}</p>
+          <p class="produkt_pris_foer hide">{data.pris}</p>
+        </div>
+        <div class="flex_1">
+          <p class="produktfarve">{data.farve}</p>
+          <p class="produkt_pris_efter hide">{data.pris}</p>
+        </div>
+      </div>
+    </a>
     <div class="flex_2">
+      <!-- <a href={`singleview/${data.slug}`}>
+        <button class="kob_knap"><p>Læg i kurv</p></button>
+      </a> -->
       <button class="kob_knap"><p>Læg i kurv</p></button>
       <button class="hjerte_knap"></button>
     </div>
-  </div>
-</div>
+  </article>
+
+<script>
+</script>
 
 <style>
   /* Hvid baggrundsboks */
   .boks {
     background-color: white;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     text-align: left;
     cursor: pointer;
     position: relative;
@@ -41,6 +54,7 @@
     display: flex;
     justify-content: flex-start;
     gap: 10px;
+    margin-left: 20px;
   }
   /* Tekstfelt*/
   .tekstfelt {
@@ -54,18 +68,23 @@
   p {
     margin: 0;
   }
+  /* Fjerner linkstyling på linktekst */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   /* Centrer produktbilledet i boks */
   .center_img {
     position: relative; /*For at kunne positionere med tilbud_boks og tilbud_procent*/
     display: block;
-    max-width: 235px;
+    max-width: 337px;
     margin-left: auto;
     margin-right: auto;
   }
   /* Skuler produktpris hele tiden */
-  .produkt_pris {
+  /* .produkt_pris {
     display: none;
-  }
+  } */
   /* Style af førpris*/
   .produkt_pris_foer {
     color: red;
@@ -91,8 +110,8 @@
   /* Style af købknap */
   .kob_knap {
     display: none; /*ChatGPT - Knappen er skjult*/
-    width: 215px;
-    height: 37px;
+    width: 303px;
+    height: 46px;
     border: 1px solid black;
     background-color: white;
     text-align: center;
@@ -104,8 +123,8 @@
   .hjerte_knap {
     display: none; /*Knappen er skjult*/
     cursor: pointer;
-    width: 37px;
-    height: 37px;
+    width: 46px;
+    height: 46px;
     border: 1px solid black;
     background-color: white;
     font-size: 24px;
