@@ -1,50 +1,53 @@
+---
+const { green_accordion_txt } = Astro.props;
+---
 
 <details class="styled_details">
-    <slot />
+  <summary>{green_accordion_txt}</summary>
+  <slot />
 </details>
 
 <style>
-    details, 
-    summary{
-        margin-bottom: 0.5rem;
-        background-color: var(--green_100);
-        margin: auto;
-        color: var(--baggrund_50);
-        /* position: relative; */
-    }
-    .styled_details summary {
-        display: flex;
-        list-style: none;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem;
-        cursor: pointer;
-        /* padding: 10px 10px 10px 40px; */
-        /* background: url("arrow.svg") no-repeat 14px 50%; */
-        /* background-size: 18px; */
-    }
-    .styled_details summary::after {
-        content: "";
-        width: 0;
-        height: 0;
-        border-top: 0.5rem solid black;
-        /* position: absolute; */
-        /* right: 0; */
-        /* top: 50%; */
-        /* transform: translateY(-50%); */
-        border-inline: 0.4rem solid transparent;
-        /* background: url('arrow.svg'); */
-        /* background-size: cover; */
-        /* transition: 0.2s; */
-    }
-    details[open]>summary::after {
-        transform: rotate(-180deg);
-    }
-    .styled_details{
-        max-width: 750px;
-        background-color: var(--green_100);
-        border: 1.5px solid var(--baggrund_50);
-        margin-bottom: 16px;
-    }
+  details,
+  summary {
+    margin-bottom: 0.5rem;
+    background-color: var(--green_100);
+    margin: auto;
+    color: var(--baggrund_50);
+  }
 
+  /* Ændrer tekstens font, uden at påvirke resten af details (p) */
+  summary {
+    font-family: var(--nunito);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 28px;
+  }
+  .styled_details summary {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .styled_details {
+    max-width: 750px;
+    background-color: var(--green_100);
+    border: 1.5px solid var(--baggrund_50);
+    margin-bottom: 16px;
+  }
+
+  /* Arrow icon */
+  .styled_details summary::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 0.5rem solid var(--baggrund_50);
+    border-inline: 0.4rem solid transparent;
+  }
+  details[open] > summary::after {
+    transform: rotate(-180deg);
+  }
 </style>
