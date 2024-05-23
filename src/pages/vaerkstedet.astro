@@ -1,6 +1,8 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
 import Knap from "../components/Knap.astro";
+import ProcesKarrusel from "../components/ProcesKarrusel.astro";
+import Stoebeproces from "../components/Stoebeproces.astro";
 import BeigeAccordion from "../components/BeigeAccordion.astro";
 import "../styles/vaerkstedet.css";
 ---
@@ -15,17 +17,38 @@ import "../styles/vaerkstedet.css";
   </section>
 
   <section>
-    <h2>Arbejdsprocessen</h2>
+    <h2 class="centreret_overskrift">Arbejdsprocessen</h2>
+    <div>
+    <ProcesKarrusel></ProcesKarrusel>
+    </div>
   </section>
-  <!-- <BeigeAccordion title="VI TAGER ANSVAR">
-    <p class="accordion_txt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda exercitationem illo accusamus in reiciendis voluptate atque. Quidem rem exercitationem molestias magni aliquid iusto optio, deleniti eligendi quos porro deserunt placeat.</p>
-  </BeigeAccordion>
-  <BeigeAccordion title="VI TAGER ANSVAR Måske">
-    <p class="accordion_txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, voluptatum? Error tenetur, id fugit distinctio corrupti deleniti culpa unde eligendi rerum delectus saepe veniam reiciendis excepturi natus aperiam omnis necessitatibus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum a excepturi odio non natus totam autem eos quaerat earum blanditiis repellendus tempore porro voluptas, eveniet, possimus ipsam culpa obcaecati. Id?</p>
-  </BeigeAccordion>
-  <BeigeAccordion title="VI TAGER ikke ANSVAR Måske">
-    <p class="accordion_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente possimus debitis delectus, quidem distinctio quasi illum doloribus quibusdam quam, ipsum soluta reiciendis. Inventore deleniti eum aut ex voluptatibus, rem porro.</p>
-  </BeigeAccordion> -->
+
+  <section class="afsnit3">
+    <img src="/public/img/baeredygtigt.png" alt="Brænding af fade" class="baeredygtigt">
+    <div>
+      <h2>Bæredygtige tiltag</h2>
+      <p>Hanne Bertelsen Keramik tager hensyn til miljøet, og arbejder aktivt med bæredygtighed i alle led af produktionen.<br /><br />
+      Al keramikken bliver produceret fra bunden, herhjemme i Danmark, hvilket både bidrager til produkternes høje kvalitet samt en minimal miljøbelastning.<br /><br />
+      Der bruges ingen farlige eller skadelige stoffer i produktionen, så der hvor Hanne Bertelsen Keramik kan gøre en forskel, er ved at udnytte ovnbrændingerne bedre, og mindske forbruget af strøm gevaldigt.<br /><br />
+      Dette ses for eksempel i brændingen af salatfadene, som brændes på hovedet, så der kan stå tre fade under hinanden ved brænding. </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="centreret_overskrift">Om støbeprocessen</h2>
+    <div class="afsnit4">
+      <Stoebeproces tal="1" tekst="Først omrøres det flydende ler grundigt. Undervejs tilpasses konsistensen med vand, for at sikre en jævn og ensartet masse.">
+        <img src="/public/img/stoeb1.png" alt="Omrøring i leret">
+      </Stoebeproces>
+      <Stoebeproces tal="2" tekst="Herefter hældes leret i en gipsform, som tørrer leret ved at suge fugten ud af det. Hermed størknes leret, så der dannes den ønskede form.">
+        <img src="/public/img/stoeb2.png" alt="Leret hældes i gipsform">
+      </Stoebeproces>
+      <Stoebeproces tal="3" tekst="Når leret er størknet, tages det ud af formes, og tørres yderligere, så produktet efterfølgende bliver klar til brænding og glasering.">
+        <img src="/public/img/stoeb3.png" alt="Leret størknes">
+      </Stoebeproces> 
+    </div>   
+  </section>
+ 
 </Mainlayout>
 
 <Knap variant="primary" />

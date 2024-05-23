@@ -1,0 +1,119 @@
+
+
+<div class="arbejdsproces_container">
+    <!-- <button class="button_left" onclick="plusDivs(-1)"></button> -->
+    <div class="slide">
+        <img src="/public/img/proces1.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">1</p>
+            <p>Først formes leret med hænderne ved hjælp af en drejeskive, så den ønskede form skabes.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="/public/img/proces2.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">2</p>
+            <p>De drejede produkter tørres langsomt, så de bliver stærke, og undgår deformation under første brænding.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="/public/img/proces3.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">3</p>
+            <p>Herefter glaseres produkterne. Glasuren består af mineraler, som smelter og danner en glasagtig overflade ved brænding.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="/public/img/proces4.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">4</p>
+            <p>Til slut brændes produkterne i en ovn ved høje temperaturer. Glasuren smelter, og danner en hård, vandtæt overflade.</p>
+        </div>
+    </div>
+    <!-- <button class="button_right" onclick="plusDivs(+1)"></button> -->
+</div>
+
+<style>
+    .tal{
+        font-family: var(--nunito);
+        font-size: 151px;
+        color: var(--green_100);
+        font-weight: 200;
+    }
+    .tal_tekst_flex{
+        display: flex;
+        align-items: center;
+    }
+    .arbejdsproces_container{
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .slide{
+        /* display: none; */
+        text-align: center;
+    }
+
+    @media (min-width: 800px){
+        .arbejdsproces_container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .slide{
+            display: block;
+            width: calc(25%);
+            position: relative;
+        }
+    }
+</style>
+
+<script>
+    // var slideIndex = 1;
+    // showDivs(slideIndex);
+    // function plusDivs(n) {
+    //     showDivs(slideIndex += n);
+    // }
+
+    // function showDivs(n){
+    //     var i;
+    //     var x = document.querySelector(.slide);
+    //     if (n > x.length) {slideIndex=1}
+    //     if (n < 1) {slideIndex=x.length};
+    //     for (i = 0; i < x.length; i++) {
+    //         x[i].style.display = "none";
+    //     }
+    //     x[slideIndex-1].style.display = "block";
+    // }
+    // const slides = document.querySelectorAll('.slide');
+    // let currentIndex = 0;
+
+    // function showSlide(index){
+    //     slides.forEach((slide, i) => {
+    //         slide.computedStyleMap.display = i === index ? 'block' : 'none';
+    //     });
+    // }
+    // function nextSlide(){
+    //     currentIndex = (currentIndex + 1) % slides.length;
+    //     showSlide(currentIndex);
+    // }
+    // function prevSlide(){
+    //     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    //     showSlide(currentIndex);
+    // }
+    
+    // let touchStartX = 0;
+
+    // document.querySelector('.arbejdsproces_container').addEventListener('touchstart', (e)=>{
+    //     touchStartX = e.changedTouches[0].screenX;
+    // });
+    // document.querySelector('.arbejdsproces_container').addEventListener('touchend', (e)=>{
+    //     const touchEndX = e.changedTouches[0].screenX;
+    //     if (touchEndX < touchStartX){
+    //         nextSlide();
+    //     } else if (touchEndX > touchStartX){
+    //         prevSlide();
+    //     }
+    // });
+
+    // showSlide(currentIndex);
+
+</script>
