@@ -1,6 +1,11 @@
-.afsnit1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  object-fit: cover;
-  align-self: stretch;
+@media (min-width: 800px) {
+  .afsnit1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    object-fit: cover;
+    align-self: stretch;
+  }
+  .order_1 {
+    order: 1;
+  }
 }
