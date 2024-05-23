@@ -1,0 +1,6 @@
+.afsnit1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  object-fit: cover;
+  align-self: stretch;
+}
