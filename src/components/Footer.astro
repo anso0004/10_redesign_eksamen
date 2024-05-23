@@ -1,0 +1,218 @@
+---
+
+---
+
+<footer>
+  <section class="index_grid_1_1_1_1">
+    <div class="fællesskabet">
+      <h4>BLIV EN DEL AF FÆLLESSKABET</h4>
+      <p>Tilmeld dig vores nyhedsbrev her og få 10% på din første ordre, eksklusive tilbud og nyheder direkte i din indbakke.</p>
+      <div class="form_felt">
+        <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" />
+        <button class="Tilmeld">Tilmeld</button>
+        <!-- onclick skal tilføjes-->
+      </div>
+    </div>
+
+    <div>
+      <ul>
+        <h4>HANNE BERTELSEN KERAMIK</h4>
+        <li><a href="/vaerkstedet">OM OS</a></li>
+        <li><a href="#">SPECIALFREMSTILLING</a></li>
+        <li><a href="/vaerkstedet">PROCESSEN</a></li>
+        <h4 class="linje2">ADRESSE</h4>
+        <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank">Sankt Paulsgade 72, 1313 K</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <h4>ÅBNINGSTIDER</h4>
+        <li>MANDAG: LUKKET</li>
+        <li>TIRSDAG-FREDAG: 11-18</li>
+        <li>LØRDAG: 11-14</li>
+        <h4 class="linje2">KONTAKT</h4>
+        <li><a href="#">TEL. +45 2398 2309</a></li>
+        <li><a href="#">MAIL@HANNEBERTELSEN.DK</a></li>
+        <li><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">INSTAGRAM /</a><a href="https://www.facebook.com/HanneBertelsenKeramik" target="_blank"> FACEBOOK</a></li>
+      </ul>
+    </div>
+  </section>
+  <div>
+    <div class="nederste_linje">
+      <p class="cvr_txt">CVR: 12 34 56 78</p>
+
+      <div>
+        <ul>
+          <li>
+            <img src="billeder/dankort-02.svg" alt="" />
+            <img src="billeder/masterCard-01.svg" alt="" />
+            <img src="billeder/MobilePay-02.svg" alt="" />
+            <img src="billeder/Visa-01.svg" alt="" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="javascript/footer.js"></script> -->
+</footer>
+
+<script></script>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  /* Fjern farven */
+  a {
+    color: inherit;
+  }
+  a:visited {
+    text-decoration: none;
+    color: black; /* Ændr farven til sort eller den ønskede farve */
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  li {
+    font-family: var(--nunito);
+  }
+  .nederste_linje {
+    background-color: var(--green_100);
+  }
+  footer {
+    background-color: var(--baggrund_70);
+    padding-top: 5%;
+  }
+  .cvr_txt {
+    padding-left: 2rem;
+    color: var(--baggrund_70);
+    padding-top: 1.5rem;
+  }
+  li a:hover {
+    text-decoration: underline;
+  }
+  h4 {
+    display: inline;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-family: var(--nunito);
+  }
+
+  @media (min-width: 800px) {
+    /* ---------------------------Footer Desktop------------------------ */
+    .index_grid_1_1_1_1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-left: 90px;
+      padding-bottom: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .fællesskabet p {
+      line-height: 1.5rem;
+      margin-top: 0.8rem;
+    }
+    .form_felt input[type="text"] {
+      width: 250px;
+      line-height: 2rem;
+      font-family: var(--mulish);
+    }
+    .Tilmeld {
+      background-color: var(--green_100);
+      border-radius: 1px;
+      font-family: var(--nunito);
+      border: none;
+      margin-top: 1.5rem;
+      width: 100px;
+      line-height: 2rem;
+      font-size: 15px;
+      color: var(--baggrund_70);
+    }
+
+    ul {
+      list-style: none;
+      text-decoration: none;
+      color: black;
+    }
+    li {
+      text-decoration: none;
+      color: black;
+      line-height: 2rem;
+    }
+    li a {
+      font-family: var(--nunito);
+    }
+    li h4 {
+      line-height: 1.5rem;
+    }
+  }
+  .linje2 {
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    /* -------------footer mobil------------*/
+
+    h4 {
+      font-size: 15px;
+    }
+    .fællesskabet p {
+      font-family: var(--mulish);
+    }
+    .fællesskabet {
+      display: inline;
+    }
+
+    .form_felt {
+      box-sizing: border-box;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .form_felt input[type="text"] {
+      width: 300px;
+      line-height: 2rem;
+      font-family: var(--mulish);
+    }
+
+    .Tilmeld {
+      background-color: var(--green_100);
+      color: white;
+      border-radius: 3px;
+      border: none;
+      margin-top: 1rem;
+      width: 100px;
+      line-height: 2rem;
+      font-size: 15px;
+      font-family: var(--nunito);
+    }
+    footer {
+      padding-left: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      text-decoration: none;
+      color: black;
+      margin-bottom: 1rem;
+    }
+    li {
+      text-decoration: none;
+      color: black;
+      line-height: 2rem;
+    }
+    li h4 {
+      line-height: 0;
+      margin-bottom: 1rem;
+    }
+  }
+</style>
