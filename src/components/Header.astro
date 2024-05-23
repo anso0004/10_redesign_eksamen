@@ -21,7 +21,11 @@
   <nav>
     <ul class="menu">
       <li class="dropdown">
-        <a class="dropdown_button" href="#">SHOP</a>
+        <a class="dropdown_button" href="#"
+          >SHOP<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
+            <path d="M10 0.311705C10 0.232632 9.96643 0.15171 9.90127 0.0910258C9.77095 -0.0303421 9.55771 -0.0303421 9.42739 0.0910258L4.96693 4.24513L0.571627 0.15171C0.441307 0.0303421 0.228058 0.0303421 0.0977392 0.15171C-0.0325804 0.273078 -0.0325804 0.471681 0.0977392 0.593049L4.72998 4.90897C4.8603 5.03034 5.07355 5.03034 5.20387 4.90897L9.90127 0.534204C9.96841 0.471681 10 0.392617 10 0.311705Z" fill="#28725C"></path>
+          </svg></a
+        >
         <div class="dropdown_content">
           <a href="/produktliste">ALLE PRODUKTER</a>
           <a href="#">KOPPER</a>
@@ -32,7 +36,11 @@
         </div>
       </li>
       <li class="dropdown">
-        <a class="dropdown_button" href="#">KOLLEKTION</a>
+        <a class="dropdown_button" href="#"
+          >KOLLEKTION<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
+            <path d="M10 0.311705C10 0.232632 9.96643 0.15171 9.90127 0.0910258C9.77095 -0.0303421 9.55771 -0.0303421 9.42739 0.0910258L4.96693 4.24513L0.571627 0.15171C0.441307 0.0303421 0.228058 0.0303421 0.0977392 0.15171C-0.0325804 0.273078 -0.0325804 0.471681 0.0977392 0.593049L4.72998 4.90897C4.8603 5.03034 5.07355 5.03034 5.20387 4.90897L9.90127 0.534204C9.96841 0.471681 10 0.392617 10 0.311705Z" fill="#28725C"></path>
+          </svg></a
+        >
         <div class="dropdown_content">
           <a href="#">BLOMSTERKOLLEKTION</a>
           <a href="#">RILLEKOLLEKTION</a>
@@ -120,12 +128,15 @@
     .menupunkt {
       font-weight: 800;
     }
+    .dropdown_button {
+      display: flex;
+      white-space: nowrap;
+    }
     .menu {
       display: block;
       list-style: none;
       padding: 0;
     }
-
     .logo_header img {
       width: 30%;
     }
@@ -220,11 +231,6 @@
       align-items: center;
       flex-shrink: 0;
     }
-    /* nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  } */
 
     /* Laver afstand mellem menupunkterne */
     nav ul li {
@@ -282,6 +288,21 @@
       position: absolute;
       right: 100px;
       gap: 11px;
+    }
+    /* Tilføj denne regel til at give plads til pilen ved siden af teksten */
+    .dropdown_button {
+      position: relative; /* Til relativ positionering */
+      padding-right: 20px; /* Juster pladsen til pilen */
+    }
+
+    /* Tilføj denne regel for at rotere pilen baseret på dropdown-tilstand */
+    .dropdown_button svg {
+      transition: transform 0.3s ease; /* Tilføj en glat overgang for rotationen */
+    }
+
+    /* Roter pilen, når dropdown-indholdet er synligt */
+    .dropdown:hover .dropdown_button svg {
+      transform: rotate(180deg); /* Roter pilen 180 grader */
     }
   }
 </style>
