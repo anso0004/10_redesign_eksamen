@@ -1,0 +1,29 @@
+---
+const {tal, tekst}=Astro.props;
+---
+<div class="flex_col">
+    <slot />
+    <div class="tal_tekst_flex">
+        <p class="tal">{tal}</p>
+        <p>{tekst}</p>
+    </div>
+</div>
+
+<style>
+    .flex_col{
+        display: flex;
+        flex-direction: column;
+    }
+    .tal{
+        font-family: var(--nunito);
+        font-size: 151px;
+        color: var(--green_100);
+        font-weight: 200;
+    }
+    .tal_tekst_flex{
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<!-- <img src="/public/img/stoeb1.png" alt="Omrøring i leret"> -->
