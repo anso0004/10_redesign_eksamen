@@ -7,54 +7,36 @@ import "../styles/singleview.css";
 ---
 
 <Mainlayout>
-    <section class="grid_singleview">
-        <div class="singleview_img">
-            <img src="/public/img/produktliste/test_kop.jpeg" alt="Produkt">        
-        </div>
-        <div class="singleview_tekst">
-            <h3>Høj kop med hank</h3>
-            <div class="grid_farve_pris">
-                <p>Farve: Gul</p>
-                <div class="vertikal_streg"></div>
-                <p>kr. 250,-</p>
-            </div>
-            <p>Porcelænskop med hank.</p>
-            <p>Tåler opvaskemaskine.</p>
-            <BeigeAccordion>
-                <summary>
-                    <p>Læs beskrivelse</p>
-                </summary>
-                <p>Højde (eksklusiv hank): 10 cm</p>
-                <p>Højde (inklusiv hank): 12 cm</p>
-                <p>Diameter: 8 cm</p>
-            </BeigeAccordion>
-            <AntalAccordion></AntalAccordion>
-        </div>
-    </section>
-    <section class="boks">
-        <GreenAccordion>
-            <summary>
-                <h3>Levering</h3>
-            </summary>
-            <p>Alle ordrer sendes indenfor to hverdage. 
-            Varerne bliver pakket ansvarligt, så indholdet ikke går i stykker. 
-            Pakken sendes med GLS eller Postnord.</p>
-        </GreenAccordion>
-        <GreenAccordion>
-            <summary>
-                <h3>Returnering</h3>
-            </summary>
-            <p>Alle ordre skal returneres inde for 14 dage.
-                Varen skal pakkes ansvarligt, så indholdet ikke går i stykker. 
-                Pakken skal returneres ved GLS eller PostNord pakkeshop</p>
-        </GreenAccordion>
-        <GreenAccordion>
-            <summary>
-                <h3>Vilkår og betingelser</h3>
-            </summary>
-            <p>Ved køb af varer på hjemmesiden, skal navn, adresse og betalings-informationer oplyses.
-            Specialordre kan ikke tages retur.
-            Du har ret til at foretage reklamation på dine varer.</p>
-        </GreenAccordion>
-    </section>
+  <section class="grid_singleview">
+    <div class="singleview_img">
+      <img src="/public/img/produktliste/test_kop.jpeg" alt="Produkt" />
+    </div>
+    <div class="singleview_tekst">
+      <h3>Høj kop med hank</h3>
+      <div class="grid_farve_pris">
+        <p>Farve: Gul</p>
+        <div class="vertikal_streg"></div>
+        <p>kr. 250,-</p>
+      </div>
+      <p>Porcelænskop med hank.</p>
+      <p>Tåler opvaskemaskine.</p>
+      <BeigeAccordion accordion_txt="Læs beskrivelse">
+        <p>Højde (eksklusiv hank): 10 cm</p>
+        <p>Højde (inklusiv hank): 12 cm</p>
+        <p>Diameter: 8 cm</p>
+      </BeigeAccordion>
+      <AntalAccordion />
+    </div>
+  </section>
+  <section class="boks">
+    <GreenAccordion green_accordion_txt="Levering">
+      <p>Alle ordrer sendes indenfor to hverdage. Varerne bliver pakket ansvarligt, så indholdet ikke går i stykker. Pakken sendes med GLS eller Postnord.</p>
+    </GreenAccordion>
+    <GreenAccordion green_accordion_txt="Returnering">
+      <p>Alle ordre skal returneres inde for 14 dage. Varen skal pakkes ansvarligt, så indholdet ikke går i stykker. Pakken skal returneres ved GLS eller PostNord pakkeshop</p>
+    </GreenAccordion>
+    <GreenAccordion green_accordion_txt="Vilkår og betingelser">
+      <p>Ved køb af varer på hjemmesiden, skal navn, adresse og betalings-informationer oplyses. Specialordre kan ikke tages retur. Du har ret til at foretage reklamation på dine varer.</p>
+    </GreenAccordion>
+  </section>
 </Mainlayout>
