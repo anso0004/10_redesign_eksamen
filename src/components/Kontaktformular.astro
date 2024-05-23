@@ -1,0 +1,46 @@
+---
+import Knap from "./Knap.astro"
+---
+<form class="flex_form">
+    <input type="text" id="navn" name="navn" required placeholder="Navn">
+    <input type="text" id="mail" name="mail" required placeholder="Mail">
+    <textarea name="besked" id="besked" placeholder="Skriv din besked her"></textarea>
+    <button class="send">Send</button>
+</form>
+
+<style>
+    input, textarea{
+        background-color: var(--baggrund_50);
+        font-family: var(--mulish);
+        font-size: 16px;
+        color: var(--gray_80);
+        padding-left: 13px;
+        border: 0;
+    }
+    input{
+        height: 37px;
+    }
+    textarea{
+        height: 242px;
+        padding-top: 15px;
+    }
+    .flex_form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .send{
+        color: var(--baggrund_50);
+        border: solid var(--baggrund_50);
+        background-color: var(--green_100);
+        padding: 5px 24px;
+        font-family: var(--mulish);
+        font-weight: 600;
+        font-size: 15px;
+    }
+    .send:hover{
+        background-color: var(--baggrund_50);
+        color: var(--green_100);
+        z-index: 1;
+    }
+</style>
