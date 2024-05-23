@@ -4,5 +4,33 @@ import Card from "../components/Card.astro";
 ---
 
 <Mainlayout>
-  <Card />
+  <p class="produkt">KOPPER</p>
+  <div class="grid_1-1-1">
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+  </div>
 </Mainlayout>
+
+<style>
+  .produkt {
+    font-size: 10vw;
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    /* white-space: nowrap; */
+    /* display: inline-block; */
+    margin-top: 643px;
+    margin-left: 150px;
+    position: fixed;
+  }
+  .grid_1-1-1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-left: 400px;
+    margin-right: 81px;
+    gap: 27px;
+  }
+</style>
