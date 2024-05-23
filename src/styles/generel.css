@@ -54,6 +54,7 @@ h4 {
   font-size: 70vw;
   font-weight: 200;
   text-transform: uppercase;
+  color: var(--green_100);
 }
 .produktbeskrivelse {
   font-family: var(--mulish);
