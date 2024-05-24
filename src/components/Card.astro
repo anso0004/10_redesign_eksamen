@@ -13,12 +13,12 @@ console.log(data);
       <div class="tekstfelt">
         <div class="flex_1">
           <p class="produktbeskrivelse">{data.navn}</p>
-          <p class="produkt_pris">{data.pris}</p>
-          <p class="produkt_pris_foer hide">{data.pris}</p>
+          <p class="produkt_pris">kr. {data.pris} ,-</p>
+          <p class="produkt_pris_foer hide">kr. {data.pris} ,-</p>
         </div>
         <div class="flex_1">
           <p class="produktfarve">{data.farve}</p>
-          <p class="produkt_pris_efter hide">{data.pris}</p>
+          <p class="produkt_pris_efter hide">kr. {data.pris} ,-</p>
         </div>
       </div>
     </a>
@@ -38,11 +38,14 @@ console.log(data);
   /* Hvid baggrundsboks */
   .boks {
     background-color: white;
-    width: 400px;
-    height: 400px;
+    /* width: 400px; TILBAGE */
+    /* height: 400px; TILBAGE */
+    width: 95%;
+    height: 95%;
     text-align: left;
     cursor: pointer;
     position: relative;
+    margin-bottom: 20px;
   }
   /* Flexboks, der gør at indholde står i både venstre og højre side */
   .flex_1 {
@@ -55,6 +58,8 @@ console.log(data);
     justify-content: flex-start;
     gap: 10px;
     margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 18px;
   }
   /* Tekstfelt*/
   .tekstfelt {
@@ -110,7 +115,7 @@ console.log(data);
   /* Style af købknap */
   .kob_knap {
     display: none; /*ChatGPT - Knappen er skjult*/
-    width: 303px;
+    width: 100%;
     height: 46px;
     border: 1px solid black;
     background-color: white;
