@@ -1,0 +1,27 @@
+---
+import Mainlayout from "../../layout/Mainlayout.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
+    method: "GET",
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1dmpvdnd3dXpqbGt5d3JzdWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyNzYyOTQsImV4cCI6MjAzMTg1MjI5NH0.HwPdPpwdrXR9WhOCP1MwJCnXJNM9Kg8hd1YGu_s7lR8",
+    },
+  }).then((response) => response.json());
+
+  return data.map((show) => {
+    return {
+      params: { slug: show.slug },
+      props: { myData: show },
+    };
+  });
+}
+const { myData } = Astro.props;
+console.log(myData);
+---
+
+<Mainlayout title={myData.navn}>
+  <!-- Singleview -->
+  <!-- Eks: h2 {myData.navn} -->
+  <h2>{myData.pris}</h2>
+</Mainlayout>
