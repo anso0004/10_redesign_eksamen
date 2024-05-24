@@ -5,18 +5,21 @@ console.log(data);
 
   <article class="boks">
     <a href={`singleview/${data.slug}`}>
-      {data.tilbud && <div class="tilbud_boks"><img src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
-        <p class="tilbud_procent">50%</p></div>}
+      {data.tilbud && <div class="tilbud_boks"><img class="tilbud_gulboks" src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
+        <p class="tilbud_procent">{data.procent}%</p></div>}
       <img src={data.billede} class="center_img" alt="Produktbillede" />
       <div class="tekstfelt">
         <div class="flex_1">
           <p class="produktbeskrivelse">{data.navn}</p>
-          <p class="produkt_pris">kr. {data.pris} ,-</p>
-          <p class="produkt_pris_foer hide">kr. {data.pris} ,-</p>
+          <!-- {data.tilbud && <p class="produkt_pris_efter">kr. {data.pris * (100-data.procent)/100} ,-</p>} -->
+          {data.tilbud && <p class="produkt_pris_foer">kr. {data.pris} ,-</p>}
+          {data.tilbud && <p class="produkt_pris hide"></p>}
+          {data.ikketilbud && <p class="produkt_pris">kr. {data.pris} ,-</p>}
         </div>
         <div class="flex_1">
           <p class="produktfarve">{data.farve}</p>
           <p class="produkt_pris_efter hide">kr. {data.pris} ,-</p>
+          {data.tilbud && <p class="produkt_pris_efter">kr. {data.pris * (100-data.procent)/100} ,-</p>}
         </div>
       </div>
     </a>
@@ -96,17 +99,20 @@ console.log(data);
   /* Positionering af gul tilbudsboks */
   .tilbud_boks {
     position: absolute; /*For at kunne positionere med center_img og tilbud_procent*/
-    left: 229px;
+    left: 309px;
     top: -8px;
     z-index: 2; For at lægge ovenpå center_img
+  }
+  .tilbud_gulboks {
+    width: 90px;
   }
   /* Style og positionering af tilbudsprocent-tekst */
   .tilbud_procent {
     position: absolute; /*For at kunne positionere med tilbud_boks og center_img*/
-    top: 21px;
-    left: 15px;
+    top: 30px;
+    left: 21px;
     font-family: var(--mulish);
-    font-size: 21px;
+    font-size: 23px;
     font-weight: 800;
   }
 
