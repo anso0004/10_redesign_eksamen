@@ -6,9 +6,9 @@ import Knap from "../components/Knap.astro";
 
 <Mainlayout>
     <h1>Kontakt</h1>
-    <section>
-        <div class="flex_aebningstider">
-            <h2 class="roterende_overskrift">Åbningstider</h2>
+    <section class="flex_web">
+        <article class="flex_aebningstider">
+            <h2 class="roterende_overskrift roterende_overskrift_mobil">Åbningstider</h2>
             <p class="line_height">Mandag: Lukket<br /><br />
             Tirsdag: 11-18<br /><br />
             Onsdag: 11-18<br /><br />
@@ -16,38 +16,43 @@ import Knap from "../components/Knap.astro";
             Fredag: 11-18<br /><br />
             Lørdag: 11-14<br /><br />
             Søndag: Lukket</p>
-        </div>
-        <div>
+        </article>
+        <div class="grid_web">
+        <article>
             <h2>Adresse</h2>
             <p>Sankt Paulsgade 72, 1313 K
                  <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"> Find butikken på Google Maps her</a></li>
             </p>
-        </div>
-        <div>
-            <h2>Kontakt</h2>
-            <div class="flex_ikoner">
-                <img src="/public/img/telefon.svg" alt="telefonikon">
-                <p>TEL. +45 2398 2309</p>
-            </div>
-            <div class="flex_ikoner">
-                <img src="/public/img/mail.svg" alt="mailikon">
-                <p>mail@hannebertelsen.dk</p>
-            </div>
-        </div>
-        <div>
+        </article>
+        
+        <article>
             <h2>instagram</h2>
-            <div class="flex_ikoner">
+            <li class="footer_tekst"><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">INSTAGRAM /</a>
+            <article class="flex_ikoner">
                 <img src="/public/img/instagram.svg" alt="instagramikon">
                 <p>hanne_berthelsen</p>
-            </div>
-        </div>
-        <div>
+            </article>
+        </article>
+        <article>
+            <h2>Kontakt</h2>
+            <article class="flex_ikoner">
+                <img src="/public/img/telefon.svg" alt="telefonikon">
+                <p>TEL. +45 2398 2309</p>
+            </article>
+            <article class="flex_ikoner">
+                <img src="/public/img/mail.svg" alt="mailikon">
+                <p>mail@hannebertelsen.dk</p>
+            </article>
+        </article>
+
+        <article>
             <h2>Nyhedsbrev</h2>
-            <p>Tilmeld dig nyhedsbrevet og få nyheder direkte i din indbakke.</p>
+            <p class="line_height_2">Tilmeld dig nyhedsbrevet og få nyheder<br /><br /> direkte i din indbakke.</p>
             <form>
                 <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" />
-                <button class="Tilmeld">Tilmeld</button>
+                <Knap variant="secondary" tekst="Tilmeld"></Knap>
             </form>
+        </article>
         </div>
     </section>
     <section class="groen_boks">
@@ -64,13 +69,14 @@ import Knap from "../components/Knap.astro";
     .flex_aebningstider{
         display: flex;
     }
-    .line_height{
+    .line_height_2{
         line-height: 15px;
     }
     li a{
         font-family: var(--mulish);
         color: var(--sort_100);
         text-decoration: none;
+        list-style: none;
     }
     li a:hover{
         text-decoration: underline;
@@ -79,4 +85,37 @@ import Knap from "../components/Knap.astro";
         display: flex;
         gap: 11px;
     }
+    input{
+        background-color: var(--baggrund_50);
+        font-family: var(--mulish);
+        font-size: 15px;
+        color: var(--gray_80);
+        padding-left: 13px;
+        border: 1px solid var(--sort_100);
+        line-height: 2rem;
+    }
+    h2{
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 800px){
+        .line_height{
+        line-height: 15px;
+    }
+    }
+
+    @media (min-width: 800px){
+        .roterende_overskrift_mobil{
+            margin-top: 311.75px;
+        }
+        .flex_web{
+            display: flex;
+            justify-content: space-between;
+        }
+        .grid_web{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    
 </style>
