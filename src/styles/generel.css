@@ -131,3 +131,12 @@ p {
 .hide {
   display: none;
 }
+
+/*********** GRØN BOKS ***********/
+.groen_boks {
+  background-color: var(--green_100);
+  padding-top: 116px;
+  padding-bottom: 116px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}

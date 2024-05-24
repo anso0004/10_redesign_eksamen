@@ -1,14 +1,28 @@
 ---
 import Knap from "./Knap.astro"
 ---
+<div class="flex_formular">
+<div class="tekst_formular">
+<h3>Har du spørgsmål?</h3>
+        <p>Har du spørgsmål om keramikprodukter, bestillinger eller andet, så benyt kontaktformularen for at få et hurtigt svar.<br /><br />
+        Husk at udfylde alle felter for at sikre den bedst mulige hjælp. Der bestræbes på at svare inden for 24 timer på hverdage.<br /><br /> 
+        Keramikken er skabt med omhu og præcision, og det er vigtigt, at alle føler sig trygge ved at handle her. Ingen spørgsmål er for små eller uvæsentlige. Om det drejer sig om materialer, fremstillingsprocessen eller vedligeholdelse, så er der altid hjælp at hente.<br /><br />
+        Du er også velkommen til at sende en henvendelse på tlf. +45 23 98 23 09 eller mail@hannebertelsen.dk.</p>
+</div>
+<div>
 <form class="flex_form">
     <input type="text" id="navn" name="navn" required placeholder="Navn">
     <input type="text" id="mail" name="mail" required placeholder="Mail">
     <textarea name="besked" id="besked" placeholder="Skriv din besked her"></textarea>
     <button class="send">Send</button>
 </form>
+</div>
+</div>
 
 <style>
+    h3, p{
+        color: var(--baggrund_50);
+    }
     input, textarea{
         background-color: var(--baggrund_50);
         font-family: var(--mulish);
@@ -28,19 +42,33 @@ import Knap from "./Knap.astro"
         display: flex;
         flex-direction: column;
         gap: 20px;
+        width: 334px;
     }
     .send{
         color: var(--baggrund_50);
-        border: solid var(--baggrund_50);
+        border: 1px solid var(--baggrund_50);
         background-color: var(--green_100);
         padding: 5px 24px;
         font-family: var(--mulish);
         font-weight: 600;
         font-size: 15px;
+        width: 113px;
+        align-self: end;
     }
     .send:hover{
         background-color: var(--baggrund_50);
         color: var(--green_100);
         z-index: 1;
+    }
+
+    @media (min-width: 800px){
+        .flex_formular{
+            display: flex;
+            padding-left: 167px;
+            padding-right: 167px;
+        }
+        .tekst_formular{
+            padding-right: 137px;
+        }
     }
 </style>
