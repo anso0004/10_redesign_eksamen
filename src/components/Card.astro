@@ -5,20 +5,21 @@ console.log(data);
 
   <article class="boks">
     <a href={`singleview/${data.slug}`}>
-      <div class="tilbud_boks hide">
-        <img src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
-        <p class="tilbud_procent">50%</p>
-      </div>
+      {data.tilbud && <div class="tilbud_boks"><img class="tilbud_gulboks" src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
+        <p class="tilbud_procent">{data.procent}%</p></div>}
       <img src={data.billede} class="center_img" alt="Produktbillede" />
       <div class="tekstfelt">
         <div class="flex_1">
           <p class="produktbeskrivelse">{data.navn}</p>
-          <p class="produkt_pris">{data.pris}</p>
-          <p class="produkt_pris_foer hide">{data.pris}</p>
+          <!-- {data.tilbud && <p class="produkt_pris_efter">kr. {data.pris * (100-data.procent)/100} ,-</p>} -->
+          {data.tilbud && <p class="produkt_pris_foer gammel_pris">kr. {data.pris},-</p>}
+          {data.tilbud && <p class="produkt_pris hide"></p>}
+          {data.ikketilbud && <p class="produkt_pris">kr. {data.pris},-</p>}
         </div>
         <div class="flex_1">
           <p class="produktfarve">{data.farve}</p>
-          <p class="produkt_pris_efter hide">{data.pris}</p>
+          <p class="produkt_pris_efter hide">kr. {data.pris} ,-</p>
+          {data.tilbud && <p class="produkt_pris_efter ny_pris">kr. {data.pris * (100-data.procent)/100},-</p>}
         </div>
       </div>
     </a>
@@ -38,11 +39,14 @@ console.log(data);
   /* Hvid baggrundsboks */
   .boks {
     background-color: white;
-    width: 400px;
-    height: 400px;
+    /* width: 400px; TILBAGE */
+    /* height: 400px; TILBAGE */
+    width: 95%;
+    height: 95%;
     text-align: left;
     cursor: pointer;
     position: relative;
+    margin-bottom: 20px;
   }
   /* Flexboks, der gør at indholde står i både venstre og højre side */
   .flex_1 {
@@ -55,6 +59,8 @@ console.log(data);
     justify-content: flex-start;
     gap: 10px;
     margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 18px;
   }
   /* Tekstfelt*/
   .tekstfelt {
@@ -93,24 +99,27 @@ console.log(data);
   /* Positionering af gul tilbudsboks */
   .tilbud_boks {
     position: absolute; /*For at kunne positionere med center_img og tilbud_procent*/
-    left: 229px;
+    left: 309px;
     top: -8px;
     z-index: 2; For at lægge ovenpå center_img
+  }
+  .tilbud_gulboks {
+    width: 90px;
   }
   /* Style og positionering af tilbudsprocent-tekst */
   .tilbud_procent {
     position: absolute; /*For at kunne positionere med tilbud_boks og center_img*/
-    top: 21px;
-    left: 15px;
+    top: 30px;
+    left: 21px;
     font-family: var(--mulish);
-    font-size: 21px;
+    font-size: 23px;
     font-weight: 800;
   }
 
   /* Style af købknap */
   .kob_knap {
     display: none; /*ChatGPT - Knappen er skjult*/
-    width: 303px;
+    width: 100%;
     height: 46px;
     border: 1px solid black;
     background-color: white;
