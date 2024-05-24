@@ -9,14 +9,6 @@
   align-items: center;
 }
 
-.boks {
-  background-color: var(--green_100);
-  padding-top: 116px;
-  padding-bottom: 116px;
-  margin-top: 150px;
-  margin-bottom: 150px;
-}
-
 @media (min-width: 800px) {
   .grid_singleview {
     display: flex;
