@@ -5,10 +5,8 @@ console.log(data);
 
   <article class="boks">
     <a href={`singleview/${data.slug}`}>
-      <div class="tilbud_boks hide">
-        <img src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
-        <p class="tilbud_procent">50%</p>
-      </div>
+      {data.tilbud && <div class="tilbud_boks"><img src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
+        <p class="tilbud_procent">50%</p></div>}
       <img src={data.billede} class="center_img" alt="Produktbillede" />
       <div class="tekstfelt">
         <div class="flex_1">
