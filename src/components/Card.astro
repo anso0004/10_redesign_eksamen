@@ -12,14 +12,14 @@ console.log(data);
         <div class="flex_1">
           <p class="produktbeskrivelse">{data.navn}</p>
           <!-- {data.tilbud && <p class="produkt_pris_efter">kr. {data.pris * (100-data.procent)/100} ,-</p>} -->
-          {data.tilbud && <p class="produkt_pris_foer">kr. {data.pris} ,-</p>}
+          {data.tilbud && <p class="produkt_pris_foer gammel_pris">kr. {data.pris} ,-</p>}
           {data.tilbud && <p class="produkt_pris hide"></p>}
           {data.ikketilbud && <p class="produkt_pris">kr. {data.pris} ,-</p>}
         </div>
         <div class="flex_1">
           <p class="produktfarve">{data.farve}</p>
           <p class="produkt_pris_efter hide">kr. {data.pris} ,-</p>
-          {data.tilbud && <p class="produkt_pris_efter">kr. {data.pris * (100-data.procent)/100} ,-</p>}
+          {data.tilbud && <p class="produkt_pris_efter ny_pris">kr. {data.pris * (100-data.procent)/100} ,-</p>}
         </div>
       </div>
     </a>

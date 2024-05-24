@@ -37,16 +37,20 @@ h4 {
 h1 {
   font-size: 85px;
   color: var(--green_100);
+  letter-spacing: 8.5px;
 }
 h2 {
   font-size: 38px;
+  letter-spacing: 3.8px;
 }
 h3 {
   font-size: 28px;
+  letter-spacing: 2.8px;
 }
 h4 {
   font-size: 18px;
   font-weight: 600;
+  letter-spacing: 1.6px;
 }
 
 .produkt {
@@ -55,11 +59,13 @@ h4 {
   font-weight: 200;
   text-transform: uppercase;
   color: var(--green_100);
+  letter-spacing: 8px;
 }
 .produktbeskrivelse {
   font-family: var(--mulish);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
+  letter-spacing: 1.7px;
 }
 .produktbeskrivelse_forside_mobil {
   font-family: var(--mulish);
@@ -68,9 +74,10 @@ h4 {
 }
 .produktfarve {
   font-family: var(--mulish);
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--gray_80);
+  letter-spacing: 1px;
 }
 .produktfarve_forside_mobil {
   font-family: var(--mulish);
@@ -82,15 +89,16 @@ h4 {
 .ny_pris,
 .gammel_pris {
   font-family: var(--mulish);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
+  letter-spacing: 1.7px;
 }
-.ny_pris {
+/* .ny_pris {
   color: #f00;
 }
 .gammel_pris {
   text-decoration-line: line-through;
-}
+} */
 
 p {
   font-family: var(--mulish);
@@ -104,26 +112,32 @@ p {
   font-size: 15px;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 .footer_tekst {
   font-family: var(--nunito);
   font-size: 15px;
   font-weight: 600;
   line-height: 29px;
+  letter-spacing: 1.5px;
 }
 
 @media (max-width: 800px) {
   h1 {
     font-size: 34px;
+    letter-spacing: 3.4px;
   }
   h2 {
     font-size: 25px;
+    letter-spacing: 2.5px;
   }
   h3 {
     font-size: 23px;
+    letter-spacing: 2.3px;
   }
   h4 {
     font-size: 16px;
+    letter-spacing: 1.6px;
   }
 }
 
