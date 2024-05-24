@@ -1,15 +1,15 @@
 ---
-
+import Knap from "./Knap.astro";
 ---
 
 <footer>
   <section class="footer_grid">
-    <div class="fællesskabet">
+    <div class="faellesskabet">
       <h4 class="footer_overskrift">BLIV EN DEL AF FÆLLESSKABET</h4>
       <p>Tilmeld dig vores nyhedsbrev her og få 10% på din første ordre, eksklusive tilbud og nyheder direkte i din indbakke.</p>
       <div class="form_felt">
         <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" />
-        <button class="Tilmeld">Tilmeld</button>
+        <Knap tekst="Tilmeld" variant="secondary" />
         <!-- onclick skal tilføjes-->
       </div>
     </div>
@@ -17,10 +17,13 @@
     <div>
       <ul>
         <h4 class="footer_overskrift">HANNE BERTELSEN KERAMIK</h4>
-        <li class="footer_tekst"><a href="/vaerkstedet">OM OS</a></li>
-        <li class="footer_tekst"><a href="#">SPECIALFREMSTILLING</a></li>
-        <li class="footer_tekst"><a href="/vaerkstedet">PROCESSEN</a></li>
-        <h4 class="linje2 footer_overskrift">ADRESSE</h4>
+        <li class="footer_tekst"><a href="/vaerkstedet">SHOP</a></li>
+        <li class="footer_tekst"><a href="#">KOLLEKTION</a></li>
+        <li class="footer_tekst"><a href="/vaerkstedet">VÆRKSTEDET</a></li>
+        <li class="footer_tekst"><a href="/kontakt">KONTAKT</a></li>
+        <div class="footer_luft">
+          <h4 class="linje2 footer_overskrift">ADRESSE</h4>
+        </div>
         <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank">Sankt Paulsgade 72, 1313 K</a></li>
       </ul>
     </div>
@@ -30,7 +33,9 @@
         <li class="footer_tekst">MANDAG: LUKKET</li>
         <li class="footer_tekst">TIRSDAG-FREDAG: 11-18</li>
         <li class="footer_tekst">LØRDAG: 11-14</li>
-        <h4 class="linje2 footer_overskrift">KONTAKT</h4>
+        <div class="footer_luft">
+          <h4 class="linje2 footer_overskrift">KONTAKT</h4>
+        </div>
         <li class="footer_tekst"><a href="#">TEL. +45 2398 2309</a></li>
         <li class="footer_tekst"><a href="#">MAIL@HANNEBERTELSEN.DK</a></li>
         <li class="footer_tekst"><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">INSTAGRAM /</a><a href="https://www.facebook.com/HanneBertelsenKeramik" target="_blank"> FACEBOOK</a></li>
@@ -116,17 +121,41 @@
   @media (min-width: 800px) {
     /* ---------------------------Footer Desktop------------------------ */
     .footer_grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      /* display: grid;
+      grid-template-columns: 1fr 1fr 1fr; */
       margin-left: 90px;
       padding-bottom: 2rem;
       margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      justify-content: space-around;
     }
 
-    .fællesskabet p {
+    .footer_grid > div {
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .faellesskabet {
+      padding-right: 5%;
+      margin-right: 5%;
+    }
+
+    .faellesskabet p {
       line-height: 1.5rem;
       margin-top: 0.8rem;
     }
+
+    .form_felt {
+      margin-top: 5%;
+    }
+
     .form_felt input[type="text"] {
       width: 250px;
       line-height: 2rem;
@@ -160,9 +189,10 @@
     li h4 {
       line-height: 1.5rem;
     }
-  }
-  .linje2 {
-    margin-top: 3rem;
+
+    .footer_luft {
+      margin-top: 5%;
+    }
   }
 
   @media (max-width: 768px) {
@@ -171,17 +201,29 @@
     h4 {
       font-size: 15px;
     }
-    .fællesskabet p {
+    .faellesskabet p {
       font-family: var(--mulish);
     }
-    .fællesskabet {
+    .faellesskabet {
       display: inline;
+    }
+
+    .faellesskabet {
+      padding-right: 5%;
+      margin-right: 5%;
+    }
+
+    .footer_grid {
+      padding-right: 6%;
+      padding-left: 6%;
     }
 
     .form_felt {
       box-sizing: border-box;
       margin-top: 1rem;
       margin-bottom: 2rem;
+      display: flex;
+      gap: 1%;
     }
     .form_felt input[type="text"] {
       width: 300px;
@@ -199,13 +241,6 @@
       line-height: 2rem;
       font-size: 15px;
       font-family: var(--nunito);
-    }
-    footer ul,
-    .fællesskabet,
-    .fællesskabet p,
-    .form_felt,
-    .nederste_linje {
-      padding-left: 1.5rem;
     }
 
     ul {

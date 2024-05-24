@@ -1,9 +1,9 @@
 ---
 import "../styles/generel.css";
-const { variant, size } = Astro.props;
+const { variant, size, tekst } = Astro.props;
 ---
 
-<button class={variant + " " + size}>Læse mere</button>
+<button class={variant + " " + size}>{tekst}</button>
 
 <style>
   button {
