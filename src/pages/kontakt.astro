@@ -1,23 +1,82 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
 import Kontaktformular from "../components/Kontaktformular.astro";
+import Knap from "../components/Knap.astro";
 ---
 
 <Mainlayout>
     <h1>Kontakt</h1>
     <section>
-        <div>
-            <h2>Åbningstider</h2>
-            <p>Mandag: Lukket
-            Tirsdag: 11-18
-            Onsdag: 11-18
-            Torsdag: 11-18
-            Fredag: 11-18
-            Lørdag: 11-14
+        <div class="flex_aebningstider">
+            <h2 class="roterende_overskrift">Åbningstider</h2>
+            <p class="line_height">Mandag: Lukket<br /><br />
+            Tirsdag: 11-18<br /><br />
+            Onsdag: 11-18<br /><br />
+            Torsdag: 11-18<br /><br />
+            Fredag: 11-18<br /><br />
+            Lørdag: 11-14<br /><br />
             Søndag: Lukket</p>
+        </div>
+        <div>
+            <h2>Adresse</h2>
+            <p>Sankt Paulsgade 72, 1313 K
+                 <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"> Find butikken på Google Maps her</a></li>
+            </p>
+        </div>
+        <div>
+            <h2>Kontakt</h2>
+            <div class="flex_ikoner">
+                <img src="/public/img/telefon.svg" alt="telefonikon">
+                <p>TEL. +45 2398 2309</p>
+            </div>
+            <div class="flex_ikoner">
+                <img src="/public/img/mail.svg" alt="mailikon">
+                <p>mail@hannebertelsen.dk</p>
+            </div>
+        </div>
+        <div>
+            <h2>instagram</h2>
+            <div class="flex_ikoner">
+                <img src="/public/img/instagram.svg" alt="instagramikon">
+                <p>hanne_berthelsen</p>
+            </div>
+        </div>
+        <div>
+            <h2>Nyhedsbrev</h2>
+            <p>Tilmeld dig nyhedsbrevet og få nyheder direkte i din indbakke.</p>
+            <form>
+                <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" />
+                <button class="Tilmeld">Tilmeld</button>
+            </form>
         </div>
     </section>
     <section class="groen_boks">
     <Kontaktformular></Kontaktformular>
     </section>
 </Mainlayout>
+
+<style>
+    .roterende_overskrift{
+        rotate: -90deg;
+        transform-origin: left top;
+        margin-top: 204.75px;
+    }
+    .flex_aebningstider{
+        display: flex;
+    }
+    .line_height{
+        line-height: 15px;
+    }
+    li a{
+        font-family: var(--mulish);
+        color: var(--sort_100);
+        text-decoration: none;
+    }
+    li a:hover{
+        text-decoration: underline;
+    }
+    .flex_ikoner{
+        display: flex;
+        gap: 11px;
+    }
+</style>
