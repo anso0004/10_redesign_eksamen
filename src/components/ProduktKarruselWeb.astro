@@ -1,0 +1,127 @@
+---
+import Card from "../components/Card.astro";
+---
+
+<section class="karrusel_container">
+  <article class="karrusel_track">
+    <div class="karrusel_slide">
+      <img src="public/img/produktliste/test_kop.jpeg" alt="" />
+    </div>
+    <div class="karrusel_slide">
+      <img src="public/img/produktliste/test_kop.jpeg" alt="" />
+    </div>
+    <div class="karrusel_slide">
+      <img src="public/img/produktliste/test_kop.jpeg" alt="" />
+    </div>
+    <div class="karrusel_slide">
+      <img src="public/img/blomster_skaal.png" alt="" />
+    </div>
+    <div class="karrusel_slide">
+      <img src="public/img/produktliste/test_kop.jpeg" alt="" />
+    </div>
+    <div class="karrusel_slide">
+      <img src="public/img/produktliste/test_kop.jpeg" alt="" />
+    </div>
+    <div class="karrusel_slide">
+      <img src="public/img/produktliste/test_kop.jpeg" alt="" />
+    </div>
+    <div class="karrusel_slide">
+      <img src="public/img/produktliste/test_kop.jpeg" alt="" />
+    </div>
+  </article>
+  <button class="custom_btn prev_btn">
+    <span class="arrow">&#8592;</span>
+  </button>
+  <button class="custom_btn next_btn">
+    <span class="arrow">&#8594;</span>
+  </button>
+</section>
+
+<script>
+    
+ document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".karrusel_track");
+  const slides = document.querySelectorAll(".karrusel_slide");
+  const prevBtn = document.querySelector(".prev_btn");
+  const nextBtn = document.querySelector(".next_btn");
+  const slideWidth = slides[0].offsetWidth;
+  const visibleSlides = 4; // Antal synlige billeder
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const newTransformValue = -currentIndex * slideWidth + "px";
+    track.style.transform = "translateX(" + newTransformValue + ")";
+  }
+
+  function nextSlide() {
+    currentIndex++;
+    track.style.transition = "transform 0.5s ease-in-out";
+    updateCarousel();
+
+    if (currentIndex >= slides.length - visibleSlides + 1) {
+      // Når vi nærmer os slutningen, gå tilbage til starten uden animation
+      currentIndex = 0;
+      track.style.transition = "none";
+      updateCarousel();
+    }
+  }
+
+  function prevSlide() {
+    currentIndex--;
+    track.style.transition = "transform 0.5s ease-in-out";
+    updateCarousel();
+
+    if (currentIndex < 0) {
+      // Når vi går baglæns forbi det første billede, gå tilbage til slutningen uden animation
+      currentIndex = slides.length - 1;
+      track.style.transition = "none";
+      updateCarousel();
+    }
+  }
+
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+});
+</script>
+
+<style>
+  .karrusel_container {
+    position: relative;
+    overflow: hidden;
+  }
+  .karrusel_track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .karrusel_slide {
+    width: 100%;
+    flex: 0 0 25%; /*Fire billeder ved siden af hinanden */
+  }
+  .custom_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .prev_btn {
+    left: 10px;
+    background-color: white;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .next_btn {
+    right: 10px;
+    background-color: white;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+  }
+  .arrow {
+    font-size: 20px;
+  }
+</style>
