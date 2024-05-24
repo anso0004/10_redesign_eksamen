@@ -133,7 +133,7 @@ p {
 }
 
 /*********** GRØN BOKS ***********/
-.boks {
+.groen_boks {
   background-color: var(--green_100);
   padding-top: 116px;
   padding-bottom: 116px;
