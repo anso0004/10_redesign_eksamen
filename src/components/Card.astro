@@ -32,9 +32,6 @@ console.log(data);
     </div>
   </article>
 
-<script>
-</script>
-
 <style>
   /* Hvid baggrundsboks */
   .boks {
@@ -166,9 +163,12 @@ console.log(data);
 <script>
   // ChatGPT - Tilføjer en eventlistener til knappen, som skifter klassen "fyldt" til og fra, hver gang der klikkes.
   document.addEventListener("DOMContentLoaded", function () {
-    const hjerteKnap = document.querySelector(".hjerte_knap");
+  const hjerteKnapper = document.querySelectorAll(".hjerte_knap");
+  hjerteKnapper.forEach(function(hjerteKnap) {
     hjerteKnap.addEventListener("click", function () {
       hjerteKnap.classList.toggle("fyldt");
     });
   });
+});
+
 </script>
