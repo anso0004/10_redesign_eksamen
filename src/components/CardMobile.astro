@@ -1,0 +1,150 @@
+---
+const { data } = Astro.props;
+console.log(data);
+---
+
+<article class="boks">
+  <img src="public/img/produktliste/test_kop.jpeg" class="center_img" alt="Test" />
+  <div class="tekstfelt">
+    <div class="flex_1">
+      <p class="produktbeskrivelse">Test kop</p>
+      <p class="produkt_pris">1234</p>
+    </div>
+    <div class="flex_1">
+      <p class="produktfarve">Rød</p>
+    </div>
+  </div>
+  <div class="flex_2">
+    <button class="kob_knap"><p>Læg i kurv</p></button>
+    <button class="hjerte_knap"></button>
+  </div>
+</article>
+<style>
+    .boks {
+    background-color: white;
+    /* width: 400px;
+    height: 400px; */
+    width: 95%;
+    height: 95%;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  /* Flexboks, der gør at indholde står i både venstre og højre side */
+  .flex_1 {
+    display: flex;
+    justify-content: space-between;
+  }
+  /* Flexboks, der gør at indholdet står i venstre side */
+  .flex_2 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 18px;
+    padding-bottom: 20px;
+  }
+  /* Tekstfelt*/
+  .tekstfelt {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  /* Nulstiller margin */
+  .produktbeskrivelse,
+  .produkt_pris,
+  .produktfarve,
+  p {
+    margin: 0;
+  }
+  /* Fjerner linkstyling på linktekst */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  /* Centrer produktbilledet i boks */
+  .center_img {
+    position: relative; /*For at kunne positionere med tilbud_boks og tilbud_procent*/
+    display: block;
+    max-width: 337px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Skuler produktpris hele tiden */
+  /* .produkt_pris {
+    display: none;
+  } */
+  /* Style af førpris*/
+  .produkt_pris_foer {
+    color: red;
+    text-decoration: line-through;
+  }
+  /* Positionering af gul tilbudsboks */
+  .tilbud_boks {
+    position: absolute; /*For at kunne positionere med center_img og tilbud_procent*/
+    left: 309px;
+    top: -8px;
+    z-index: 2; For at lægge ovenpå center_img
+  }
+  .tilbud_gulboks {
+    width: 90px;
+  }
+  /* Style og positionering af tilbudsprocent-tekst */
+  .tilbud_procent {
+    position: absolute; /*For at kunne positionere med tilbud_boks og center_img*/
+    top: 30px;
+    left: 21px;
+    font-family: var(--mulish);
+    font-size: 23px;
+    font-weight: 800;
+  }
+
+  /* Style af købknap */
+  .kob_knap {
+    /* display: none;  */
+    width: 100%;
+    height: 46px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  /* ChatGPT - Style af hjerteknap */
+  .hjerte_knap {
+    /* display: none;  */
+    cursor: pointer;
+    width: 46px;
+    height: 46px;
+    border: 1px solid black;
+    background-color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  /* ChatGPT - Tilføjer et indhold før knappen ved hjælp af Unicode-tegn for et tomt hjerte */
+  .hjerte_knap::before {
+    content: "\2661"; /* Unicode for et tomt hjerte */
+  }
+  /* ChatGPT - Ændrer indholdet til et fyldt hjerte, når klassen "fyldt" er tilføjet */
+  .hjerte_knap.fyldt::before {
+    content: "\2665"; /* Unicode for et fyldt hjerte */
+    color: var(--green_100);
+  }
+  /* ChatGPT - Skjuler disse elementer ved hover */
+  /* .boks:hover .produktbeskrivelse,
+  .boks:hover .produkt_pris,
+  .boks:hover .produktfarve,
+  .boks:hover .produkt_pris_foer,
+  .boks:hover .produkt_pris_efter {
+    display: none;
+  } */
+  /* ChatGPT - Viser disse elementer ved hover */
+  /* .boks:hover .kob_knap,
+  .boks:hover .hjerte_knap {
+    display: block;
+  } */
+</style>
+
+

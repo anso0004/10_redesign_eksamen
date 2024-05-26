@@ -1,6 +1,7 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
 import Card from "../components/Card.astro";
+import CardMobile from "../components/CardMobile.astro";
 
 const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
   method: "GET",
@@ -22,6 +23,7 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
       })
     }
   </div>
+  <CardMobile />
 </Mainlayout>
 
 <style>
