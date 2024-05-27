@@ -3,11 +3,6 @@
 ---
 
 <header>
-  <div class="burger">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
   <div class="logo_header">
     <a href="/">
       <svg width="72" height="108" viewBox="0 0 72 108" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +13,11 @@
       </svg>
     </a>
   </div>
-  <!-- hej -->
+  <div class="burger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
   <nav>
     <ul class="menu">
       <li class="dropdown">
@@ -87,26 +86,26 @@
       </iconify-icon>
     </div>
   </nav>
-  <script>
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector("nav");
-    const menu = document.querySelector(".menu");
-    const links = document.querySelectorAll(".menu li a");
-
-    burger.addEventListener("click", () => {
-      burger.classList.toggle("active");
-      nav.classList.toggle("active");
-    });
-
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        burger.classList.remove("active");
-        nav.classList.remove("active");
-        link.addEventListener("click");
-      });
-    });
-  </script>
 </header>
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  const menu = document.querySelector(".menu");
+  const links = document.querySelectorAll(".menu li a");
+
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    nav.classList.toggle("active");
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      burger.classList.remove("active");
+      nav.classList.remove("active");
+      link.addEventListener("click");
+    });
+  });
+</script>
 
 <style>
   /* -------------- MOBILE -------------- */
@@ -142,13 +141,18 @@
       width: 30%;
     }
     .burger {
-      width: 48px;
-      height: 20px;
+      /* width: 4px;
+      height: 20px; */
       cursor: pointer;
-      margin-right: 16px;
+      flex: 1;
+      /* margin-right: 16px; */
+    }
+    .logo_header {
+      order: 2;
+      flex: 1;
     }
     .burger .line {
-      width: 50%;
+      width: 15%;
       height: 2px;
       background-color: var(--green_100);
       margin-bottom: 4px;
@@ -200,6 +204,7 @@
       position: absolute;
       right: 10px;
       gap: 11px;
+      flex: 1;
     }
     .pile {
       display: none;
@@ -208,8 +213,9 @@
   /* -------------- DESKTOP -------------- */
   @media (min-width: 800px) {
     .logo_header {
-      margin-left: 2%;
+      /* margin-left: 2%; */
       margin-top: 30px;
+      flex: 1;
     }
     header:hover {
       background-color: var(--baggrund_70); /* Definér din nye baggrundsfarve her */
@@ -290,6 +296,7 @@
       position: absolute;
       right: 100px;
       gap: 11px;
+      flex: 1;
     }
     /* Tilføj denne regel til at give plads til pilen ved siden af teksten */
     .dropdown_button {
