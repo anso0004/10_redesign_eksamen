@@ -20,7 +20,11 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
   </div>
   <h1>Hanne Bertelsen</h1>
   <ProduktKarruselWeb />
-  <!-- Indsæt karrusel her -->
+  <div class="produkter_knap">
+    <a href="/produktliste">
+      <Knap variant="primary" tekst="Se alle produkter" />
+    </a>
+  </div>
   <div class="inspiration_sektion">
     <div class="inspiration">
       <img class="item_1" src="/img/skaale.png" alt="" />
@@ -47,6 +51,12 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
 <style>
   h1 {
     font-weight: 300;
+  }
+  .produkter_knap {
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    padding-top: 64px;
   }
   @media (max-width: 800px) {
     .lille_billede {

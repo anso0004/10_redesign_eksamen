@@ -1,33 +1,26 @@
 ---
 import Card from "../components/Card.astro";
+
+const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1dmpvdnd3dXpqbGt5d3JzdWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyNzYyOTQsImV4cCI6MjAzMTg1MjI5NH0.HwPdPpwdrXR9WhOCP1MwJCnXJNM9Kg8hd1YGu_s7lR8",
+  },
+}).then((res) => res.json());
 ---
 
 <section class="karrusel_container">
   <article class="karrusel_track">
-    <div class="karrusel_slide">
-      <img src="/img/produktliste/test_kop.jpeg" alt="" />
-    </div>
-    <div class="karrusel_slide">
-      <img src="/img/produktliste/test_kop.jpeg" alt="" />
-    </div>
-    <div class="karrusel_slide">
-      <img src="/img/produktliste/test_kop.jpeg" alt="" />
-    </div>
-    <div class="karrusel_slide">
-      <img src="/img/blomster_skaal.png" alt="" />
-    </div>
-    <div class="karrusel_slide">
-      <img src="/img/produktliste/test_kop.jpeg" alt="" />
-    </div>
-    <div class="karrusel_slide">
-      <img src="/img/produktliste/test_kop.jpeg" alt="" />
-    </div>
-    <div class="karrusel_slide">
-      <img src="/img/produktliste/test_kop.jpeg" alt="" />
-    </div>
-    <div class="karrusel_slide">
-      <img src="/img/produktliste/test_kop.jpeg" alt="" />
-    </div>
+    {
+      data.map((card) => {
+        return (
+          <div class="karrusel_slide">
+            {" "}
+            <Card data={card} />
+          </div>
+        );
+      })
+    }
   </article>
   <button class="custom_btn prev_btn">
     <span class="arrow">&#8592;</span>
@@ -80,22 +73,26 @@ import Card from "../components/Card.astro";
 
     nextBtn.addEventListener("click", nextSlide);
     prevBtn.addEventListener("click", prevSlide);
+
+    updateCarousel();
   });
 </script>
 
 <style>
-  /* ------------------------ DESKTOP  */
   .karrusel_container {
     position: relative;
     overflow: hidden;
+    padding-top: 2rem;
   }
   .karrusel_track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
   }
   .karrusel_slide {
     width: 100%;
-    flex: 0 0 25%; /*Fire billeder ved siden af hinanden */
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
   }
   .custom_btn {
     position: absolute;
@@ -124,11 +121,15 @@ import Card from "../components/Card.astro";
   .arrow {
     font-size: 20px;
   }
-  @media (max-width:800px) {
+
+  /* ------------- MOBILE -------------*/
+  @media (max-width: 800px) {
     .karrusel_slide {
-    width: 100%;
-    flex: 0 0 50%; /*2 billeder ved siden af hinanden */
-  }
-    
+      width: 100%;
+      display: flex;
+      flex: 0 0 100%;
+      justify-content: center;
+      margin: auto;
+    }
   }
 </style>
