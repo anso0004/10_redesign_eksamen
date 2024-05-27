@@ -27,11 +27,12 @@ import Knap from "../components/Knap.astro";
         
         <article>
             <h2>instagram</h2>
-            <li class="footer_tekst"><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">INSTAGRAM /</a>
+            <li class="footer_tekst"><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">
             <article class="flex_ikoner">
                 <img src="/img/instagram.svg" alt="instagramikon">
                 <p>hanne_berthelsen</p>
             </article>
+            </a>
         </article>
         <article>
             <h2>Kontakt</h2>
@@ -71,6 +72,9 @@ import Knap from "../components/Knap.astro";
     }
     .line_height_2{
         line-height: 15px;
+    }
+    li{
+        list-style: none;
     }
     li a{
         font-family: var(--mulish);
