@@ -3,7 +3,9 @@ import Mainlayout from "../../layout/Mainlayout.astro";
 import GreenAccordion from "../../components/GreenAccordion.astro";
 import BeigeAccordion from "../../components/BeigeAccordion.astro";
 import AntalAccordion from "../../components/AntalAccordion.astro";
+import BuyLike from "../../components/BuyLike.astro";
 import "../../styles/singleview.css";
+import "../../styles/generel.css";
 
 export async function getStaticPaths() {
   const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
@@ -16,12 +18,12 @@ export async function getStaticPaths() {
   return data.map((show) => {
     return {
       params: { slug: show.slug },
-      props: { myData: show },
+      props: { data: show },
     };
   });
 }
-const { myData } = Astro.props;
-console.log(myData);
+const { data } = Astro.props;
+console.log(data);
 ---
 
 <!-- <Mainlayout title={myData.navn}> --><!-- Singleview --><!-- Eks: h2 {myData.navn} --><!-- <h2>{myData.pris}</h2>
@@ -29,23 +31,35 @@ console.log(myData);
 <Mainlayout>
   <section class="grid_singleview">
     <div class="singleview_img">
-      <img src={myData.billede} alt="Produkt" />
+      <img src={data.billede} alt="Produkt" />
+      {
+        data.tilbud && (
+          <div class="tilbud_boks">
+            <img class="tilbud_gulboks" src="/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
+            <p class="tilbud_procent">{data.procent}%</p>
+          </div>
+        )
+      }
     </div>
     <div class="singleview_tekst">
-      <h3>{myData.navn}</h3>
+      <h3>{data.navn}</h3>
       <div class="grid_farve_pris">
-        <p>Farve: {myData.farve}</p>
+        <p>Farve: {data.farve}</p>
         <div class="vertikal_streg"></div>
-        <p>kr. {myData.pris},-</p>
+        <!-- <p>kr. {data.pris},-</p> -->
+        {data.ikketilbud && <p class="produkt_pris">kr. {data.pris},-</p>}
+        {data.tilbud && <p class="produkt_pris_foer gammel_pris">kr. {data.pris},-</p>}
+        {data.tilbud && <p class="produkt_pris_efter ny_pris">kr. {(data.pris * (100 - data.procent)) / 100},-</p>}
       </div>
-      <p>{myData.beskrivelse}</p>
+      <p>{data.beskrivelse}</p>
       <!-- <p>{myData.pris}Tåler opvaskemaskine.</p> -->
       <BeigeAccordion accordion_txt="Læs beskrivelse">
-        <p>{myData.accordion_beskrivelse}</p>
+        <p>{data.accordion_beskrivelse}</p>
         <!-- <p>Højde (inklusiv hank): 12 cm</p>
         <p>Diameter: 8 cm</p> -->
       </BeigeAccordion>
       <AntalAccordion />
+      <BuyLike />
     </div>
   </section>
   <section class="groen_boks">
@@ -60,3 +74,36 @@ console.log(myData);
     </GreenAccordion>
   </section>
 </Mainlayout>
+
+<style>
+  /* Positionering af gul tilbudsboks */
+  .tilbud_boks {
+    position: absolute; /*For at kunne positionere med center_img og tilbud_procent*/
+    top: -8px;
+    right: 0;
+    z-index: 2;
+  }
+  .tilbud_gulboks {
+    width: 115px;
+  }
+  /* Style og positionering af tilbudsprocent-tekst */
+  .tilbud_procent {
+    position: absolute; /*For at kunne positionere med tilbud_boks og center_img*/
+    top: 11px;
+    left: 24px;
+    font-family: var(--mulish);
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  .singleview_img {
+    position: relative;
+  }
+  .produkt_pris_efter {
+    color: red;
+  }
+
+  .produkt_pris_foer {
+    text-decoration: line-through;
+  }
+</style>
