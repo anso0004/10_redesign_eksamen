@@ -6,15 +6,26 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
 
 <Mainlayout>
   <div class="øverste_billeder">
-    <img src="public/img/forside_store_billede.png" alt="" />
+    <div class="to">
+      <img class="forside1" src="/img/forsidebill.png" alt="" />
+    </div>
+    <div class="tre">
+      <img class="forside2" src="/img/kopperne1.png" alt="" />
+      <h1 class="keramik hide1">Keramik</h1>
+    </div>
+    <div class="nederste">
+      <img class="forside3" src="/img/blomster_forside.png" alt="" />
+      <h1 class="keramik hide2">Keramik</h1>
+    </div>
   </div>
-  <ProduktKarruselWeb></ProduktKarruselWeb>
+  <h1>Hanne Bertelsen</h1>
+  <ProduktKarruselWeb />
   <!-- Indsæt karrusel her -->
   <div class="inspiration_sektion">
     <div class="inspiration">
-      <img class="item_1" src="public/img/skaale.png" alt="" />
+      <img class="item_1" src="/img/skaale.png" alt="" />
       <div class="lille_billede item_2">
-        <img src="public/img/rillevase.png" alt="" />
+        <img src="/img/rillevase.png" alt="" />
         <h3>RILLEKOLLEKTION</h3>
         <p>Rillekollektionen består af krukker, skåle og vaser, der vil pryde et hvert hjem.</p>
         <Knap tekst="Læs mere" variant="primary" />
@@ -22,17 +33,20 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
     </div>
     <div class="inspiration">
       <div class="lille_billede item_3">
-        <img src="public/img/blomsterfad.png" alt="" />
+        <img src="/img/blomsterfad.png" alt="" />
         <h3>BLOMSTERKOLLEKTION</h3>
         <p>Blomsterkollektionen består af fade og tallerkner, der skaber den perfekte sommerstemning.</p>
         <Knap tekst="Læs mere" variant="primary" />
       </div>
-      <img class="item_4" src="public/img/blomster_skaal.png" alt="" />
+      <img class="item_4" src="/img/blomster_skaal.png" alt="" />
     </div>
   </div>
 </Mainlayout>
 
 <style>
+  h1 {
+    font-weight: 300;
+  }
   @media (max-width: 800px) {
     .lille_billede {
       margin-left: auto;
@@ -51,8 +65,81 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
       text-align: center;
       margin-bottom: 15px;
     }
+
+    .øverste_billeder {
+      display: flex;
+      flex-direction: column;
+      gap: 3%;
+    }
+    .forside2 {
+      display: flex;
+      width: 40%;
+    }
+
+    .forside3 {
+      display: flex;
+      order: -1;
+    }
+
+    .nederste {
+      order: 2;
+    }
+
+    .to {
+      order: 1;
+    }
+
+    .tre {
+      order: 3;
+    }
+
+    .hide2 {
+      display: none;
+    }
+
+    .keramik {
+      rotate: 90deg;
+      margin-top: -15%;
+      letter-spacing: 5.7px;
+      font-weight: 300;
+    }
   }
   @media (min-width: 800px) {
+    .keramik {
+      rotate: 90deg;
+      margin-top: 70%;
+      font-size: 57px;
+      letter-spacing: 5.7px;
+      margin-right: 96%;
+      font-weight: 300;
+    }
+
+    .øverste_billeder {
+      display: flex;
+      flex-direction: row;
+      gap: 3%;
+    }
+
+    .forside1 {
+      width: 50vw;
+    }
+
+    .forside2 {
+      width: 20vw;
+    }
+
+    .forside3 {
+      width: 20vw;
+    }
+    .tre {
+      display: flex;
+      align-self: end;
+    }
+
+    .forside3 {
+      margin-top: 20%;
+    }
+
     .inspiration_sektion {
       padding-bottom: 10rem;
     }
@@ -77,6 +164,10 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
       margin: auto;
       margin-top: 14px;
       margin-bottom: 17px;
+    }
+
+    .hide1 {
+      display: none;
     }
   }
 </style>
