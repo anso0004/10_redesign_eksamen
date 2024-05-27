@@ -59,6 +59,7 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
     padding-top: 64px;
     padding-bottom: 139px;
   }
+
   @media (max-width: 800px) {
     .lille_billede {
       margin-left: auto;
@@ -163,7 +164,10 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
       text-align: center;
     }
     .lille_billede {
-      margin-top: 10%;
+      place-content: center;
+    }
+    .inspiration_sektion {
+      margin-bottom: 5rem;
     }
     h3 {
       margin: auto;
@@ -190,6 +194,10 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
     }
     .item_4 {
       order: 3;
+    }
+    .item_1,
+    .item_3 {
+      width: 100%;
     }
   }
 </style>
