@@ -31,14 +31,15 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
         <Knap tekst="Læs mere" variant="primary" />
       </div>
     </div>
+
     <div class="inspiration">
-      <div class="lille_billede item_3">
+      <img class="item_3" src="/img/blomster_skaal.png" alt="" />
+      <div class="lille_billede item_4">
         <img src="/img/blomsterfad.png" alt="" />
         <h3>BLOMSTERKOLLEKTION</h3>
         <p>Blomsterkollektionen består af fade og tallerkner, der skaber den perfekte sommerstemning.</p>
         <Knap tekst="Læs mere" variant="primary" />
       </div>
-      <img class="item_4" src="/img/blomster_skaal.png" alt="" />
     </div>
   </div>
 </Mainlayout>
@@ -102,6 +103,9 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
       margin-top: -15%;
       letter-spacing: 5.7px;
       font-weight: 300;
+    }
+    .inspiration {
+      padding-bottom: 5rem;
     }
   }
   @media (min-width: 800px) {
@@ -168,6 +172,15 @@ import ProduktKarruselWeb from "../components/ProduktKarruselWeb.astro";
 
     .hide1 {
       display: none;
+    }
+
+    .item_3 {
+      order: 4;
+      float: right;
+      margin-right: 0;
+    }
+    .item_4 {
+      order: 3;
     }
   }
 </style>
