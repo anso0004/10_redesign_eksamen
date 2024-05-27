@@ -4,9 +4,9 @@ import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
 import "../styles/generel.css";
 
-const { titel } = Astro.props;
+const { kollektion } = Astro.props;
 
-const url = `https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt?titel=eq.${titel}`;
+const url = `https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt?kollektion=eq.${kollektion}`;
 
 const data = await fetch(url, {
   method: "GET",
@@ -24,7 +24,7 @@ console.log("data", data);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{titel}</title>
+    <title>{kollektion}</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet" />
 
@@ -39,8 +39,7 @@ console.log("data", data);
   <body>
     <Header />
     <main>
-      <p class="produkt">{titel}</p>
-
+      <p class="produkt">{kollektion}</p>
       <div class="grid_web">
         {
           data.map((card) => {
@@ -55,14 +54,13 @@ console.log("data", data);
 
 <style>
   .produkt {
-    font-size: 10vw;
+    font-size: 4vw;
     transform: rotate(-90deg);
-    transform-origin: bottom left;
-    margin-top: 54%;
+    transform-origin: left top;
+    margin-top: 55.9%;
     margin-left: 10%;
     position: fixed;
   }
-
   .grid_web {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
