@@ -39,6 +39,31 @@ console.log(data);
 </article>
 
 <style>
+  /* ChatGPT - Skjuler disse elementer ved hover */
+  /* .boks:hover .produktbeskrivelse,
+  .boks:hover .produkt_pris,
+  .boks:hover .produktfarve,
+  .boks:hover .produkt_pris_foer,
+  .boks:hover .produkt_pris_efter {
+    display: initial;
+  } */
+
+  /* ChatGPT - Viser disse elementer ved hover */
+  /* .kob_knap,
+  .hjerte_knap {
+    display: block;
+  } */
+  /* Flexboks, der gør at indholdet står i venstre side */
+  .flex_2 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 18px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+  }
   /* Hvid baggrundsboks */
   .boks {
     background-color: white;
@@ -55,15 +80,6 @@ console.log(data);
   .flex_1 {
     display: flex;
     justify-content: space-between;
-  }
-  /* Flexboks, der gør at indholdet står i venstre side */
-  .flex_2 {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 18px;
   }
   /* Tekstfelt*/
   .tekstfelt {
@@ -121,7 +137,7 @@ console.log(data);
 
   /* Style af købknap */
   .kob_knap {
-    display: none; /*ChatGPT - Knappen er skjult*/
+    /* display: none; */
     width: 100%;
     height: 46px;
     border: 1px solid black;
@@ -133,7 +149,7 @@ console.log(data);
   }
   /* ChatGPT - Style af hjerteknap */
   .hjerte_knap {
-    display: none; /*Knappen er skjult*/
+    /* display: none;  */
     cursor: pointer;
     width: 46px;
     height: 46px;
@@ -142,6 +158,7 @@ console.log(data);
     font-size: 24px;
     cursor: pointer;
   }
+
   /* ChatGPT - Tilføjer et indhold før knappen ved hjælp af Unicode-tegn for et tomt hjerte */
   .hjerte_knap::before {
     content: "\2661"; /* Unicode for et tomt hjerte */
@@ -151,35 +168,8 @@ console.log(data);
     content: "\2665"; /* Unicode for et fyldt hjerte */
     color: var(--green_100);
   }
-  /* ChatGPT - Skjuler disse elementer ved hover */
-  .boks:hover .produktbeskrivelse,
-  .boks:hover .produkt_pris,
-  .boks:hover .produktfarve,
-  .boks:hover .produkt_pris_foer,
-  .boks:hover .produkt_pris_efter {
-    display: none;
-  }
-  /* ChatGPT - Viser disse elementer ved hover */
-  .boks:hover .kob_knap,
-  .boks:hover .hjerte_knap {
-    display: block; /* Show the buy button on hover */
-  }
 
-  @media (max-width: 800px) {
-    /* ChatGPT - Skjuler disse elementer ved hover */
-    .boks:hover .produktbeskrivelse,
-    .boks:hover .produkt_pris,
-    .boks:hover .produktfarve,
-    .boks:hover .produkt_pris_foer,
-    .boks:hover .produkt_pris_efter {
-      display: initial;
-    }
-
-    /* ChatGPT - Viser disse elementer ved hover */
-    .kob_knap,
-    .hjerte_knap {
-      display: block;
-    }
+  @media (min-width: 800px) {
     /* Flexboks, der gør at indholdet står i venstre side */
     .flex_2 {
       display: flex;
@@ -188,8 +178,33 @@ console.log(data);
       margin-left: 20px;
       margin-right: 20px;
       margin-bottom: 18px;
-      padding-bottom: 20px;
-      padding-top: 15px;
+    }
+    /* ChatGPT - Tilføjer et indhold før knappen ved hjælp af Unicode-tegn for et tomt hjerte */
+    /* .hjerte_knap::before {
+      content: "\2661"; 
+    } */
+    /* ChatGPT - Ændrer indholdet til et fyldt hjerte, når klassen "fyldt" er tilføjet */
+    /* .hjerte_knap.fyldt::before {
+      content: "\2665"; 
+      color: var(--green_100);
+    } */
+
+    /* ChatGPT - Skjuler disse elementer ved hover */
+    .boks:hover .produktbeskrivelse,
+    .boks:hover .produkt_pris,
+    .boks:hover .produktfarve,
+    .boks:hover .produkt_pris_foer,
+    .boks:hover .produkt_pris_efter {
+      display: none;
+    }
+    /* ChatGPT - Viser disse elementer ved hover */
+    .boks:hover .kob_knap,
+    .boks:hover .hjerte_knap {
+      display: block; /* Show the buy button on hover */
+    }
+    .kob_knap,
+    .hjerte_knap {
+      display: none;
     }
   }
 </style>

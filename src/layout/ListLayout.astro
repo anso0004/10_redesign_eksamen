@@ -1,0 +1,85 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Card from "../components/Card.astro";
+import "../styles/generel.css";
+
+const { titel } = Astro.props;
+
+const url = `https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt?titel=eq.${titel}`;
+
+const data = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1dmpvdnd3dXpqbGt5d3JzdWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyNzYyOTQsImV4cCI6MjAzMTg1MjI5NH0.HwPdPpwdrXR9WhOCP1MwJCnXJNM9Kg8hd1YGu_s7lR8",
+  },
+}).then((res) => res.json());
+
+console.log("data", data);
+---
+
+<html lang="da">
+  <head>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{titel}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <p class="produkt">KOPPER</p>
+      <div class="grid_web">
+        {
+          data.map((card) => {
+            return <Card data={card} />;
+          })
+        }
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .produkt {
+    font-size: 10vw;
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    margin-top: 39.9%;
+    margin-left: 10%;
+    position: fixed;
+  }
+  .grid_web {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    margin-left: 360px;
+    margin-right: 90px;
+    margin-bottom: 250px;
+  }
+
+  @media (max-width: 800px) {
+    .produkt {
+      display: none;
+    }
+    .grid_web {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      margin-left: 0px;
+      margin-right: 20px;
+      margin-left: 20px;
+      margin-bottom: 250px;
+    }
+  }
+</style>
