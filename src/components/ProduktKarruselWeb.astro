@@ -11,18 +11,16 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
 <section class="karrusel_container">
   <article class="karrusel_track">
-    
-      {
-        data.map((card) => {
-          return (
-            <div class="karrusel_slide">
-              {" "}
-              <Card data={card} />
-            </div>
-          );
-        })
-      }
-    
+    {
+      data.map((card) => {
+        return (
+          <div class="karrusel_slide">
+            {" "}
+            <Card data={card} />
+          </div>
+        );
+      })
+    }
   </article>
   <button class="custom_btn prev_btn">
     <span class="arrow">&#8592;</span>
@@ -49,7 +47,7 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
     function nextSlide() {
       currentIndex++;
-      track.style.transition = "transform 1s ease-in-out";
+      track.style.transition = "transform 0.5s ease-in-out";
       updateCarousel();
 
       if (currentIndex >= slides.length - visibleSlides + 1) {
@@ -62,7 +60,7 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
     function prevSlide() {
       currentIndex--;
-      track.style.transition = "transform 1s ease-in-out";
+      track.style.transition = "transform 0.5s ease-in-out";
       updateCarousel();
 
       if (currentIndex < 0) {
@@ -84,6 +82,7 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
   .karrusel_container {
     position: relative;
     overflow: hidden;
+    padding-top: 2rem;
   }
   .karrusel_track {
     display: flex;
@@ -92,6 +91,8 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
     width: 100%;
     flex: 0 0 25%;
     display: flex;
+    justify-content: center;
+    margin: auto;
   }
   .custom_btn {
     position: absolute;
@@ -126,8 +127,9 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
     .karrusel_slide {
       width: 100%;
       display: flex;
-      flex: 0 0 70%;
-      
+      flex: 0 0 100%;
+      justify-content: center;
+      margin: auto;
     }
   }
 </style>
