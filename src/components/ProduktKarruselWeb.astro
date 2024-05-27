@@ -38,53 +38,53 @@ import Card from "../components/Card.astro";
 </section>
 
 <script>
-    
- document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".karrusel_track");
-  const slides = document.querySelectorAll(".karrusel_slide");
-  const prevBtn = document.querySelector(".prev_btn");
-  const nextBtn = document.querySelector(".next_btn");
-  const slideWidth = slides[0].offsetWidth;
-  const visibleSlides = 4; // Antal synlige billeder
-  let currentIndex = 0;
+  document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".karrusel_track");
+    const slides = document.querySelectorAll(".karrusel_slide");
+    const prevBtn = document.querySelector(".prev_btn");
+    const nextBtn = document.querySelector(".next_btn");
+    const slideWidth = slides[0].offsetWidth;
+    const visibleSlides = 4; // Antal synlige billeder
+    let currentIndex = 0;
 
-  function updateCarousel() {
-    const newTransformValue = -currentIndex * slideWidth + "px";
-    track.style.transform = "translateX(" + newTransformValue + ")";
-  }
-
-  function nextSlide() {
-    currentIndex++;
-    track.style.transition = "transform 0.5s ease-in-out";
-    updateCarousel();
-
-    if (currentIndex >= slides.length - visibleSlides + 1) {
-      // Når vi nærmer os slutningen, gå tilbage til starten uden animation
-      currentIndex = 0;
-      track.style.transition = "none";
-      updateCarousel();
+    function updateCarousel() {
+      const newTransformValue = -currentIndex * slideWidth + "px";
+      track.style.transform = "translateX(" + newTransformValue + ")";
     }
-  }
 
-  function prevSlide() {
-    currentIndex--;
-    track.style.transition = "transform 0.5s ease-in-out";
-    updateCarousel();
-
-    if (currentIndex < 0) {
-      // Når vi går baglæns forbi det første billede, gå tilbage til slutningen uden animation
-      currentIndex = slides.length - 1;
-      track.style.transition = "none";
+    function nextSlide() {
+      currentIndex++;
+      track.style.transition = "transform 0.5s ease-in-out";
       updateCarousel();
-    }
-  }
 
-  nextBtn.addEventListener("click", nextSlide);
-  prevBtn.addEventListener("click", prevSlide);
-});
+      if (currentIndex >= slides.length - visibleSlides + 1) {
+        // Når vi nærmer os slutningen, gå tilbage til starten uden animation
+        currentIndex = 0;
+        track.style.transition = "none";
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      track.style.transition = "transform 0.5s ease-in-out";
+      updateCarousel();
+
+      if (currentIndex < 0) {
+        // Når vi går baglæns forbi det første billede, gå tilbage til slutningen uden animation
+        currentIndex = slides.length - 1;
+        track.style.transition = "none";
+        updateCarousel();
+      }
+    }
+
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+  });
 </script>
 
 <style>
+  /* ------------------------ DESKTOP  */
   .karrusel_container {
     position: relative;
     overflow: hidden;
@@ -123,5 +123,12 @@ import Card from "../components/Card.astro";
   }
   .arrow {
     font-size: 20px;
+  }
+  @media (max-width:800px) {
+    .karrusel_slide {
+    width: 100%;
+    flex: 0 0 50%; /*2 billeder ved siden af hinanden */
+  }
+    
   }
 </style>
