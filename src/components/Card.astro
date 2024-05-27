@@ -1,36 +1,42 @@
 ---
-const {data} = Astro.props;
+const { data } = Astro.props;
 console.log(data);
 ---
 
-  <article class="boks">
-    <a href={`singleview/${data.slug}`}>
-      {data.tilbud && <div class="tilbud_boks"><img class="tilbud_gulboks" src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
-        <p class="tilbud_procent">{data.procent}%</p></div>}
-      <img src={data.billede} class="center_img" alt="Produktbillede" />
-      <div class="tekstfelt">
-        <div class="flex_1">
-          <p class="produktbeskrivelse">{data.navn}</p>
-          <!-- {data.tilbud && <p class="produkt_pris_efter">kr. {data.pris * (100-data.procent)/100} ,-</p>} -->
-          {data.tilbud && <p class="produkt_pris_foer gammel_pris">kr. {data.pris},-</p>}
-          {data.tilbud && <p class="produkt_pris hide"></p>}
-          {data.ikketilbud && <p class="produkt_pris">kr. {data.pris},-</p>}
+<article class="boks">
+  <a href={`singleview/${data.slug}`}>
+    {
+      data.tilbud && (
+        <div class="tilbud_boks">
+          <img class="tilbud_gulboks" src="public/img/produktliste/tilbud_gulboks.svg" alt="Tilbudsboks" />
+          <p class="tilbud_procent">{data.procent}%</p>
         </div>
-        <div class="flex_1">
-          <p class="produktfarve">{data.farve}</p>
-          <p class="produkt_pris_efter hide">kr. {data.pris} ,-</p>
-          {data.tilbud && <p class="produkt_pris_efter ny_pris">kr. {data.pris * (100-data.procent)/100},-</p>}
-        </div>
+      )
+    }
+    <img src={data.billede} class="center_img" alt="Produktbillede" />
+    <div class="tekstfelt">
+      <div class="flex_1">
+        <p class="produktbeskrivelse">{data.navn}</p>
+        <!-- {data.tilbud && <p class="produkt_pris_efter">kr. {data.pris * (100-data.procent)/100} ,-</p>} -->
+        {data.tilbud && <p class="produkt_pris_foer gammel_pris">kr. {data.pris},-</p>}
+        {data.tilbud && <p class="produkt_pris hide" />}
+        {data.ikketilbud && <p class="produkt_pris">kr. {data.pris},-</p>}
       </div>
-    </a>
-    <div class="flex_2">
-      <!-- <a href={`singleview/${data.slug}`}>
+      <div class="flex_1">
+        <p class="produktfarve">{data.farve}</p>
+        <p class="produkt_pris_efter hide">kr. {data.pris} ,-</p>
+        {data.tilbud && <p class="produkt_pris_efter ny_pris">kr. {(data.pris * (100 - data.procent)) / 100},-</p>}
+      </div>
+    </div>
+  </a>
+  <div class="flex_2">
+    <!-- <a href={`singleview/${data.slug}`}>
         <button class="kob_knap"><p>Læg i kurv</p></button>
       </a> -->
-      <button class="kob_knap"><p>Læg i kurv</p></button>
-      <button class="hjerte_knap"></button>
-    </div>
-  </article>
+    <button class="kob_knap"><p>Læg i kurv</p></button>
+    <button class="hjerte_knap"></button>
+  </div>
+</article>
 
 <style>
   /* Hvid baggrundsboks */
@@ -96,9 +102,9 @@ console.log(data);
   /* Positionering af gul tilbudsboks */
   .tilbud_boks {
     position: absolute; /*For at kunne positionere med center_img og tilbud_procent*/
-    left: 309px;
     top: -8px;
-    z-index: 2; For at lægge ovenpå center_img
+    right: 0;
+    z-index: 2;
   }
   .tilbud_gulboks {
     width: 90px;
@@ -158,18 +164,43 @@ console.log(data);
   .boks:hover .hjerte_knap {
     display: block; /* Show the buy button on hover */
   }
+
+  @media (max-width: 800px) {
+    /* ChatGPT - Skjuler disse elementer ved hover */
+    .boks:hover .produktbeskrivelse,
+    .boks:hover .produkt_pris,
+    .boks:hover .produktfarve,
+    .boks:hover .produkt_pris_foer,
+    .boks:hover .produkt_pris_efter {
+      display: initial;
+    }
+    /* ChatGPT - Viser disse elementer ved hover */
+    .kob_knap,
+    .hjerte_knap {
+      display: block;
+    }
+    /* Flexboks, der gør at indholdet står i venstre side */
+    .flex_2 {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 18px;
+      padding-bottom: 20px;
+      padding-top: 15px;
+    }
+  }
 </style>
 
 <script>
   // ChatGPT - Tilføjer en eventlistener til knappen, som skifter klassen "fyldt" til og fra, hver gang der klikkes.
   document.addEventListener("DOMContentLoaded", function () {
-  const hjerteKnapper = document.querySelectorAll(".hjerte_knap");
-  hjerteKnapper.forEach(function(hjerteKnap) {
-    hjerteKnap.addEventListener("click", function () {
-      hjerteKnap.classList.toggle("fyldt");
+    const hjerteKnapper = document.querySelectorAll(".hjerte_knap");
+    hjerteKnapper.forEach(function (hjerteKnap) {
+      hjerteKnap.addEventListener("click", function () {
+        hjerteKnap.classList.toggle("fyldt");
+      });
     });
   });
-});
-
-
 </script>

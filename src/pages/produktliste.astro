@@ -16,14 +16,13 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
 <Mainlayout>
   <p class="produkt">KOPPER</p>
-  <div class="grid_1-1-1">
+  <div class="grid_web">
     {
       data.map((card) => {
         return <Card data={card} />;
       })
     }
   </div>
-  <CardMobile />
 </Mainlayout>
 
 <style>
@@ -35,11 +34,25 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
     margin-left: 10%;
     position: fixed;
   }
-  .grid_1-1-1 {
+  .grid_web {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     margin-left: 360px;
     margin-right: 90px;
     margin-bottom: 250px;
+  }
+
+  @media (max-width: 800px) {
+    .produkt {
+      display: none;
+    }
+    .grid_web {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-left: 20px;
+      margin-bottom: 250px;
+    }
   }
 </style>
