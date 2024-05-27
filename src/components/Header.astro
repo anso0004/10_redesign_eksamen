@@ -18,6 +18,7 @@
       </svg>
     </a>
   </div>
+  <!-- hej -->
   <nav>
     <ul class="menu">
       <li class="dropdown">
@@ -41,7 +42,7 @@
             <path d="M10 0.311705C10 0.232632 9.96643 0.15171 9.90127 0.0910258C9.77095 -0.0303421 9.55771 -0.0303421 9.42739 0.0910258L4.96693 4.24513L0.571627 0.15171C0.441307 0.0303421 0.228058 0.0303421 0.0977392 0.15171C-0.0325804 0.273078 -0.0325804 0.471681 0.0977392 0.593049L4.72998 4.90897C4.8603 5.03034 5.07355 5.03034 5.20387 4.90897L9.90127 0.534204C9.96841 0.471681 10 0.392617 10 0.311705Z" fill="#28725C"></path>
           </svg></a
         >
-        <div class="dropdown_content">
+        <div class="dropdown_content margin_2">
           <a href="#">BLOMSTERKOLLEKTION</a>
           <a href="#">RILLEKOLLEKTION</a>
           <a href="#">PRIKKOLLEKTION</a>
@@ -232,7 +233,6 @@
       height: 108px;
       justify-content: space-between;
       align-items: center;
-      flex-shrink: 0;
     }
 
     /* Laver afstand mellem menupunkterne */
@@ -244,7 +244,7 @@
     .menu {
       display: flex;
       padding: 0;
-      margin-left: 35%;
+      /* margin-left: 35%; */
     }
     nav a {
       text-decoration: none;
@@ -259,16 +259,15 @@
     .dropdown_content {
       display: none;
       position: absolute;
-      background: content-box;
       background-color: var(--baggrund_70);
-      /* width: 100%; */
-      height: 40%;
+      padding-left: 46.5%;
+      height: 60%;
       line-height: 2rem;
-      left: 0;
-      /* width: 100vw; */
       z-index: 1000;
-      padding: 1rem 0; /* Tilføjer lidt polstring til indholdet */
       box-sizing: border-box; /* Sikrer, at padding er inkluderet i bredde/højde */
+    }
+    .margin_2 {
+      padding-left: 54.8%;
     }
     .dropdown_content a {
       display: block;
