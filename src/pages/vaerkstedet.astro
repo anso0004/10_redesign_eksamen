@@ -4,7 +4,6 @@ import Knap from "../components/Knap.astro";
 import ProcesKarrusel from "../components/ProcesKarrusel.astro";
 import Stoebeproces from "../components/Stoebeproces.astro";
 import BeigeAccordion from "../components/BeigeAccordion.astro";
-import "../styles/vaerkstedet.css";
 ---
 
 <Mainlayout>
@@ -52,6 +51,30 @@ import "../styles/vaerkstedet.css";
   </section>
 </Mainlayout>
 
-<Knap variant="primary" />
-<Knap variant="secondary" />
-<Knap variant="third" />
+
+<style>
+  .centreret_overskrift {
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .afsnit1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    object-fit: cover;
+    align-self: stretch;
+  }
+  .order_1 {
+    order: 1;
+  }
+  .afsnit3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .afsnit4 {
+    display: flex;
+    gap: 62px;
+  }
+}
+</style>
