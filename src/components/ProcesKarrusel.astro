@@ -1,72 +1,218 @@
-
-
-<div class="arbejdsproces_container">
-    <!-- <button class="button_left" onclick="plusDivs(-1)"></button> -->
-    <div class="slide">
-        <img src="/public/img/proces1.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
+<!-- Karrusel-indhold -->
+<section class="karrusel_container">
+  <article class="karrusel_track">
+    <div class="karrusel_slide">
+      <img src="/public/img/proces1.png" alt="Første step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
             <p class="tal">1</p>
             <p>Først formes leret med hænderne ved hjælp af en drejeskive, så den ønskede form skabes.</p>
         </div>
     </div>
-    <div class="slide">
-        <img src="/public/img/proces2.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
+    <div class="karrusel_slide">
+      <img src="/public/img/proces2.png" alt="Andet step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
             <p class="tal">2</p>
             <p>De drejede produkter tørres langsomt, så de bliver stærke, og undgår deformation under første brænding.</p>
         </div>
     </div>
-    <div class="slide">
-        <img src="/public/img/proces3.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
+    <div class="karrusel_slide">
+      <img src="/public/img/proces3.png" alt="Tredje step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
             <p class="tal">3</p>
             <p>Herefter glaseres produkterne. Glasuren består af mineraler, som smelter og danner en glasagtig overflade ved brænding.</p>
         </div>
     </div>
-    <div class="slide">
-        <img src="/public/img/proces4.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
+    <div class="karrusel_slide">
+      <img src="/public/img/proces4.png" alt="Første step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
             <p class="tal">4</p>
             <p>Til slut brændes produkterne i en ovn ved høje temperaturer. Glasuren smelter, og danner en hård, vandtæt overflade.</p>
         </div>
     </div>
-    <!-- <button class="button_right" onclick="plusDivs(+1)"></button> -->
-</div>
+  </article>
+  <button class="custom_btn prev_btn">
+    <span class="arrow">&#8592;</span>
+  </button>
+  <button class="custom_btn next_btn">
+    <span class="arrow">&#8594;</span>
+  </button>
+</section>
+<!-- Grid-indhold -->
+<section class="arbejdsproces_container">
+    <div class="grid_flex">
+      <img src="/public/img/proces1.png" alt="Første step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
+            <p class="tal">1</p>
+            <p>Først formes leret med hænderne ved hjælp af en drejeskive, så den ønskede form skabes.</p>
+        </div>
+    </div>
+    <div class="grid_flex">
+      <img src="/public/img/proces2.png" alt="Andet step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
+            <p class="tal">2</p>
+            <p>De drejede produkter tørres langsomt, så de bliver stærke, og undgår deformation under første brænding.</p>
+        </div>
+    </div>
+    <div class="grid_flex">
+      <img src="/public/img/proces3.png" alt="Tredje step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
+            <p class="tal">3</p>
+            <p>Herefter glaseres produkterne. Glasuren består af mineraler, som smelter og danner en glasagtig overflade ved brænding.</p>
+        </div>
+    </div>
+    <div class="grid_flex">
+      <img src="/public/img/proces4.png" alt="Første step i arbejdsprocessen">
+      <div class="tal_tekst_flex">
+            <p class="tal">4</p>
+            <p>Til slut brændes produkterne i en ovn ved høje temperaturer. Glasuren smelter, og danner en hård, vandtæt overflade.</p>
+        </div>
+    </div>
+</section>
+
 
 <style>
-    .tal{
+    .karrusel_container{
+        display: none;
+    }
+    .arbejdsproces_container{
+        display: block;
+    }
+
+    .karrusel_container {
+    position: relative;
+    overflow: hidden;
+}
+  .karrusel_track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .karrusel_slide {
+    width: 100%;
+    flex: 0 0 100%; /*Fire billeder ved siden af hinanden */
+  }
+  .grid_flex{
+    display: flex;
+    flex-direction: column;
+  }
+  .custom_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .prev_btn {
+    left: 10px;
+    background-color: white;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .next_btn {
+    right: 10px;
+    background-color: white;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+  }
+  .arrow {
+    font-size: 20px;
+  }
+  .tal_tekst_flex{
+    display: flex;
+    margin-top: 20px;
+    gap: 13px;
+  }
+  .tal{
         font-family: var(--nunito);
         font-size: 151px;
         color: var(--green_100);
         font-weight: 200;
-    }
-    .tal_tekst_flex{
-        display: flex;
-        align-items: center;
+        margin-top: 60px;
     }
     .arbejdsproces_container{
         max-width: 100%;
         overflow: hidden;
-    }
-    .slide{
-        /* display: none; */
-        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 51px;
     }
 
+  @media (max-width: 800px){
+    .karrusel_container{
+        display: block;
+    }
+    .arbejdsproces_container{
+        display: none;
+    }
+  }
+    
+    
+    /* .slide{
+        display: none;
+        text-align: center;
+    } */
+
     @media (min-width: 800px){
-        .arbejdsproces_container{
+        /* .arbejdsproces_container{
             display: flex;
             flex-wrap: wrap;
-        }
-        .slide{
+        } */
+        /* .slide{
             display: block;
             width: calc(25%);
             position: relative;
-        }
+        } */
     }
 </style>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".karrusel_track");
+    const slides = document.querySelectorAll(".karrusel_slide");
+    const prevBtn = document.querySelector(".prev_btn");
+    const nextBtn = document.querySelector(".next_btn");
+    const slideWidth = slides[0].offsetWidth;
+    const visibleSlides = 1; // Antal synlige billeder
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const newTransformValue = -currentIndex * slideWidth + "px";
+      track.style.transform = "translateX(" + newTransformValue + ")";
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      track.style.transition = "transform 0.5s ease-in-out";
+      updateCarousel();
+
+      if (currentIndex >= slides.length - visibleSlides + 1) {
+        // Når vi nærmer os slutningen, gå tilbage til starten uden animation
+        currentIndex = 0;
+        track.style.transition = "none";
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      track.style.transition = "transform 0.5s ease-in-out";
+      updateCarousel();
+
+      if (currentIndex < 0) {
+        // Når vi går baglæns forbi det første billede, gå tilbage til slutningen uden animation
+        currentIndex = slides.length - 1;
+        track.style.transition = "none";
+        updateCarousel();
+      }
+    }
+
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+  });
     // var slideIndex = 1;
     // showDivs(slideIndex);
     // function plusDivs(n) {
@@ -117,3 +263,43 @@
     // showSlide(currentIndex);
 
 </script>
+
+
+
+
+
+<!-- <div class="arbejdsproces_container">
+    <button class="button_left" onclick="plusDivs(-1)"></button>
+    <div class="slide">
+        <img src="/public/img/proces1.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">1</p>
+            <p>Først formes leret med hænderne ved hjælp af en drejeskive, så den ønskede form skabes.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="/public/img/proces2.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">2</p>
+            <p>De drejede produkter tørres langsomt, så de bliver stærke, og undgår deformation under første brænding.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="/public/img/proces3.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">3</p>
+            <p>Herefter glaseres produkterne. Glasuren består af mineraler, som smelter og danner en glasagtig overflade ved brænding.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="/public/img/proces4.png" alt="Første step i arbejdsprocessen">
+        <div class="tal_tekst_flex">
+            <p class="tal">4</p>
+            <p>Til slut brændes produkterne i en ovn ved høje temperaturer. Glasuren smelter, og danner en hård, vandtæt overflade.</p>
+        </div>
+    </div>
+    <button class="button_right" onclick="plusDivs(+1)"></button>
+</div> -->
+
+
+
