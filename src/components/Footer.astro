@@ -7,11 +7,10 @@ import Knap from "./Knap.astro";
     <div class="faellesskabet">
       <h4 class="footer_overskrift">BLIV EN DEL AF FÆLLESSKABET</h4>
       <p>Tilmeld dig vores nyhedsbrev her og få 10% på din første ordre, eksklusive tilbud og nyheder direkte i din indbakke.</p>
-      <div class="form_felt">
+      <form class="form_felt">
         <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" />
         <Knap tekst="Tilmeld" variant="secondary" />
-        <!-- onclick skal tilføjes-->
-      </div>
+      </form>
     </div>
 
     <div>
@@ -58,11 +57,7 @@ import Knap from "./Knap.astro";
       </div>
     </div>
   </div>
-
-  <!-- <script src="javascript/footer.js"></script> -->
 </footer>
-
-<script></script>
 
 <style>
   * {
@@ -116,6 +111,9 @@ import Knap from "./Knap.astro";
     font-weight: 800;
     letter-spacing: 1.5px;
     font-family: var(--nunito);
+  }
+  .footer_grid {
+    margin-bottom: 3rem;
   }
 
   @media (min-width: 800px) {
@@ -257,6 +255,9 @@ import Knap from "./Knap.astro";
     li h4 {
       line-height: 0;
       margin-bottom: 1rem;
+    }
+    .footer_luft {
+      margin-top: 5%;
     }
   }
 </style>
