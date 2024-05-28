@@ -1,15 +1,13 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
-import Knap from "../components/Knap.astro";
 import ProcesKarrusel from "../components/ProcesKarrusel.astro";
 import Stoebeproces from "../components/Stoebeproces.astro";
-import BeigeAccordion from "../components/BeigeAccordion.astro";
 ---
 
 <Mainlayout>
   <h1 class="centreret_overskrift">Værkstedet</h1>
   <section class="afsnit1">
-    <img src="/img/hanne2.jpg" alt="Hanne" class="order_1" />
+    <img src="/img/hanne2.jpg" alt="Hanne" class="order_1 margen_h_web" />
     <div class="margen_v_mobil margen_v_web margen_h_mobil">
       <h2>OM VIRKSOMHEDEN</h2>
       <p>Hanne Bertelsen Keramik er en enkeltmandsvirksomhed i hjertet af København. Interessen for keramik har altid været der, og hvert produkt bliver udviklet med kærlighed og finesse.<br /><br /> På værkstedet udvikles både unikaværker og keramik til daglig brug, hvor mestring af håndværket og kunstneriske udtryk går hånd i hånd. Produkterne er designet med struktur og riller, som fremhæver lerets tekstur og glasurens farver. <br /><br />Keramikken er håndlavet, og små variationer som farvepletter eller skævheder viser materialets karakter. <br /><br />Produkterne kendetegner et drømmende, men også genkendeligt univers, inspireret af naturens elementer. <br /><br />Målet er at skabe keramik, der både vækker minder og nysgerrighed.</p>
@@ -24,7 +22,7 @@ import BeigeAccordion from "../components/BeigeAccordion.astro";
   </section>
 
   <section class="afsnit3 margen_top">
-    <img src="/public/img/baeredygtigt.png" alt="Brænding af fade" class="baeredygtigt" />
+    <img src="/img/baeredygtigt.png" alt="Brænding af fade" class="baeredygtigt" />
     <div class="margen_h_web margen_h_mobil margen_v_mobil">
       <h2>Bæredygtige tiltag</h2>
       <p>
@@ -63,11 +61,8 @@ import BeigeAccordion from "../components/BeigeAccordion.astro";
 
 @media (min-width: 800px) {
   .afsnit1 {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr;
-    object-fit: cover;
-    align-self: stretch; */
     display: flex;
+    justify-content: space-between;
     gap: 131px;
     margin-top: 125px;
   }
