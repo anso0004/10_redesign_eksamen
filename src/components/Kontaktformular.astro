@@ -10,7 +10,7 @@ import Knap from "./Knap.astro"
         Du er også velkommen til at sende en henvendelse på tlf. +45 23 98 23 09 eller mail@hannebertelsen.dk.</p>
 </div>
 <div>
-<form class="flex_form margen_h_mobil margen_v_mobil">
+<form class="flex_form margen_h_mobil margen_v_mobil" netlify>
     <input type="text" id="navn" name="navn" required placeholder="Navn" netlify>
     <input type="text" id="mail" name="mail" required placeholder="Mail" netlify>
     <textarea name="besked" id="besked" placeholder="Skriv din besked her" netlify></textarea>
@@ -64,6 +64,7 @@ import Knap from "./Knap.astro"
     @media (min-width: 800px){
         .flex_formular{
             display: flex;
+            justify-content: space-between;
             padding-left: 167px;
             padding-right: 167px;
         }

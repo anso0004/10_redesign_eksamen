@@ -3,16 +3,6 @@
 ---
 
 <header>
-  <!-- <div class="logo_header">
-    <a href="/">
-      <svg width="72" height="108" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.268 44V12.98H6.116V27.412H27.28V12.98H29.128V44H27.28V29.128H6.116V44H4.268Z" fill="#28725C"></path>
-        <path
-          d="M27.268 64V32.98H38.576C41.832 32.98 44.34 33.684 46.1 35.092C47.86 36.4707 48.74 38.4653 48.74 41.076C48.74 43.0707 48.124 44.7133 46.892 46.004C45.6893 47.2947 44.0467 48.1453 41.964 48.556V47.94C44.2813 48.1453 46.1 48.908 47.42 50.228C48.7693 51.548 49.444 53.3373 49.444 55.596C49.444 58.3533 48.564 60.4507 46.804 61.888C45.044 63.296 42.5067 64 39.192 64H27.268ZM29.116 62.284H39.148C41.6707 62.284 43.6947 61.7853 45.22 60.788C46.7453 59.7907 47.508 58.104 47.508 55.728C47.508 53.3227 46.7453 51.636 45.22 50.668C43.6947 49.6707 41.6707 49.172 39.148 49.172H29.116V62.284ZM29.116 47.456H38.488C41.216 47.456 43.284 46.9133 44.692 45.828C46.1 44.7133 46.804 43.1293 46.804 41.076C46.804 38.9933 46.1 37.4093 44.692 36.324C43.284 35.2387 41.216 34.696 38.488 34.696H29.116V47.456Z"
-          fill="#28725C"></path>
-      </svg>
-    </a>
-  </div> -->
   <div class="logo_header">
     <a href="/"> <img src="public/img/logo_lys.svg" alt="Logo" id="lyst_logo" class="" /></a>
     <a href="/"> <img src="public/img/gron_logo.svg" alt="Logo" id="morkt_logo" class="hide" /></a>
@@ -39,7 +29,6 @@
           <a class="list_tekst_kategori" href="/produkter/vaser">VASER</a>
           <a class="list_tekst_kategori" href="/produkter/fade">FADE</a>
           <a class="list_tekst_kategori" href="/produkter/skaale">SKÅLE</a>
-          <!-- <a href="/produkter/lysestager">LYSESTAGER</a> -->
         </div>
       </li>
       <li class="dropdown">
@@ -164,11 +153,8 @@
       display: none;
     }
     .burger {
-      /* width: 4px;
-        height: 20px; */
       cursor: pointer;
       flex: 1;
-      /* margin-right: 16px; */
     }
     .logo_header {
       order: 2;
@@ -235,15 +221,7 @@
   }
   /* -------------- DESKTOP -------------- */
   @media (min-width: 800px) {
-    /* .test {
-      position: absolute;
-      transform: translateX(-50%);
-      top: 0;
-      left: 0;
-    } */
     .logo_header {
-      /* margin-left: 2%; */
-      /* margin-top: 30px; */
       flex: 1;
       width: 7%;
       position: relative; /*For at kunne give en z-index*/
@@ -274,8 +252,6 @@
     }
     nav {
       display: flex;
-      /* width: 1201px; */
-      /* height: 108px; */
       justify-content: flex-end;
       align-items: center;
     }
@@ -289,8 +265,6 @@
     .menu {
       display: flex;
       padding-right: 53px;
-      /* position: relative; */
-      /* margin-left: 35%; */
     }
     nav a {
       text-decoration: none;
@@ -306,21 +280,16 @@
       display: none;
       position: absolute;
       background-color: var(--baggrund_70);
-      /* padding-left: 46.5%; */
       height: 197px;
       line-height: 2rem;
       z-index: 1000;
       box-sizing: border-box; /* Sikrer, at padding er inkluderet i bredde/højde */
       padding-top: 1%;
     }
-    .margin_2 {
-      /* padding-left: 54.8%; */
-    }
     .dropdown_content a {
       display: block;
       text-decoration: none;
       color: var(--green_100);
-      /* padding: 0.5rem 1.5rem; */
       white-space: nowrap; /* Sikrer, at tekst ikke brydes */
     }
 
@@ -341,12 +310,9 @@
       display: block;
       left: 0;
       right: 0; /* Sikrer, at dropdown-content fylder hele bredden af skærmen */
-      /* top: 88px; */
     }
     .head_icons {
       display: flex;
-      /* position: absolute; */
-      /* right: 100px; */
       gap: 11px;
       flex: 1;
     }
