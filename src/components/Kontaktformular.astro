@@ -2,7 +2,7 @@
 import Knap from "./Knap.astro"
 ---
 <div class="flex_formular">
-<div class="tekst_formular">
+<div class="tekst_formular margen_h_mobil margen_v_mobil">
 <h3>Har du spørgsmål?</h3>
         <p>Har du spørgsmål om keramikprodukter, bestillinger eller andet, så benyt kontaktformularen for at få et hurtigt svar.<br /><br />
         Husk at udfylde alle felter for at sikre den bedst mulige hjælp. Der bestræbes på at svare inden for 24 timer på hverdage.<br /><br /> 
@@ -10,10 +10,10 @@ import Knap from "./Knap.astro"
         Du er også velkommen til at sende en henvendelse på tlf. +45 23 98 23 09 eller mail@hannebertelsen.dk.</p>
 </div>
 <div>
-<form class="flex_form">
-    <input type="text" id="navn" name="navn" required placeholder="Navn">
-    <input type="text" id="mail" name="mail" required placeholder="Mail">
-    <textarea name="besked" id="besked" placeholder="Skriv din besked her"></textarea>
+<form class="flex_form margen_h_mobil margen_v_mobil">
+    <input type="text" id="navn" name="navn" required placeholder="Navn" netlify>
+    <input type="text" id="mail" name="mail" required placeholder="Mail" netlify>
+    <textarea name="besked" id="besked" placeholder="Skriv din besked her" netlify></textarea>
     <button class="send">Send</button>
 </form>
 </div>

@@ -3,7 +3,7 @@ const {tal, tekst}=Astro.props;
 ---
 <div class="flex_col">
     <slot />
-    <div class="tal_tekst_flex">
+    <div class="tal_tekst_flex margen_h_mobil margen_v_mobil">
         <p class="tal">{tal}</p>
         <p>{tekst}</p>
     </div>
@@ -31,7 +31,6 @@ const {tal, tekst}=Astro.props;
     }
     p{
         align-self: start;
-        padding-right: 24px;
     }
 </style>
 
