@@ -7,24 +7,25 @@ import BeigeAccordion from "../components/BeigeAccordion.astro";
 ---
 
 <Mainlayout>
+  <h1 class="centreret_overskrift">Værkstedet</h1>
   <section class="afsnit1">
     <img src="/img/hanne2.jpg" alt="Hanne" class="order_1" />
-    <div>
+    <div class="margen_v_mobil margen_v_web margen_h_mobil">
       <h2>OM VIRKSOMHEDEN</h2>
       <p>Hanne Bertelsen Keramik er en enkeltmandsvirksomhed i hjertet af København. Interessen for keramik har altid været der, og hvert produkt bliver udviklet med kærlighed og finesse.<br /><br /> På værkstedet udvikles både unikaværker og keramik til daglig brug, hvor mestring af håndværket og kunstneriske udtryk går hånd i hånd. Produkterne er designet med struktur og riller, som fremhæver lerets tekstur og glasurens farver. <br /><br />Keramikken er håndlavet, og små variationer som farvepletter eller skævheder viser materialets karakter. <br /><br />Produkterne kendetegner et drømmende, men også genkendeligt univers, inspireret af naturens elementer. <br /><br />Målet er at skabe keramik, der både vækker minder og nysgerrighed.</p>
     </div>
   </section>
 
-  <section>
+  <section class="margen_top">
     <h2 class="centreret_overskrift">Arbejdsprocessen</h2>
-    <div>
+    <div class="margen_h_web margen_v_web">
       <ProcesKarrusel />
     </div>
   </section>
 
-  <section class="afsnit3">
+  <section class="afsnit3 margen_top">
     <img src="/public/img/baeredygtigt.png" alt="Brænding af fade" class="baeredygtigt" />
-    <div>
+    <div class="margen_h_web margen_h_mobil margen_v_mobil">
       <h2>Bæredygtige tiltag</h2>
       <p>
         Hanne Bertelsen Keramik tager hensyn til miljøet, og arbejder aktivt med bæredygtighed i alle led af produktionen.<br /><br />
@@ -35,17 +36,17 @@ import BeigeAccordion from "../components/BeigeAccordion.astro";
     </div>
   </section>
 
-  <section>
+  <section class="margen_top">
     <h2 class="centreret_overskrift">Om støbeprocessen</h2>
-    <div class="afsnit4">
+    <div class="afsnit4 margen_h_web margen_v_web">
       <Stoebeproces tal="1" tekst="Først omrøres det flydende ler grundigt. Undervejs tilpasses konsistensen med vand, for at sikre en jævn og ensartet masse.">
-        <img src="/public/img/stoeb1.png" alt="Omrøring i leret" />
+        <img src="/img/stoeb1.webp" alt="Omrøring i leret" />
       </Stoebeproces>
       <Stoebeproces tal="2" tekst="Herefter hældes leret i en gipsform, som tørrer leret ved at suge fugten ud af det. Hermed størknes leret, så der dannes den ønskede form.">
-        <img src="/public/img/stoeb2.png" alt="Leret hældes i gipsform" />
+        <img src="/img/stoeb2.webp" alt="Leret hældes i gipsform" />
       </Stoebeproces>
       <Stoebeproces tal="3" tekst="Når leret er størknet, tages det ud af formes, og tørres yderligere, så produktet efterfølgende bliver klar til brænding og glasering.">
-        <img src="/public/img/stoeb3.png" alt="Leret størknes" />
+        <img src="/img/stoeb3.webp" alt="Leret størknes" />
       </Stoebeproces>
     </div>
   </section>
@@ -56,13 +57,19 @@ import BeigeAccordion from "../components/BeigeAccordion.astro";
   .centreret_overskrift {
   text-align: center;
 }
+.margen_top{
+  margin-top: 179px;
+}
 
 @media (min-width: 800px) {
   .afsnit1 {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
     object-fit: cover;
-    align-self: stretch;
+    align-self: stretch; */
+    display: flex;
+    gap: 131px;
+    margin-top: 125px;
   }
   .order_1 {
     order: 1;
@@ -71,10 +78,12 @@ import BeigeAccordion from "../components/BeigeAccordion.astro";
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    gap: 91px;
   }
   .afsnit4 {
     display: flex;
     gap: 62px;
   }
+  
 }
 </style>

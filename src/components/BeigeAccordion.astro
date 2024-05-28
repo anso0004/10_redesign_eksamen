@@ -22,6 +22,8 @@ const { accordion_txt } = Astro.props;
     background-color: var(--baggrund_50);
     border: 1.5px solid var(--sort_100);
     width: 292px;
+    margin-bottom: 20px;
+    
   }
   details summary {
     display: flex;
@@ -36,10 +38,15 @@ const { accordion_txt } = Astro.props;
   /* Arrow icon */
   details summary::after {
     content: "";
-    width: 0;
-    height: 0;
-    border-top: 0.5rem solid black;
-    border-inline: 0.4rem solid transparent;
+    width: 22px; /* Match width of SVG */
+    height: 10px; /* Match height of SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2222%22 height=%2210%22 viewBox=%220 0 22 10%22 fill=%22none%22%3E%3Cpath d=%22M22 1.06107C22 0.918736 21.9262 0.773078 21.7828 0.663847C21.4961 0.445384 21.027 0.445384 20.7403 0.663847L10.9272 8.14123L1.25758 0.773078C0.970877 0.554615 0.501728 0.554615 0.215027 0.773078C-0.0716743 0.99154 -0.0716743 1.34903 0.215027 1.56749L10.406 9.33615C10.6927 9.55462 11.1618 9.55462 11.4485 9.33615L21.7828 1.46157C21.9305 1.34903 22 1.20671 22 1.06107Z%22 fill=%22black%22/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 0.3s;
+    margin-right: 10px;
   }
   details[open] > summary::after {
     transform: rotate(-180deg);
