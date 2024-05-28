@@ -6,9 +6,8 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
 
 <ForsideMainLayout>
   <div class="øverste_billeder">
-    <div class="to">
-      <img class="forside1" src="/img/ny_forsidebill.png" alt="" />
-    </div>
+    <img class="forside1" src="/img/ny_forsidebill.png" alt="" />
+
     <div class="tre">
       <img class="forside2" src="/img/kopperne1.png" alt="" />
       <h1 class="keramik hide1">Keramik</h1>
@@ -50,6 +49,7 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
 
 <style>
   h1 {
+    margin-top: 1.5%;
     font-weight: 300;
   }
   .produkter_knap {
@@ -125,11 +125,17 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
   @media (min-width: 800px) {
     .keramik {
       rotate: 90deg;
-      margin-top: 70%;
+      /* margin-top: 22%; */
       font-size: 57px;
       letter-spacing: 5.7px;
-      margin-right: 96%;
+      margin-right: 88%;
       font-weight: 300;
+    }
+
+    h1{
+      margin-left: 2%;
+  font-size: 98px;
+}
     }
 
     .øverste_billeder {
@@ -155,7 +161,7 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
     }
 
     .forside3 {
-      margin-top: 20%;
+      margin-top: 53%;
     }
 
     .inspiration {
