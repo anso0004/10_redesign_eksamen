@@ -154,3 +154,22 @@ p {
   margin-top: 150px;
   margin-bottom: 150px;
 }
+
+/*********** MARGENER ***********/
+
+@media (min-width: 800px) {
+  .margen_h_web {
+    margin-right: 80px;
+  }
+  .margen_v_web {
+    margin-left: 80px;
+  }
+}
+@media (max-width: 800px) {
+  .margen_h_mobil {
+    margin-right: 38px;
+  }
+  .margen_v_mobil {
+    margin-left: 38px;
+  }
+}
