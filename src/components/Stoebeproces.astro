@@ -13,16 +13,25 @@ const {tal, tekst}=Astro.props;
     .flex_col{
         display: flex;
         flex-direction: column;
+        width: 100%;
+        height: auto;
     }
     .tal{
         font-family: var(--nunito);
         font-size: 151px;
         color: var(--green_100);
         font-weight: 200;
+        margin-top: 60px;
     }
     .tal_tekst_flex{
         display: flex;
         align-items: center;
+        margin-top: 39px;
+        gap: 13px;
+    }
+    p{
+        align-self: start;
+        padding-right: 24px;
     }
 </style>
 
