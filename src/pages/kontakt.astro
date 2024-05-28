@@ -10,8 +10,8 @@ import Knap from "../components/Knap.astro";
                 <source src="http://victoriamarkussen.dk/kea/10_redesign_eksamen/HB_stemningsvideo.mp4" type="video/mp4">
             </video>
     </section>
-    <h1>Kontakt</h1>
-    <section class="flex_web">
+    <h1 class="centreret_overskrift">Kontakt</h1>
+    <section class="flex_web margen_h_web margen_h_mobil margen_v_web margen_v_mobil">
         <article class="flex_aebningstider">
             <h2 class="roterende_overskrift roterende_overskrift_mobil">Åbningstider</h2>
             <p class="line_height">Mandag: Lukket<br /><br />
@@ -23,14 +23,14 @@ import Knap from "../components/Knap.astro";
             Søndag: Lukket</p>
         </article>
         <div class="grid_web">
-        <article>
+        <article class="margen_top_mobil">
             <h2>Adresse</h2>
             <p>Sankt Paulsgade 72, 1313 K
                  <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"> Find butikken på Google Maps her</a></li>
             </p>
         </article>
         
-        <article>
+        <article class="margen_top_mobil">
             <h2>instagram</h2>
             <li class="footer_tekst"><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">
             <article class="flex_ikoner">
@@ -39,7 +39,7 @@ import Knap from "../components/Knap.astro";
             </article>
             </a>
         </article>
-        <article>
+        <article class="margen_top_mobil">
             <h2>Kontakt</h2>
             <article class="flex_ikoner">
                 <img src="/img/telefon.svg" alt="telefonikon">
@@ -51,11 +51,11 @@ import Knap from "../components/Knap.astro";
             </article>
         </article>
 
-        <article>
+        <article class="margen_top_mobil">
             <h2>Nyhedsbrev</h2>
             <p class="line_height_2">Tilmeld dig nyhedsbrevet og få nyheder<br /><br /> direkte i din indbakke.</p>
-            <form>
-                <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" />
+            <form netlify>
+                <input type="text" id="mail" name="mail" required placeholder="Skriv din mailadresse" netlify />
                 <Knap variant="secondary" tekst="Tilmeld"></Knap>
             </form>
         </article>
@@ -67,6 +67,9 @@ import Knap from "../components/Knap.astro";
 </Mainlayout>
 
 <style>
+    .centreret_overskrift {
+        text-align: center;
+    }
     .roterende_overskrift{
         rotate: -90deg;
         transform-origin: left top;
@@ -109,8 +112,11 @@ import Knap from "../components/Knap.astro";
 
     @media (max-width: 800px){
         .line_height{
-        line-height: 15px;
-    }
+            line-height: 15px;
+        }
+        .margen_top_mobil{
+            margin-top: 40px;
+        }
     }
 
     @media (min-width: 800px){
