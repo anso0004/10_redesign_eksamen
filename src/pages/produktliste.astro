@@ -15,7 +15,7 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 ---
 
 <Mainlayout>
-  <p class="produkt">KOPPER</p>
+  <p class="produkt">Alle produkter</p>
   <div class="grid_web">
     {
       data.map((card) => {
@@ -27,12 +27,13 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
 <style>
   .produkt {
-    font-size: 10vw;
+    font-size: 4vw;
     transform: rotate(-90deg);
     transform-origin: left top;
     margin-top: 39.9%;
     margin-left: 10%;
     position: fixed;
+    top: 150px;
   }
   .grid_web {
     display: grid;
