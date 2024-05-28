@@ -4,7 +4,7 @@
 
 <header>
   <div class="logo_header">
-    <a href="/"> <img src="public/img/gron_logo.svg" alt="Logo" /></a>
+    <a href="/"> <img src="/img/gron_logo.svg" alt="Logo" /></a>
   </div>
   <div class="burger">
     <div class="line"></div>
@@ -146,10 +146,10 @@
     .logo_header img {
       width: 30%;
     }
-    #lyst_logo,
+    /* #lyst_logo,
     #morkt_logo {
       display: none;
-    }
+    } */
     .burger {
       cursor: pointer;
       flex: 1;
@@ -226,9 +226,9 @@
       z-index: 10000; /*For at placere logo foran dropdown-boks*/
     }
 
-    .logo_mobil {
+    /* .logo_mobil {
       display: none;
-    }
+    } */
     header:hover {
       background-color: var(--baggrund_70); /* Definér din nye baggrundsfarve her */
     }
@@ -333,26 +333,3 @@
     }
   }
 </style>
-
-<script>
-  // ChatGPT - Logo skifter klasse ved mouseover i header
-  // Hent elementerne
-  const header = document.querySelector("header");
-  const lystLogo = document.getElementById("lyst_logo");
-  const morktLogo = document.getElementById("morkt_logo");
-
-  // Tilføj eventlistener til mouseover på header
-  header.addEventListener("mouseover", function () {
-    // Fjern klassen "hide" fra morkt_logo
-    morktLogo.classList.remove("hide");
-    // Tilføj klassen "hide" til lyst_logo
-    lystLogo.classList.add("hide");
-  });
-
-  header.addEventListener("mouseout", function () {
-    // Tilføj klassen "hide" til morkt_logo
-    morktLogo.classList.add("hide");
-    // Fjern klassen "hide" fra lyst_logo
-    lystLogo.classList.remove("hide");
-  });
-</script>
