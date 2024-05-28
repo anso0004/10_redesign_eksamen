@@ -7,12 +7,18 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
 <ForsideMainLayout>
   <div class="øverste_billeder">
     <img class="forside1" src="/img/ny_forsidebill.png" alt="" />
-
-    <div class="tre">
+    <!-- Til mobil -->
+    <div class="andendel skjuldesktop">
+      <img class="forside3" src="/img/blomster_forside.png" alt="" />
+      <img class="forside2" src="/img/kopperne1.png" alt="" />
+      <h1 class="keramik">Keramik</h1>
+    </div>
+    <!-- Til desktop -->
+    <div class="tre skjul">
       <img class="forside2" src="/img/kopperne1.png" alt="" />
       <h1 class="keramik hide1">Keramik</h1>
     </div>
-    <div class="nederste">
+    <div class="nederste skjul">
       <img class="forside3" src="/img/blomster_forside.png" alt="" />
       <h1 class="keramik hide2">Keramik</h1>
     </div>
@@ -60,62 +66,62 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
     padding-bottom: 139px;
   }
 
+  .lille_billede {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h3 {
+    margin-bottom: 7px;
+  }
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .øverste_billeder {
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+  }
+
+  .andendel {
+    gap: 2%;
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: 3fr 4fr 0.5fr;
+  }
+
+  /* Mobil */
   @media (max-width: 800px) {
-    .lille_billede {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 10%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-    h3 {
-      margin-bottom: 7px;
-    }
-    p {
-      width: 70%;
-      margin: auto;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .øverste_billeder {
-      display: flex;
-      flex-direction: column;
-      gap: 3%;
-    }
-    .forside2 {
-      display: flex;
-      width: 40%;
-    }
-
-    .forside3 {
-      display: flex;
-      order: -1;
-    }
-
-    .nederste {
-      order: 2;
-    }
-
-    .to {
-      order: 1;
-    }
-
-    .tre {
-      order: 3;
-    }
-
+    /* Fjerner keramik på mobil */
     .hide2 {
       display: none;
     }
 
     .keramik {
       rotate: 90deg;
-      margin-top: -15%;
       letter-spacing: 5.7px;
       font-weight: 300;
+      transform-origin: left top;
+      margin-left: 25%;
+      font-size: 29px;
     }
+
+    .skjul {
+      display: none;
+    }
+
     .inspiration {
       padding-bottom: 5rem;
     }
@@ -125,17 +131,16 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
   @media (min-width: 800px) {
     .keramik {
       rotate: 90deg;
-      /* margin-top: 22%; */
       font-size: 57px;
       letter-spacing: 5.7px;
       margin-right: 88%;
       font-weight: 300;
     }
 
-    h1{
+    h1 {
       margin-left: 2%;
-  font-size: 98px;
-}
+      font-size: 98px;
+      text-align: start;
     }
 
     .øverste_billeder {
@@ -148,20 +153,24 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
       width: 50vw;
     }
 
-    .forside2 {
-      width: 20vw;
-    }
-
+    /* Gør blomsterkrukken større, og flytter den ned */
     .forside3 {
       width: 20vw;
+      margin-top: 45%;
     }
+    /* Fjerner keramik */
+    .hide1 {
+      display: none;
+    }
+    /* Skjuler anden del på desktop */
+    .skjuldesktop {
+      display: none;
+    }
+
+    /* Gør at kopper billedet er i bunden */
     .tre {
       display: flex;
       align-self: end;
-    }
-
-    .forside3 {
-      margin-top: 53%;
     }
 
     .inspiration {
@@ -175,22 +184,13 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
     .inspiration_sektion {
       margin-bottom: 5rem;
     }
-    h3 {
-      margin: auto;
-      margin-top: 46px;
-      letter-spacing: 2.8px;
-      font-weight: 400;
-    }
+
     p {
       width: 60%;
       justify-content: center;
       margin: auto;
       margin-top: 14px;
       margin-bottom: 17px;
-    }
-
-    .hide1 {
-      display: none;
     }
 
     .item_3 {
