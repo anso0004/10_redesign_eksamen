@@ -72,11 +72,15 @@ import Knap from "../components/Knap.astro";
     }
     .roterende_overskrift{
         rotate: -90deg;
-        transform-origin: left top;
-        margin-top: 204.75px;
+        transform-origin: right top;
+        /* margin-top: 204.75px; */
     }
     .flex_aebningstider{
         display: flex;
+    }
+    .line_height{
+        padding-left: 81px;
+        padding-top: 20px;
     }
     .line_height_2{
         line-height: 15px;
@@ -121,11 +125,12 @@ import Knap from "../components/Knap.astro";
 
     @media (min-width: 800px){
         .roterende_overskrift_mobil{
-            margin-top: 311.75px;
+            /* margin-top: 311.75px; */
         }
         .flex_web{
             display: flex;
-            justify-content: space-between;
+            /* justify-content: space-between; */
+            gap: 8%;
         }
         .grid_web{
             display: grid;
