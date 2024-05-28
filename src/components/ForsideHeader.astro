@@ -29,11 +29,11 @@
           </svg></a
         >
         <div class="dropdown_content">
-          <a href="/produktliste">ALLE PRODUKTER</a>
-          <a href="/produkter/kopper">KOPPER</a>
-          <a href="/produkter/vaser">VASER</a>
-          <a href="/produkter/fade">FADE</a>
-          <a href="/produkter/skaale">SKÅLE</a>
+          <a class="list_tekst" href="/produktliste">ALLE PRODUKTER</a>
+          <a class="list_tekst" href="/produkter/kopper">KOPPER</a>
+          <a class="list_tekst" href="/produkter/vaser">VASER</a>
+          <a class="list_tekst" href="/produkter/fade">FADE</a>
+          <a class="list_tekst" href="/produkter/skaale">SKÅLE</a>
           <!-- <a href="/produkter/lysestager">LYSESTAGER</a> -->
         </div>
       </li>
@@ -291,6 +291,11 @@
       color: var(--green_100);
       padding: 0.5rem 1.5rem; /* Tilføjer lidt polstring til linkene */
       white-space: nowrap; /* Sikrer, at tekst ikke brydes */
+    }
+
+    .list_tekst {
+      font-size: 13px;
+      color: red;
     }
     .dropdown_content a:hover {
       text-decoration: underline;
