@@ -88,7 +88,11 @@
   }
   .karrusel_slide {
     width: 100%;
-    flex: 0 0 100%; /*Fire billeder ved siden af hinanden */
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
   }
   .grid_flex{
     display: flex;
@@ -97,7 +101,7 @@
   .custom_btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-390%);
     background: none;
     border: none;
     cursor: pointer;
@@ -175,7 +179,7 @@
     const slides = document.querySelectorAll(".karrusel_slide");
     const prevBtn = document.querySelector(".prev_btn");
     const nextBtn = document.querySelector(".next_btn");
-    const slideWidth = slides[0].offsetWidth;
+    const slideWidth = slides[1].offsetWidth;
     const visibleSlides = 1; // Antal synlige billeder
     let currentIndex = 0;
 

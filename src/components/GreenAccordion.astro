@@ -22,13 +22,14 @@ const { green_accordion_txt } = Astro.props;
     font-weight: 400;
     text-transform: uppercase;
     font-size: 28px;
+    height: 108px;
   }
   .styled_details summary {
     display: flex;
     list-style: none;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
+    padding: 1rem;
     cursor: pointer;
   }
 
@@ -36,18 +37,25 @@ const { green_accordion_txt } = Astro.props;
     max-width: 750px;
     background-color: var(--green_100);
     border: 1.5px solid var(--baggrund_50);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 
   /* Arrow icon */
   .styled_details summary::after {
     content: "";
-    width: 0;
-    height: 0;
-    border-top: 0.5rem solid var(--baggrund_50);
-    border-inline: 0.4rem solid transparent;
+    width: 42px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='20' viewBox='0 0 42 20' fill='none'%3E%3Cpath d='M42 1.24682C42 0.930525 41.859 0.60684 41.5853 0.364103C41.038 -0.121368 40.1424 -0.121368 39.595 0.364103L20.8611 16.9805L2.40083 0.60684C1.85349 0.121367 0.957844 0.121367 0.410503 0.60684C-0.136833 1.09231 -0.136833 1.88672 0.410503 2.3722L19.8659 19.6359C20.4133 20.1214 21.3089 20.1214 21.8563 19.6359L41.5853 2.13682C41.8673 1.88672 42 1.57047 42 1.24682Z' fill='%23FAF9F4'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 25px;
+    transition: transform 0.3s;
   }
   details[open] > summary::after {
     transform: rotate(-180deg);
+  }
+  p {
+    padding-left: 3rem;
   }
 </style>

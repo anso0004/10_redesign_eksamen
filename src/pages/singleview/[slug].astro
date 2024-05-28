@@ -54,7 +54,7 @@ console.log(data);
       <p>{data.beskrivelse}</p>
       <!-- <p>{myData.pris}Tåler opvaskemaskine.</p> -->
       <BeigeAccordion accordion_txt="Læs beskrivelse">
-        <p>{data.accordion_beskrivelse}</p>
+        <p class="beige_p">{data.accordion_beskrivelse}</p>
         <!-- <p>Højde (inklusiv hank): 12 cm</p>
         <p>Diameter: 8 cm</p> -->
       </BeigeAccordion>
@@ -64,13 +64,13 @@ console.log(data);
   </section>
   <section class="groen_boks">
     <GreenAccordion green_accordion_txt="Levering">
-      <p>Alle ordrer sendes indenfor to hverdage. Varerne bliver pakket ansvarligt, så indholdet ikke går i stykker. Pakken sendes med GLS eller Postnord.</p>
+      <p class="green_p">Alle ordrer sendes indenfor to hverdage. Varerne bliver pakket ansvarligt, så indholdet ikke går i stykker. Pakken sendes med GLS eller Postnord.</p>
     </GreenAccordion>
     <GreenAccordion green_accordion_txt="Returnering">
-      <p>Alle ordre skal returneres inde for 14 dage. Varen skal pakkes ansvarligt, så indholdet ikke går i stykker. Pakken skal returneres ved GLS eller PostNord pakkeshop</p>
+      <p class="green_p">Alle ordre skal returneres inde for 14 dage. Varen skal pakkes ansvarligt, så indholdet ikke går i stykker. Pakken skal returneres ved GLS eller PostNord pakkeshop</p>
     </GreenAccordion>
     <GreenAccordion green_accordion_txt="Vilkår og betingelser">
-      <p>Ved køb af varer på hjemmesiden, skal navn, adresse og betalings-informationer oplyses. Specialordre kan ikke tages retur. Du har ret til at foretage reklamation på dine varer.</p>
+      <p class="green_p">Ved køb af varer på hjemmesiden, skal navn, adresse og betalings-informationer oplyses. Specialordre kan ikke tages retur. Du har ret til at foretage reklamation på dine varer.</p>
     </GreenAccordion>
   </section>
 </Mainlayout>
@@ -105,5 +105,11 @@ console.log(data);
 
   .produkt_pris_foer {
     text-decoration: line-through;
+  }
+  .green_p {
+    padding-left: 1rem;
+  }
+  .beige_p {
+    padding: 0.5rem;
   }
 </style>
