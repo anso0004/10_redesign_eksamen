@@ -3,8 +3,7 @@ import Mainlayout from "../../layout/Mainlayout.astro";
 import GreenAccordion from "../../components/GreenAccordion.astro";
 import BeigeAccordion from "../../components/BeigeAccordion.astro";
 import AntalAccordion from "../../components/AntalAccordion.astro";
-import BuyLike from "../../components/BuyLike.astro";
-import "../../styles/singleview.css";
+// import "../../styles/singleview.css";
 import "../../styles/generel.css";
 
 export async function getStaticPaths() {
@@ -182,6 +181,33 @@ console.log(data);
     content: "\2665"; /* Unicode for et fyldt hjerte */
     color: var(--green_100);
   }
+
+
+  .vertikal_streg {
+  border-left: 1px solid black;
+  height: 25px;
+}
+
+.grid_farve_pris {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 800px) {
+  .grid_singleview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .singleview_img {
+    width: 488px;
+    margin-right: 50px;
+  }
+  .singleview_tekst {
+    margin-right: 50px;
+  }
+}
 </style>
 
 <script>
