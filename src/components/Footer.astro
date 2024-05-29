@@ -23,7 +23,12 @@ import Knap from "./Knap.astro";
         <div class="footer_luft">
           <h4 class="linje2 footer_overskrift">ADRESSE</h4>
         </div>
-        <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank">Sankt Paulsgade 72, 1313 K</a></li>
+        <li>
+          <a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"
+            >SANKT PAULSGADE 72, <br />
+             1313 KØBENHAVN K</a
+          >
+        </li>
       </ul>
     </div>
     <div>
@@ -115,6 +120,9 @@ import Knap from "./Knap.astro";
   .footer_grid {
     margin-bottom: 3rem;
   }
+  .form_felt {
+    background-color: var(--baggrund_70);
+  }
 
   @media (min-width: 800px) {
     /* ---------------------------Footer Desktop------------------------ */
@@ -158,6 +166,9 @@ import Knap from "./Knap.astro";
       width: 250px;
       line-height: 2rem;
       font-family: var(--mulish);
+      background-color: var(--baggrund_70);
+      drop-shadow: none;
+      border: 1px solid #000;
     }
     .Tilmeld {
       background-color: var(--green_100);

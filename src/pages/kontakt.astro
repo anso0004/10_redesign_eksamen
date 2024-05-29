@@ -11,7 +11,7 @@ import Knap from "../components/Knap.astro";
             </video>
     </section>
     <h1 class="centreret_overskrift">Kontakt</h1>
-    <section class="flex_web margen_h_web margen_h_mobil margen_v_web margen_v_mobil">
+    <section class="flex_web margen_h_mobil margen_v_mobil">
         <article class="flex_aebningstider">
             <h2 class="roterende_overskrift roterende_overskrift_mobil">Åbningstider</h2>
             <p class="line_height">Mandag: Lukket<br /><br />
@@ -70,14 +70,8 @@ import Knap from "../components/Knap.astro";
     .centreret_overskrift {
         text-align: center;
     }
-    .roterende_overskrift{
-        rotate: -90deg;
-        transform-origin: left top;
-        margin-top: 204.75px;
-    }
-    .flex_aebningstider{
-        display: flex;
-    }
+    
+    
     .line_height_2{
         line-height: 15px;
     }
@@ -121,11 +115,24 @@ import Knap from "../components/Knap.astro";
 
     @media (min-width: 800px){
         .roterende_overskrift_mobil{
-            margin-top: 311.75px;
+            /* margin-top: 311.75px; */
         }
+        .roterende_overskrift{
+            rotate: -90deg;
+            transform-origin: right top;
+            /* margin-top: 204.75px; */
+        }
+        .flex_aebningstider{
+            display: flex;
+        }
+        .line_height{
+        padding-left: 81px;
+        padding-top: 20px;
+    }
         .flex_web{
             display: flex;
-            justify-content: space-between;
+            /* justify-content: space-between; */
+            gap: 8%;
         }
         .grid_web{
             display: grid;
