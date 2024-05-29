@@ -1,22 +1,20 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
 import Card from "../components/Card.astro";
-import CardMobile from "../components/CardMobile.astro";
 
+/*Henter data fra en bestemt URL vha. fetch-funktionen */
 const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
   method: "GET",
   headers: {
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1dmpvdnd3dXpqbGt5d3JzdWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyNzYyOTQsImV4cCI6MjAzMTg1MjI5NH0.HwPdPpwdrXR9WhOCP1MwJCnXJNM9Kg8hd1YGu_s7lR8",
   },
-}).then((res) => res.json());
-
-// console.log(data);
-// const data = await response.json();
+}).then((res) => res.json()); /*Svaret fra serveren konverteres til json-format. Svaret gemmes i variablen "data" */
 ---
 
 <Mainlayout>
   <p class="produkt">Alle produkter</p>
   <div class="grid_web">
+    <!--Tager hvert element i arrayet "data" og anvender en funktion, der returnerer et Card-komponent for hvert element i arrayet -->
     {
       data.map((card) => {
         return <Card data={card} />;
@@ -27,32 +25,29 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
 <style>
   .produkt {
-    font-size: 4vw;
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    margin-top: 39.9%;
-    margin-left: 10%;
-    position: fixed;
-    top: 150px;
+    display: none;
   }
   .grid_web {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    margin-left: 360px;
-    margin-right: 90px;
+    margin-left: 0px;
+    margin-right: 20px;
+    margin-left: 20px;
     margin-bottom: 250px;
   }
-
-  @media (max-width: 800px) {
+  @media (min-width: 800px) {
     .produkt {
-      display: none;
+      font-size: 4vw;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      margin-top: 39.9%;
+      margin-left: 10%;
+      position: fixed;
+      top: 150px;
     }
     .grid_web {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      margin-left: 0px;
-      margin-right: 20px;
-      margin-left: 20px;
+      margin-left: 360px;
+      margin-right: 90px;
       margin-bottom: 250px;
     }
   }
