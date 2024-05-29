@@ -8,13 +8,16 @@
     <a href="/"> <img src="/img/gron_logo.svg" alt="Logo" id="morkt_logo" class="hide" /></a>
     <a href="/"> <img src="/img/gron_logo.svg" alt="Logo" class="logo_mobil" /></a>
   </div>
+  <!-- Burgermenu -->
   <div class="burger">
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
   </div>
+  <!-- Navigation -->
   <nav>
     <ul class="menu">
+      <!-- Dropdown for shop sektionen -->
       <li class="dropdown">
         <a class="dropdown_button" href="#"
           >SHOP<svg class="pile" xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
@@ -29,6 +32,7 @@
           <a class="list_tekst_kategori" href="/produkter/skaale">SKÅLE</a>
         </div>
       </li>
+      <!-- Dropdown for kategori sektionen -->
       <li class="dropdown">
         <a class="dropdown_button" href="#"
           >KOLLEKTION<svg class="pile" xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
@@ -41,10 +45,14 @@
           <a class="list_tekst_kollektion" href="/produkter/prikkollektion">PRIKKOLLEKTION</a>
         </div>
       </li>
+      <!-- Almindelige menupunkter -->
       <li class="menupunkt"><a href="/vaerkstedet">VÆRKSTEDET</a></li>
       <li class="menupunkt"><a href="/kontakt">KONTAKT</a></li>
     </ul>
     <div class="head_icons">
+      <!-- Hjælp af ChatGPT -->
+      <!-- Ikonerne bliver stylet her, :host refererer til det brugerdefinerede element selv, 
+        hvilket gør det til et inline-block element og justerer det vertikalt. -->
       <iconify-icon icon="ph:heart-thin">
         <style data-style="data-style">
           :host {
@@ -82,26 +90,34 @@
   </nav>
 </header>
 <script>
+  // Burgermenuen, fra Mikkel
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
   const links = document.querySelectorAll(".menu li a");
 
+  // Tilføjer en event listener til burger-ikonet, som lytter efter et klik
   burger.addEventListener("click", () => {
+    // Skifter klassen "active" til og fra på burger-ikonet og navigationen
     burger.classList.toggle("active");
     nav.classList.toggle("active");
   });
-
+  // Tilføjer en event listener til hvert link i menuen
   links.forEach((link) => {
     link.addEventListener("click", () => {
+      // Fjerner klassen "active" fra burger-ikonet og navigationen når et link klikkes
       burger.classList.remove("active");
       nav.classList.remove("active");
-      link.addEventListener("click");
     });
   });
+
+  // Sørger for at koden inde i funktionen kører når hele dokumentet er indlæst
   document.addEventListener("DOMContentLoaded", function () {
+    // Vælger hjerte-knappen i HTML-dokumentet
     const hjerteKnap = document.querySelector(".hjerte_knap");
+    // Tilføjer en event listener til hjerte-knappen, som lytter efter et klik
     hjerteKnap.addEventListener("click", function () {
+      // Skifter klassen "fyldt" til og fra på hjerte-knappen
       hjerteKnap.classList.toggle("fyldt");
     });
   });
@@ -110,7 +126,6 @@
 <style>
   /* -------------- MOBILE -------------- */
   @media (max-width: 800px) {
-  
     /*********** HEADER STYLING ***********/
     header {
       z-index: 1000;
@@ -139,7 +154,7 @@
       display: flex;
       white-space: nowrap;
     }
-    .dropdown_content{
+    .dropdown_content {
       display: flex;
       flex-direction: column;
       margin-top: 8px;
@@ -171,8 +186,8 @@
       padding-top: 10px;
       display: block;
     }
-  
-  /*********** LOGO ***********/
+
+    /*********** LOGO ***********/
     .logo_header img {
       width: 30%;
     }
@@ -185,7 +200,7 @@
       flex: 1;
     }
 
-  /*********** BURGER ***********/
+    /*********** BURGER ***********/
     .burger {
       cursor: pointer;
       flex: 1;
@@ -210,8 +225,8 @@
       transform: rotate(-45deg) translate(5px, -5px);
       transition: 0.2s linear;
     }
-    
-  /*********** IKONER ***********/
+
+    /*********** IKONER ***********/
     .line {
       margin-right: 50%;
     }
@@ -229,8 +244,7 @@
 
   /* -------------- DESKTOP -------------- */
   @media (min-width: 800px) {
-  
-  /*********** HEADER STYLING ***********/
+    /*********** HEADER STYLING ***********/
     header {
       display: flex;
       justify-content: space-between;
@@ -280,7 +294,7 @@
       flex: 1;
     }
 
-  /*********** LOGO ***********/
+    /*********** LOGO ***********/
     .logo_header {
       flex: 1;
       width: 7%;
@@ -290,13 +304,10 @@
     .logo_mobil {
       display: none;
     }
-    
-  /*********** DROPDOWN ***********/
+
+    /*********** DROPDOWN ***********/
     .dropdown:hover .dropdown_content {
       background-color: var(--baggrund_70); /* Samme baggrundsfarve */
-    }
-    .dropdown_button:hover {
-      background-color: var(--baggrund_70);
     }
     .dropdown_content {
       display: none;
@@ -323,7 +334,7 @@
       left: 0;
       right: 0; /* Sikrer, at dropdown-content fylder hele bredden af skærmen */
     }
-    
+
     /* Tilføj denne regel til at give plads til pilen ved siden af teksten */
     .dropdown_button {
       position: relative; /* Til relativ positionering */
