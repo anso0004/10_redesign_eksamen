@@ -1,5 +1,5 @@
-<select id="Antal" onchange="updateDefaultOption()">
-  <option value="" disabled selected hidden>Antal:</option>
+<select id="Antal">
+  <option value="" disabled selected hidden>Antal:</option> <!-- disabled selected hidden gør, at "Antal:" forsvinder når man vælger et tal -->
   <option value="1">1 stk.</option>
   <option value="2">2 stk.</option>
   <option value="3">3 stk.</option>
@@ -12,22 +12,18 @@
   option {
     margin-bottom: 0.5rem;
     background-color: var(--baggrund_50);
-    /* margin: auto; */
     border: 1px solid var(--sort_100);
-    /* width: 292px; */
     height: 42px;
     font-family: var(--mulish);
     font-size: 15px;
     font-weight: 400;
-    /* line-height: 24px; */
-    /* display: flex; */
-    /* padding-right: 1rem;  */
+    /* Pilen defineres ved hjælp af en path. Den indsættes som baggrundsbillede for elementet. Den hentes via url og indlejres direkte i css-filen, så man slipper for at hente den ind som en seperat fil */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='10' viewBox='0 0 22 10' fill='none'%3E%3Cpath d='M22 1.06107C22 0.918736 21.9262 0.773078 21.7828 0.663847C21.4961 0.445384 21.027 0.445384 20.7403 0.663847L10.9272 8.14123L1.25758 0.773078C0.970877 0.554615 0.501728 0.554615 0.215027 0.773078C-0.0716743 0.99154 -0.0716743 1.34903 0.215027 1.56749L10.406 9.33615C10.6927 9.55462 11.1618 9.55462 11.4485 9.33615L21.7828 1.46157C21.9305 1.34903 22 1.20671 22 1.06107Z' fill='black'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 9px center; /* Justering af pilens position */
     -webkit-appearance: none; /* Fjerner browserens standard pil */
-    -moz-appearance: none;
-    appearance: none;
+    -moz-appearance: none; /* Fjerner browserens standard pil */
+    appearance: none; /* Fjerner browserens standard pil */
     width: 100%;
     padding: 8px;
   }
