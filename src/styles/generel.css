@@ -38,6 +38,7 @@ h1 {
   color: var(--green_100);
   letter-spacing: 8.5px;
   font-weight: 300;
+  text-align: center;
 }
 h2 {
   font-size: 38px;
