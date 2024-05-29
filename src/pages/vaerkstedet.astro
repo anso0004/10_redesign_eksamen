@@ -37,6 +37,7 @@ import Stoebeproces from "../components/Stoebeproces.astro";
   <section class="margen_top">
     <h2 class="centreret_overskrift">Om støbeprocessen</h2>
     <div class="afsnit4 margen_h_web margen_v_web">
+      <!-- Ved hjælp af props ændres tal og tekst -->
       <Stoebeproces tal="1" tekst="Først omrøres det flydende ler grundigt. Undervejs tilpasses konsistensen med vand, for at sikre en jævn og ensartet masse.">
         <img src="/img/stoeb1.webp" alt="Omrøring i leret" />
       </Stoebeproces>
@@ -51,31 +52,32 @@ import Stoebeproces from "../components/Stoebeproces.astro";
 </Mainlayout>
 
 <style>
-  .centreret_overskrift {
+  /* .centreret_overskrift {
     text-align: center;
-  }
+  } */
   .margen_top {
     margin-top: 179px;
   }
-
-@media (min-width: 800px) {
-  .afsnit1 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 125px;
+  /* Desktop */
+  @media (min-width: 800px) {
+    .afsnit1 {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 125px;
+    }
+    /* Flytter Hanne billedet et plads bagud. Det betyder der byttes rundt på "Om virksomheden" og Hanne billedet. */
+    .order_1 {
+      order: 1;
+    }
+    .afsnit3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 91px;
+    }
+    .afsnit4 {
+      display: flex;
+      gap: 62px;
+    }
   }
-  .order_1 {
-    order: 1;
-  }
-  .afsnit3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 91px;
-  }
-  .afsnit4 {
-    display: flex;
-    gap: 62px;
-  }
-}
 </style>

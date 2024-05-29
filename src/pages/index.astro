@@ -6,20 +6,20 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
 
 <ForsideMainLayout>
   <div class="øverste_billeder">
-    <img class="forside1" src="/img/ny_forsidebill.webp" alt="" />
+    <img class="billede1" src="/img/ny_forsidebill.webp" alt="" />
     <!-- Til mobil -->
     <div class="andendel skjuldesktop">
-      <img class="forside3" src="/img/blomster_forside.webp" alt="" />
-      <img class="forside2" src="/img/kopperne1.webp" alt="" />
+      <img class="billede2-3" src="/img/blomster_forside.webp" alt="" />
+      <img src="/img/kopperne1.webp" alt="" />
       <h1 class="keramik">Keramik</h1>
     </div>
     <!-- Til desktop -->
-    <div class="tre skjul">
-      <img class="forside2" src="/img/kopperne1.webp" alt="" />
+    <div class="kopperne skjul">
+      <img src="/img/kopperne1.webp" alt="" />
       <h1 class="keramik hide1">Keramik</h1>
     </div>
     <div class="nederste skjul">
-      <img class="forside3" src="/img/blomster_forside.webp" alt="" />
+      <img class="billede2-3" src="/img/blomster_forside.webp" alt="" />
       <h1 class="keramik hide2">Keramik</h1>
     </div>
   </div>
@@ -56,8 +56,19 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
 <style>
   h1 {
     margin-top: 1.5%;
-    font-weight: 300;
+    /* text-align: center; */
   }
+  h3 {
+    margin-bottom: 7px;
+  }
+  p {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  /* styling af placering af knap "alle produkter" */
   .produkter_knap {
     justify-content: center;
     margin: auto;
@@ -66,6 +77,7 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
     padding-bottom: 139px;
   }
 
+  /* Styling af kollektionerne på forsiden */
   .lille_billede {
     margin-left: auto;
     margin-right: auto;
@@ -74,27 +86,7 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
     align-items: center;
     flex-direction: column;
   }
-
-  h3 {
-    margin-bottom: 7px;
-  }
-  h1 {
-    text-align: center;
-  }
-
-  p {
-    width: 70%;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-
-  .øverste_billeder {
-    display: flex;
-    flex-direction: column;
-    gap: 3%;
-  }
-
+  /* Placering og styling af de to forside billeder samt "keramik" */
   .andendel {
     gap: 2%;
     margin-top: 2%;
@@ -108,7 +100,7 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
     .hide2 {
       display: none;
     }
-
+    /* Roterer keramik på mobil */
     .keramik {
       rotate: 90deg;
       letter-spacing: 5.7px;
@@ -117,7 +109,7 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
       margin-left: 25%;
       font-size: 25px;
     }
-
+    /* Skjuler de to øverste billeder som ikke skal bruges på mobil - men de bruges på desktop */
     .skjul {
       display: none;
     }
@@ -129,6 +121,19 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
 
   /* Desktop */
   @media (min-width: 800px) {
+    h1 {
+      margin-left: 2%;
+      font-size: 98px;
+      /* text-align: start; */
+    }
+
+    p {
+      width: 60%;
+      justify-content: center;
+      margin: auto;
+      margin-top: 14px;
+      margin-bottom: 17px;
+    }
     .keramik {
       rotate: 90deg;
       font-size: 57px;
@@ -137,24 +142,18 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
       font-weight: 300;
     }
 
-    h1 {
-      margin-left: 2%;
-      font-size: 98px;
-      text-align: start;
-    }
-
     .øverste_billeder {
       display: flex;
       flex-direction: row;
       gap: 3%;
     }
-
-    .forside1 {
+    /* Første billede dækker halvdelen af skærmen */
+    .billede1 {
       width: 50vw;
     }
 
     /* Gør blomsterkrukken større, og flytter den ned */
-    .forside3 {
+    .billede2-3 {
       width: 20vw;
       margin-top: 45%;
     }
@@ -167,8 +166,8 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
       display: none;
     }
 
-    /* Gør at kopper billedet er i bunden */
-    .tre {
+    /* Gør at kopper billedet er i bunden på desktop */
+    .kopperne {
       display: flex;
       align-self: end;
     }
@@ -183,14 +182,6 @@ import ForsideMainLayout from "../layout/ForsideMainLayout.astro";
     }
     .inspiration_sektion {
       margin-bottom: 5rem;
-    }
-
-    p {
-      width: 60%;
-      justify-content: center;
-      margin: auto;
-      margin-top: 14px;
-      margin-bottom: 17px;
     }
 
     .item_3 {

@@ -54,32 +54,39 @@ console.log("data", data);
 
 <style>
   .produkt {
-    font-size: 3vw;
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    /* margin-top: 55.9%; */
-    margin-left: 10%;
-    position: fixed;
-    top: 743px;
+    font-size: 28px;
+    letter-spacing: 3.4px;
+    text-align: center;
+    font-weight: 300;
   }
+
   .grid_web {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    margin-left: 360px;
-    margin-right: 90px;
+    margin-left: 0px;
+    margin-right: 20px;
+    margin-left: 20px;
     margin-bottom: 250px;
   }
 
-  @media (max-width: 800px) {
+  /* Desktop */
+  @media (min-width: 800px) {
     .produkt {
-      display: none;
+      display: block;
+      font-size: 3vw;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      margin-left: 10%;
+      /* Gør at overskriften er fastfrosset */
+      position: fixed;
+      top: 743px;
     }
+
     .grid_web {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      margin-left: 0px;
-      margin-right: 20px;
-      margin-left: 20px;
+      margin-left: 360px;
+      margin-right: 90px;
       margin-bottom: 250px;
     }
   }
