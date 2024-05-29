@@ -60,6 +60,7 @@ console.log(data); // Viser data i terminalen
   .tekstfelt {
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 12px;
   }
   .produktbeskrivelse,
   .produkt_pris,
@@ -130,6 +131,9 @@ console.log(data); // Viser data i terminalen
     color: var(--green_100);
   }
   @media (min-width: 800px) {
+    .tekstfelt {
+      margin-bottom: 0;
+    }
     /* ChatGPT - Skjuler disse elementer ved hover */
     .boks:hover .produktbeskrivelse,
     .boks:hover .produkt_pris,

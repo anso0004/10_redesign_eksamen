@@ -15,30 +15,34 @@ import Knap from "./Knap.astro";
 
     <div>
       <ul>
-        <h4 class="footer_overskrift">HANNE BERTELSEN KERAMIK</h4>
+        <li class="footer_overskrift">HANNE BERTELSEN KERAMIK</li>
         <li class="footer_tekst"><a href="/vaerkstedet">SHOP</a></li>
         <li class="footer_tekst"><a href="#">KOLLEKTION</a></li>
         <li class="footer_tekst"><a href="/vaerkstedet">VÆRKSTEDET</a></li>
         <li class="footer_tekst"><a href="/kontakt">KONTAKT</a></li>
         <div class="footer_luft">
-          <h4 class="linje2 footer_overskrift">ADRESSE</h4>
+          <ul class="linje2">
+            <li class="footer_overskrift">ADRESSE</li>
+          </ul>
         </div>
         <li>
           <a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"
             >SANKT PAULSGADE 72, <br />
-             1313 KØBENHAVN K</a
+            1313 KØBENHAVN K</a
           >
         </li>
       </ul>
     </div>
     <div>
       <ul>
-        <h4 class="footer_overskrift">ÅBNINGSTIDER</h4>
+        <li class="footer_overskrift">ÅBNINGSTIDER</li>
         <li class="footer_tekst">MANDAG: LUKKET</li>
         <li class="footer_tekst">TIRSDAG-FREDAG: 11-18</li>
         <li class="footer_tekst">LØRDAG: 11-14</li>
         <div class="footer_luft">
-          <h4 class="linje2 footer_overskrift">KONTAKT</h4>
+          <ul class="linje2">
+            <li class="footer_overskrift">KONTAKT</li>
+          </ul>
         </div>
         <li class="footer_tekst"><a href="#">TEL. +45 2398 2309</a></li>
         <li class="footer_tekst"><a href="#">MAIL@HANNEBERTELSEN.DK</a></li>
@@ -129,6 +133,7 @@ import Knap from "./Knap.astro";
     font-family: var(--mulish);
     background-color: var(--baggrund_70);
     border: 1px solid #000;
+    padding-left: 9px;
   }
 
   /* ----- Tilmeld knap ----- */
@@ -157,6 +162,10 @@ import Knap from "./Knap.astro";
 
   .cvr_txt {
     color: var(--baggrund_70);
+  }
+
+  ul .linje2 {
+    margin-bottom: 0;
   }
 
   /* --------------------------- FOOTER DESKTOP ------------------------ */
