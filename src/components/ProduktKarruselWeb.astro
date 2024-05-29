@@ -1,6 +1,7 @@
 ---
 import Card from "../components/Card.astro";
 
+// Henter data'en fra vores API URL
 const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
   method: "GET",
   headers: {
@@ -11,6 +12,9 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
 <section class="karrusel_container">
   <article class="karrusel_track">
+    <!-- Data hentes fra API'en og gemmes i variablen "data". -->
+    <!-- For hver post i data-arrayet oprettes et div-element ("karrusel_slide") med et Card-komponent inden i. 
+      Card-komponenten modtager dataen fra det pågældende card og viser det. -->
     {
       data.map((card) => {
         return (
@@ -22,6 +26,8 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
       })
     }
   </article>
+
+  <!-- Frem og tilbage knapperne -->
   <button class="custom_btn prev_btn">
     <span class="arrow">&#8592;</span>
   </button>
@@ -32,32 +38,42 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const track = document.querySelector(".karrusel_track");
-    const slides = document.querySelectorAll(".karrusel_slide");
-    const prevBtn = document.querySelector(".prev_btn");
-    const nextBtn = document.querySelector(".next_btn");
-    const slideWidth = slides[0].offsetWidth;
-    const visibleSlides = 4; // Antal synlige billeder
-    let currentIndex = 0;
+    // Definerer konstanter
+    const track = document.querySelector(".karrusel_track"); // Sporet, der holder alle slides
+    const slides = document.querySelectorAll(".karrusel_slide"); // Alle slides
+    const prevBtn = document.querySelector(".prev_btn"); // Knap til forrige slide
+    const nextBtn = document.querySelector(".next_btn"); // Knap til næste slide
+    const slideWidth = slides[0].offsetWidth; // Bredden af et slide
+    const visibleSlides = 4; // Antal synlige slides ad gangen
+    let currentIndex = 0; // Aktuel slide index
 
+    // Funktion til at opdatere karusselens position
     function updateCarousel() {
+      // Beregner den nye transform værdi baseret på den aktuelle slide's index og bredden af et slide
       const newTransformValue = -currentIndex * slideWidth + "px";
+      // Opdater CSS transform property for at flytte karussellen
       track.style.transform = "translateX(" + newTransformValue + ")";
     }
 
+    //Funktion til at gå til næste slide
     function nextSlide() {
+      // Forøger det aktuelle slide index med 1
       currentIndex++;
+      // Tilføjer en transition for glidende effekt
       track.style.transition = "transform 0.5s ease-in-out";
+      // Opdater karusselens position
       updateCarousel();
 
+      // Når vi nærmer os slutningen, gå tilbage til starten uden animation
       if (currentIndex >= slides.length - visibleSlides + 1) {
-        // Når vi nærmer os slutningen, gå tilbage til starten uden animation
+        // Sæt det aktuelle slide index til 0 (første slide)
         currentIndex = 0;
         track.style.transition = "none";
         updateCarousel();
       }
     }
 
+    // Funktion til at gå til forrige slide, samme metode som fremad, bare med minus i currentIndex
     function prevSlide() {
       currentIndex--;
       track.style.transition = "transform 0.5s ease-in-out";
@@ -89,11 +105,13 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
   }
   .karrusel_slide {
     width: 100%;
-    flex: 0 0 25%;
+    flex: 0 0 25%; /* 25% for 4 slides ad gangen på web*/
     display: flex;
     justify-content: center;
     margin: auto;
   }
+
+  /* ------------- Knapper ------------- */
   .custom_btn {
     position: absolute;
     top: 50%;
@@ -125,11 +143,7 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
   /* ------------- MOBILE -------------*/
   @media (max-width: 800px) {
     .karrusel_slide {
-      width: 100%;
-      display: flex;
-      flex: 0 0 100%;
-      justify-content: center;
-      margin: auto;
+      flex: 0 0 100%; /* viser 1 slide ad gangen på mobil */
     }
   }
 </style>
