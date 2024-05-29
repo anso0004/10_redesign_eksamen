@@ -213,12 +213,17 @@ console.log(data);
 
 <script>
   // ChatGPT - Tilføjer en eventlistener til knappen, som skifter klassen "fyldt" til og fra, hver gang der klikkes.
-  document.addEventListener("DOMContentLoaded", function () {
-    const hjerteKnapper = document.querySelectorAll(".hjerte_knap");
-    hjerteKnapper.forEach(function (hjerteKnap) {
-      hjerteKnap.addEventListener("click", function () {
-        hjerteKnap.classList.toggle("fyldt");
-      });
-    });
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const hjerteKnapper = document.querySelectorAll(".hjerte_knap");
+  //   hjerteKnapper.forEach(function (hjerteKnap) {
+  //     hjerteKnap.addEventListener("click", function () {
+  //       hjerteKnap.classList.toggle("fyldt");
+  //     });
+  //   });
+  // });
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("heart")) {
+      event.target.classList.toggle("filled");
+    }
   });
 </script>
