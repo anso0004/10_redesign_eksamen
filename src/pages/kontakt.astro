@@ -25,8 +25,8 @@ import Knap from "../components/Knap.astro";
         <div class="grid_web">
         <article class="margen_top_mobil">
             <h2>Adresse</h2>
-            <p>Sankt Paulsgade 72, 1313 K
-                 <li><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"> Find butikken på Google Maps her</a></li>
+            <p class="line_height_2">Sankt Paulsgade 72,<br /><br /> 1313 København K
+                 <li class="maps_link"><a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"> Find butikken på Google Maps her</a></li>
             </p>
         </article>
         
@@ -74,6 +74,9 @@ import Knap from "../components/Knap.astro";
     
     .line_height_2{
         line-height: 15px;
+    }
+    .maps_link a{
+        color: var(--green_100);
     }
     li{
         list-style: none;
