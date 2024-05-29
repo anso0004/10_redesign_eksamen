@@ -20,9 +20,9 @@ import Knap from "./Knap.astro";
         <li class="footer_tekst"><a href="#">KOLLEKTION</a></li>
         <li class="footer_tekst"><a href="/vaerkstedet">VÆRKSTEDET</a></li>
         <li class="footer_tekst"><a href="/kontakt">KONTAKT</a></li>
-        <div class="footer_luft">
-          <li class="linje2 footer_overskrift">ADRESSE</li>
-        </div>
+        <ul class="linje2 footer_luft">
+          <li class="footer_overskrift">ADRESSE</li>
+        </ul>
         <li>
           <a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"
             >SANKT PAULSGADE 72, <br />
@@ -37,9 +37,9 @@ import Knap from "./Knap.astro";
         <li class="footer_tekst">MANDAG: LUKKET</li>
         <li class="footer_tekst">TIRSDAG-FREDAG: 11-18</li>
         <li class="footer_tekst">LØRDAG: 11-14</li>
-        <div class="footer_luft">
-          <li class="linje2 footer_overskrift">KONTAKT</li>
-        </div>
+        <ul class="linje2 footer_luft">
+          <li class="footer_overskrift">KONTAKT</li>
+        </ul>
         <li class="footer_tekst"><a href="#">TEL. +45 2398 2309</a></li>
         <li class="footer_tekst"><a href="#">MAIL@HANNEBERTELSEN.DK</a></li>
         <li class="footer_tekst"><a href="https://www.instagram.com/hanne_bertelsen/" target="_blank">INSTAGRAM /</a><a href="https://www.facebook.com/HanneBertelsenKeramik" target="_blank"> FACEBOOK</a></li>
@@ -158,6 +158,10 @@ import Knap from "./Knap.astro";
 
   .cvr_txt {
     color: var(--baggrund_70);
+  }
+
+  ul .linje2 {
+    margin-bottom: 0;
   }
 
   /* --------------------------- FOOTER DESKTOP ------------------------ */
