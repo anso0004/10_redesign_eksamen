@@ -26,7 +26,7 @@ import Knap from "./Knap.astro";
         <li>
           <a href="https://www.google.com/maps/place/Sankt+Pauls+Gade+72,+1313+K%C3%B8benhavn/@55.6884517,12.581312,17z/data=!3m1!4b1!4m6!3m5!1s0x4652531e832d7b67:0x2975983d2b5d5424!8m2!3d55.6884487!4d12.5838869!16s%2Fg%2F11c255hlb4?entry=ttu" target="_blank"
             >SANKT PAULSGADE 72, <br />
-            1313 KØBENHAVN K</a
+             1313 KØBENHAVN K</a
           >
         </li>
       </ul>
@@ -66,31 +66,85 @@ import Knap from "./Knap.astro";
 
 <style>
   * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-  a {
-    text-decoration: none;
-  }
-
-  /* Fjern farven */
-  a {
-    color: inherit;
-  }
-  a:visited {
-    text-decoration: none;
-    color: black;
-  }
-  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+  footer {
+    background-color: var(--baggrund_70);
+    padding-top: 5%;
+  }
+  .footer_grid {
+    margin-bottom: 3rem;
+    margin-right: 6%;
+    margin-left: 6%;
+  }
+
+  .footer_luft {
+    margin-top: 5%;
+  }
+  /* -------------- Link styling ------------ */
+  a {
+    text-decoration: none;
+  }
+  /* Fjerner link farven */
+  a {
+    color: inherit;
+  }
+
+  /* -------------- Liste styling ------------ */
+  ul {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
   li {
     font-family: var(--nunito);
+    line-height: 2rem;
   }
+  h4 {
+    display: inline;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-family: var(--nunito);
+    font-size: 15px;
+  }
+
+  /* -------------- Nyhedsbrev sektion -------------- */
+  /* ---- Tekst om nyhedsbrevet ---- */
+  .faellesskabet {
+    padding-right: 5%;
+    margin-right: 5%;
+    display: inline;
+  }
+  .form_felt {
+    box-sizing: border-box;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1%;
+  }
+  .form_felt input[type="text"] {
+    width: 300px;
+    line-height: 2rem;
+    font-family: var(--mulish);
+    background-color: var(--baggrund_70);
+    border: 1px solid #000;
+  }
+
+  /* ----- Tilmeld knap ----- */
+  .Tilmeld {
+    background-color: var(--green_100);
+    color: var(--baggrund_70);
+    border-radius: 3px;
+    border: none;
+    margin-top: 1rem;
+    width: 100px;
+    line-height: 2rem;
+    font-size: 15px;
+    font-family: var(--nunito);
+  }
+
+  /* -------------- Nederste sektion af footer -------------- */
   .nederste_linje {
     background-color: var(--green_100);
     display: flex;
@@ -100,175 +154,50 @@ import Knap from "./Knap.astro";
     padding-left: 30px;
     padding-top: 1.5rem;
   }
+
   .cvr_txt {
     color: var(--baggrund_70);
   }
-  footer {
-    background-color: var(--baggrund_70);
-    padding-top: 5%;
-  }
 
-  li a:hover {
-    text-decoration: underline;
-  }
-  h4 {
-    display: inline;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    font-family: var(--nunito);
-  }
-  .footer_grid {
-    margin-bottom: 3rem;
-  }
-  .form_felt {
-    background-color: var(--baggrund_70);
-  }
-
+  /* --------------------------- FOOTER DESKTOP ------------------------ */
   @media (min-width: 800px) {
-    /* ---------------------------Footer Desktop------------------------ */
     .footer_grid {
-      /* display: grid;
-      grid-template-columns: 1fr 1fr 1fr; */
-      margin-left: 90px;
       padding-bottom: 2rem;
       margin-top: 1.5rem;
       display: flex;
-      justify-content: space-between;
       justify-content: space-around;
+      margin-right: 0;
     }
 
-    .footer_grid > div {
+    /* Flex: 1, gør at hvert valgt <div> element vil tage lige meget plads inden for deres flex container (.footer_grid), 
+      hvilket betyder, at de vil blive jævnt fordelt. */
+    .footer_grid div {
       flex: 1;
-      margin: 0 10px;
     }
 
-    footer {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    /* Styling af hover over links */
+    li a:hover {
+      text-decoration: underline;
     }
 
-    .faellesskabet {
-      padding-right: 5%;
-      margin-right: 5%;
-    }
-
+    /* Beskrivelsen til nyhedsbrevet */
     .faellesskabet p {
       line-height: 1.5rem;
       margin-top: 0.8rem;
+      width: 45cqh;
     }
-
     .form_felt {
       margin-top: 5%;
     }
 
+    /* Bredden på form feltet på desktop */
     .form_felt input[type="text"] {
       width: 250px;
-      line-height: 2rem;
-      font-family: var(--mulish);
-      background-color: var(--baggrund_70);
-      drop-shadow: none;
-      border: 1px solid #000;
     }
+    /* Tilmeld knap */
     .Tilmeld {
-      background-color: var(--green_100);
       border-radius: 1px;
-      font-family: var(--nunito);
-      border: none;
       margin-top: 1.5rem;
-      width: 100px;
-      line-height: 2rem;
-      font-size: 15px;
-      color: var(--baggrund_70);
-    }
-
-    ul {
-      list-style: none;
-      text-decoration: none;
-      color: black;
-    }
-    li {
-      text-decoration: none;
-      color: black;
-      line-height: 2rem;
-    }
-    li a {
-      font-family: var(--nunito);
-    }
-    li h4 {
-      line-height: 1.5rem;
-    }
-
-    .footer_luft {
-      margin-top: 5%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    /* -------------footer mobil------------*/
-
-    h4 {
-      font-size: 15px;
-    }
-    .faellesskabet p {
-      font-family: var(--mulish);
-    }
-    .faellesskabet {
-      display: inline;
-    }
-
-    .faellesskabet {
-      padding-right: 5%;
-      margin-right: 5%;
-    }
-
-    .footer_grid {
-      padding-right: 6%;
-      padding-left: 6%;
-    }
-
-    .form_felt {
-      box-sizing: border-box;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      display: flex;
-      gap: 1%;
-    }
-    .form_felt input[type="text"] {
-      width: 300px;
-      line-height: 2rem;
-      font-family: var(--mulish);
-    }
-
-    .Tilmeld {
-      background-color: var(--green_100);
-      color: white;
-      border-radius: 3px;
-      border: none;
-      margin-top: 1rem;
-      width: 100px;
-      line-height: 2rem;
-      font-size: 15px;
-      font-family: var(--nunito);
-    }
-
-    ul {
-      list-style: none;
-      text-decoration: none;
-      color: black;
-      margin-bottom: 1rem;
-    }
-    li {
-      text-decoration: none;
-      color: black;
-      line-height: 2rem;
-    }
-    li h4 {
-      line-height: 0;
-      margin-bottom: 1rem;
-    }
-    .footer_luft {
-      margin-top: 5%;
     }
   }
 </style>
