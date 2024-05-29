@@ -3,17 +3,17 @@ import Mainlayout from "../../layout/Mainlayout.astro";
 import GreenAccordion from "../../components/GreenAccordion.astro";
 import BeigeAccordion from "../../components/BeigeAccordion.astro";
 import AntalAccordion from "../../components/AntalAccordion.astro";
-// import "../../styles/singleview.css";
-import "../../styles/generel.css";
 
+// Bruger funktionen getStaticPaths() til at generere stier for statiske sider baseret på data fra database.
 export async function getStaticPaths() {
+  // Henter data fra en bestemt URL vha. fetch-funktionen.
   const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produkt", {
     method: "GET",
     headers: {
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1dmpvdnd3dXpqbGt5d3JzdWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyNzYyOTQsImV4cCI6MjAzMTg1MjI5NH0.HwPdPpwdrXR9WhOCP1MwJCnXJNM9Kg8hd1YGu_s7lR8",
     },
   }).then((response) => response.json());
-
+  // Når dataen er hentet, mapper funktionen over dataen og returnerer en liste over stier og egenskaber for hver side, der skal genereres statisk.
   return data.map((show) => {
     return {
       params: { slug: show.slug },
@@ -21,14 +21,11 @@ export async function getStaticPaths() {
     };
   });
 }
-const { data } = Astro.props;
-console.log(data);
+const { data } = Astro.props; // Definerer en konstant "data", der har adgang til dataen i databasen
+console.log(data); // Viser data i terminalen
 ---
 
-<!-- <Mainlayout title={myData.navn}> --><!-- Singleview --><!-- Eks: h2 {myData.navn} --><!-- <h2>{myData.pris}</h2>
-</Mainlayout> --><!-- Kopiret fra singleview.astro -->
 <Mainlayout>
-  <!-- <BuyLike /> -->
   <section class="grid_singleview margen_v_mobil margen_h_mobil">
     <div class="singleview_img">
       <img src={data.billede} alt="Produkt" />
@@ -46,22 +43,16 @@ console.log(data);
       <div class="grid_farve_pris">
         <p>Farve: {data.farve}</p>
         <div class="vertikal_streg"></div>
-        <!-- <p>kr. {data.pris},-</p> -->
         {data.ikketilbud && <p class="produkt_pris">kr. {data.pris},-</p>}
         {data.tilbud && <p class="produkt_pris_foer gammel_pris">kr. {data.pris},-</p>}
         {data.tilbud && <p class="produkt_pris_efter ny_pris">kr. {(data.pris * (100 - data.procent)) / 100},-</p>}
       </div>
       <p class="p_beskrivelse">{data.beskrivelse}</p>
-      <!-- <p>{myData.pris}Tåler opvaskemaskine.</p> -->
       <BeigeAccordion accordion_txt="Læs beskrivelse">
         <p class="beige_p">{data.accordion_beskrivelse}</p>
       </BeigeAccordion>
       <AntalAccordion />
-      <!-- <BuyLike /> -->
       <div class="flex_2">
-        <!-- <a href={`singleview/${data.slug}`}>
-              <button class="kob_knap"><p>Læg i kurv</p></button>
-            </a> -->
         <button class="kob_knap"><p class="kruv_tekst">Læg i kurv</p></button>
         <button class="hjerte_knap"></button>
       </div>
@@ -81,10 +72,40 @@ console.log(data);
 </Mainlayout>
 
 <style>
+  .vertikal_streg {
+    border-left: 1px solid black;
+    height: 25px;
+  }
+  .grid_farve_pris {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .grid_singleview {
     margin-top: 7%;
   }
-  /* Positionering af gul tilbudsboks */
+  .singleview_img {
+    position: relative;
+  }
+  h3 {
+    margin-bottom: 17px;
+  }
+  p {
+    font-size: 16px;
+  }
+  .green_p {
+    padding-left: 1rem;
+  }
+  .beige_p {
+    padding: 0.5rem;
+  }
+  .p_beskrivelse {
+    margin: 0 0 43px 0;
+  }
+  .singleview_tekst {
+    min-width: 323px;
+  }
+  /*Nedenstående er til, hvis produktet er på tilbud */
   .tilbud_boks {
     position: absolute; /*For at kunne positionere med center_img og tilbud_procent*/
     top: -8px;
@@ -94,7 +115,6 @@ console.log(data);
   .tilbud_gulboks {
     width: 115px;
   }
-  /* Style og positionering af tilbudsprocent-tekst */
   .tilbud_procent {
     position: absolute; /*For at kunne positionere med tilbud_boks og center_img*/
     top: 11px;
@@ -103,39 +123,13 @@ console.log(data);
     font-size: 30px;
     font-weight: 800;
   }
-
-  .singleview_img {
-    position: relative;
-  }
   .produkt_pris_efter {
     color: red;
   }
-
   .produkt_pris_foer {
     text-decoration: line-through;
   }
-  .green_p {
-    padding-left: 1rem;
-  }
-  .beige_p {
-    padding: 0.5rem;
-  }
-  p {
-    font-size: 16px;
-  }
-
-  .p_beskrivelse {
-    margin: 0 0 43px 0;
-  }
-
-  .singleview_tekst {
-    min-width: 323px;
-  }
-
-  h3 {
-    margin-bottom: 17px;
-  }
-  /*INDSAT */
+  /*Nedenstående er til Læg i kurv- og Hjerteknappen */
   .kruv_tekst {
     margin: 0;
   }
@@ -146,12 +140,8 @@ console.log(data);
     margin-bottom: 18px;
     padding-bottom: 20px;
     padding-top: 15px;
-    /* z-index: 5000000000; */
   }
-
-  /* Style af købknap */
   .kob_knap {
-    /* display: none; */
     width: 100%;
     height: 46px;
     border: 1px solid black;
@@ -161,9 +151,7 @@ console.log(data);
     font-size: 16px;
     cursor: pointer;
   }
-  /* ChatGPT - Style af hjerteknap */
   .hjerte_knap {
-    /* display: none;  */
     width: 46px;
     height: 46px;
     border: 1px solid black;
@@ -171,7 +159,6 @@ console.log(data);
     font-size: 24px;
     cursor: pointer;
   }
-
   /* ChatGPT - Tilføjer et indhold før knappen ved hjælp af Unicode-tegn for et tomt hjerte */
   .hjerte_knap::before {
     content: "\2661"; /* Unicode for et tomt hjerte */
@@ -181,36 +168,24 @@ console.log(data);
     content: "\2665"; /* Unicode for et fyldt hjerte */
     color: var(--green_100);
   }
-
-
-  .vertikal_streg {
-  border-left: 1px solid black;
-  height: 25px;
-}
-
-.grid_farve_pris {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media (min-width: 800px) {
-  .grid_singleview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @media (min-width: 800px) {
+    .grid_singleview {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .singleview_img {
+      width: 488px;
+      margin-right: 50px;
+    }
+    .singleview_tekst {
+      margin-right: 50px;
+    }
   }
-  .singleview_img {
-    width: 488px;
-    margin-right: 50px;
-  }
-  .singleview_tekst {
-    margin-right: 50px;
-  }
-}
 </style>
 
 <script>
+  // ChatGPT - Tilføjer en eventlistener til knappen, som skifter klassen "fyldt" til og fra, hver gang der klikkes.
   document.addEventListener("DOMContentLoaded", function () {
     const hjerteKnap = document.querySelector(".hjerte_knap");
     hjerteKnap.addEventListener("mousedown", function () {
