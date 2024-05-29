@@ -25,7 +25,7 @@ const { data } = Astro.props; // Definerer en konstant "data", der har adgang ti
 console.log(data); // Viser data i terminalen
 ---
 
-<Mainlayout>
+<Mainlayout title={data.navn}>
   <section class="grid_singleview margen_v_mobil margen_h_mobil">
     <div class="singleview_img">
       <img src={data.billede} alt="Produkt" />

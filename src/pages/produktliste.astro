@@ -11,7 +11,7 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 }).then((res) => res.json()); /*Svaret fra serveren konverteres til json-format. Svaret gemmes i variablen "data" */
 ---
 
-<Mainlayout>
+<Mainlayout title={data.kategori}>
   <p class="produkt">Alle produkter</p>
   <div class="grid_web">
     <!--Tager hvert element i arrayet "data" og anvender en funktion, der returnerer et Card-komponent for hvert element i arrayet -->
