@@ -70,24 +70,17 @@
 </section>
 
 <style>
-  .karrusel_container {
-    display: none;
-  }
-  .arbejdsproces_container {
-    display: block;
-  }
-
+  /* ------------- Karrusel ----------------------- */
   .karrusel_container {
     position: relative;
     overflow: hidden;
   }
   .karrusel_track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
   }
   .karrusel_slide {
     width: 100%;
-    flex: 0 0 100%;
+    flex: 0 0 100%; /* Viser 1 slide ad gangen */
     display: flex;
     justify-content: center;
     margin: auto;
@@ -97,6 +90,7 @@
     display: flex;
     flex-direction: column;
   }
+  /* ------------- Knapper ------------- */
   .custom_btn {
     position: absolute;
     top: 50%;
@@ -124,6 +118,7 @@
   .arrow {
     font-size: 20px;
   }
+  /* ------------- Proces på web ------------- */
   .tal_tekst_flex {
     display: flex;
     margin-top: 20px;
@@ -144,6 +139,7 @@
     gap: 51px;
   }
 
+  /* ------------- MOBILE ------------- */
   @media (max-width: 800px) {
     .karrusel_container {
       display: block;
@@ -153,52 +149,51 @@
     }
   }
 
-  /* .slide{
-        display: none;
-        text-align: center;
-    } */
-
+  /* ------------- DESKTOP ------------- */
   @media (min-width: 800px) {
-    /* .arbejdsproces_container{
-            display: flex;
-            flex-wrap: wrap;
-        } */
-    /* .slide{
-            display: block;
-            width: calc(25%);
-            position: relative;
-        } */
+    .karrusel_container {
+      display: none;
+    }
   }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const track = document.querySelector(".karrusel_track");
-    const slides = document.querySelectorAll(".karrusel_slide");
-    const prevBtn = document.querySelector(".prev_btn");
-    const nextBtn = document.querySelector(".next_btn");
-    const slideWidth = slides[1].offsetWidth;
-    const visibleSlides = 1; // Antal synlige billeder
-    let currentIndex = 0;
+    const track = document.querySelector(".karrusel_track"); // Sporet, der holder alle slides
+    const slides = document.querySelectorAll(".karrusel_slide"); // Alle slides
+    const prevBtn = document.querySelector(".prev_btn"); // Knap til forrige slide
+    const nextBtn = document.querySelector(".next_btn"); // Knap til næste slide
+    const slideWidth = slides[1].offsetWidth; // Bredden af et slide
+    const visibleSlides = 1; // Antal synlige slides ad gangen
+    let currentIndex = 0; // Aktuel slide index
 
+    // Funktion til at opdatere karusselens position
     function updateCarousel() {
+      // Beregner den nye transform værdi baseret på den aktuelle slide's index og bredden af et slide
       const newTransformValue = -currentIndex * slideWidth + "px";
+      // Opdater CSS transform property for at flytte karussellen
       track.style.transform = "translateX(" + newTransformValue + ")";
     }
 
+    //Funktion til at gå til næste slide
     function nextSlide() {
+      // Forøger det aktuelle slide index med 1
       currentIndex++;
+      // Tilføjer en transition for glidende effekt
       track.style.transition = "transform 0.5s ease-in-out";
+      // Opdater karusselens position
       updateCarousel();
 
+      // Når vi nærmer os slutningen, gå tilbage til starten uden animation
       if (currentIndex >= slides.length - visibleSlides + 1) {
-        // Når vi nærmer os slutningen, gå tilbage til starten uden animation
+        // Sæt det aktuelle slide index til 0 (første slide)
         currentIndex = 0;
         track.style.transition = "none";
         updateCarousel();
       }
     }
 
+    // Funktion til at gå til forrige slide, samme metode som fremad, bare med minus i currentIndex
     function prevSlide() {
       currentIndex--;
       track.style.transition = "transform 0.5s ease-in-out";
@@ -215,85 +210,4 @@
     nextBtn.addEventListener("click", nextSlide);
     prevBtn.addEventListener("click", prevSlide);
   });
-  // var slideIndex = 1;
-  // showDivs(slideIndex);
-  // function plusDivs(n) {
-  //     showDivs(slideIndex += n);
-  // }
-
-  // function showDivs(n){
-  //     var i;
-  //     var x = document.querySelector(.slide);
-  //     if (n > x.length) {slideIndex=1}
-  //     if (n < 1) {slideIndex=x.length};
-  //     for (i = 0; i < x.length; i++) {
-  //         x[i].style.display = "none";
-  //     }
-  //     x[slideIndex-1].style.display = "block";
-  // }
-  // const slides = document.querySelectorAll('.slide');
-  // let currentIndex = 0;
-
-  // function showSlide(index){
-  //     slides.forEach((slide, i) => {
-  //         slide.computedStyleMap.display = i === index ? 'block' : 'none';
-  //     });
-  // }
-  // function nextSlide(){
-  //     currentIndex = (currentIndex + 1) % slides.length;
-  //     showSlide(currentIndex);
-  // }
-  // function prevSlide(){
-  //     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  //     showSlide(currentIndex);
-  // }
-
-  // let touchStartX = 0;
-
-  // document.querySelector('.arbejdsproces_container').addEventListener('touchstart', (e)=>{
-  //     touchStartX = e.changedTouches[0].screenX;
-  // });
-  // document.querySelector('.arbejdsproces_container').addEventListener('touchend', (e)=>{
-  //     const touchEndX = e.changedTouches[0].screenX;
-  //     if (touchEndX < touchStartX){
-  //         nextSlide();
-  //     } else if (touchEndX > touchStartX){
-  //         prevSlide();
-  //     }
-  // });
-
-  // showSlide(currentIndex);
 </script>
-
-<!-- <div class="arbejdsproces_container">
-    <button class="button_left" onclick="plusDivs(-1)"></button>
-    <div class="slide">
-        <img src="/public/img/proces1.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
-            <p class="tal">1</p>
-            <p>Først formes leret med hænderne ved hjælp af en drejeskive, så den ønskede form skabes.</p>
-        </div>
-    </div>
-    <div class="slide">
-        <img src="/public/img/proces2.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
-            <p class="tal">2</p>
-            <p>De drejede produkter tørres langsomt, så de bliver stærke, og undgår deformation under første brænding.</p>
-        </div>
-    </div>
-    <div class="slide">
-        <img src="/public/img/proces3.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
-            <p class="tal">3</p>
-            <p>Herefter glaseres produkterne. Glasuren består af mineraler, som smelter og danner en glasagtig overflade ved brænding.</p>
-        </div>
-    </div>
-    <div class="slide">
-        <img src="/public/img/proces4.png" alt="Første step i arbejdsprocessen">
-        <div class="tal_tekst_flex">
-            <p class="tal">4</p>
-            <p>Til slut brændes produkterne i en ovn ved høje temperaturer. Glasuren smelter, og danner en hård, vandtæt overflade.</p>
-        </div>
-    </div>
-    <button class="button_right" onclick="plusDivs(+1)"></button>
-</div> -->
