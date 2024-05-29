@@ -25,24 +25,34 @@ const data = await fetch("https://luvjovwwuzjlkywrsuam.supabase.co/rest/v1/produ
 
 <style>
   .produkt {
-    display: none;
+    font-size: 40px;
+    letter-spacing: 3.4px;
+    text-align: center;
+    font-weight: 300;
   }
+
   .grid_web {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     margin-left: 0px;
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 250px;
   }
+
+  /* Desktop */
   @media (min-width: 800px) {
     .produkt {
-      font-size: 4vw;
+      display: block;
+      font-size: 3.5vw;
       transform: rotate(-90deg);
-      transform-origin: left top;
-      margin-top: 39.9%;
+      transform-origin: bottom left;
       margin-left: 10%;
+      /* Gør at overskriften er fastfrosset */
       position: fixed;
-      top: 150px;
+      top: 564px;
     }
+
     .grid_web {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
