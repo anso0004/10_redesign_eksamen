@@ -29,6 +29,7 @@ console.log(data);
 <!-- <Mainlayout title={myData.navn}> --><!-- Singleview --><!-- Eks: h2 {myData.navn} --><!-- <h2>{myData.pris}</h2>
 </Mainlayout> --><!-- Kopiret fra singleview.astro -->
 <Mainlayout>
+  <!-- <BuyLike /> -->
   <section class="grid_singleview margen_v_mobil margen_h_mobil">
     <div class="singleview_img">
       <img src={data.billede} alt="Produkt" />
@@ -51,15 +52,20 @@ console.log(data);
         {data.tilbud && <p class="produkt_pris_foer gammel_pris">kr. {data.pris},-</p>}
         {data.tilbud && <p class="produkt_pris_efter ny_pris">kr. {(data.pris * (100 - data.procent)) / 100},-</p>}
       </div>
-      <p>{data.beskrivelse}</p>
+      <p class="p_beskrivelse">{data.beskrivelse}</p>
       <!-- <p>{myData.pris}Tåler opvaskemaskine.</p> -->
       <BeigeAccordion accordion_txt="Læs beskrivelse">
         <p class="beige_p">{data.accordion_beskrivelse}</p>
-        <!-- <p>Højde (inklusiv hank): 12 cm</p>
-        <p>Diameter: 8 cm</p> -->
       </BeigeAccordion>
       <AntalAccordion />
-      <BuyLike />
+      <!-- <BuyLike /> -->
+      <div class="flex_2">
+        <!-- <a href={`singleview/${data.slug}`}>
+              <button class="kob_knap"><p>Læg i kurv</p></button>
+            </a> -->
+        <button class="kob_knap"><p class="kruv_tekst">Læg i kurv</p></button>
+        <button class="hjerte_knap"></button>
+      </div>
     </div>
   </section>
   <section class="groen_boks">
@@ -76,6 +82,9 @@ console.log(data);
 </Mainlayout>
 
 <style>
+  .grid_singleview {
+    margin-top: 7%;
+  }
   /* Positionering af gul tilbudsboks */
   .tilbud_boks {
     position: absolute; /*For at kunne positionere med center_img og tilbud_procent*/
@@ -115,4 +124,71 @@ console.log(data);
   p {
     font-size: 16px;
   }
+
+  .p_beskrivelse {
+    margin: 0 0 43px 0;
+  }
+
+  .singleview_tekst {
+    min-width: 323px;
+  }
+
+  h3 {
+    margin-bottom: 17px;
+  }
+  /*INDSAT */
+  .kruv_tekst {
+    margin: 0;
+  }
+  .flex_2 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+    /* z-index: 5000000000; */
+  }
+
+  /* Style af købknap */
+  .kob_knap {
+    /* display: none; */
+    width: 100%;
+    height: 46px;
+    border: 1px solid black;
+    background-color: var(--baggrund_50);
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  /* ChatGPT - Style af hjerteknap */
+  .hjerte_knap {
+    /* display: none;  */
+    width: 46px;
+    height: 46px;
+    border: 1px solid black;
+    background-color: var(--baggrund_50);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* ChatGPT - Tilføjer et indhold før knappen ved hjælp af Unicode-tegn for et tomt hjerte */
+  .hjerte_knap::before {
+    content: "\2661"; /* Unicode for et tomt hjerte */
+  }
+  /* ChatGPT - Ændrer indholdet til et fyldt hjerte, når klassen "fyldt" er tilføjet */
+  .hjerte_knap.fyldt::before {
+    content: "\2665"; /* Unicode for et fyldt hjerte */
+    color: var(--green_100);
+  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hjerteKnap = document.querySelector(".hjerte_knap");
+    hjerteKnap.addEventListener("mousedown", function () {
+      hjerteKnap.classList.toggle("fyldt");
+    });
+  });
+</script>
