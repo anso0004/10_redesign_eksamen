@@ -1,9 +1,10 @@
 ---
 import "../styles/generel.css";
-const { variant, size, tekst } = Astro.props;
+const { variant, tekst } = Astro.props;
 ---
 
-<button class={variant + " " + size}>{tekst}</button>
+<!-- variant er enten primary, secondary og third. Tekst gør det muligt at udskifte teksten -->
+<button class={variant}>{tekst}</button>
 
 <style>
   button {
@@ -52,7 +53,6 @@ const { variant, size, tekst } = Astro.props;
     border: 1.5px solid var(--green_100);
     background-color: var(--green_100);
     color: var(--baggrund_50);
-    /* color: var(--green_100); */
     position: relative;
   }
 
