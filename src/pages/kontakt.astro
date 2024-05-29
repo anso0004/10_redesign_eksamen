@@ -67,12 +67,18 @@ import Knap from "../components/Knap.astro";
 </Mainlayout>
 
 <style>
+    /*********** TEKST ***********/
     .centreret_overskrift {
         text-align: center;
+    }
+    h2{
+        margin-bottom: 0;
     }
     .line_height_2{
         line-height: 15px;
     }
+
+    /*********** LINKS ***********/
     .maps_link a{
         color: var(--green_100);
     }
@@ -88,10 +94,14 @@ import Knap from "../components/Knap.astro";
     li a:hover{
         text-decoration: underline;
     }
+
+    /*********** IKONER ***********/
     .flex_ikoner{
         display: flex;
         gap: 11px;
     }
+
+    /*********** NYHEDSBREV ***********/
     input{
         background-color: var(--baggrund_50);
         font-family: var(--mulish);
@@ -101,10 +111,9 @@ import Knap from "../components/Knap.astro";
         border: 1px solid var(--sort_100);
         line-height: 2rem;
     }
-    h2{
-        margin-bottom: 0;
-    }
+    
 
+    /*********** MOBIL ***********/
     @media (max-width: 800px){
         .line_height{
             line-height: 15px;
@@ -114,9 +123,8 @@ import Knap from "../components/Knap.astro";
         }
     }
 
+    /*********** DESKTOP ***********/
     @media (min-width: 800px){
-        .roterende_overskrift_mobil{
-        }
         .roterende_overskrift{
             rotate: -90deg;
             transform-origin: right top;

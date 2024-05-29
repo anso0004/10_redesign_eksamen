@@ -1,6 +1,6 @@
 
 <div class="flex_formular margen_h_mobil margen_v_mobil">
-<div class="tekst_formular">
+<div>
 <h3>Har du spørgsmål?</h3>
         <p>Har du spørgsmål om keramikprodukter, bestillinger eller andet, så benyt kontaktformularen for at få et hurtigt svar.<br /><br />
         Husk at udfylde alle felter for at sikre den bedst mulige hjælp. Der bestræbes på at svare inden for 24 timer på hverdage.<br /><br /> 
@@ -18,9 +18,12 @@
 </div>
 
 <style>
+    /*********** TEKST ***********/
     h3, p{
         color: var(--baggrund_50);
     }
+
+    /*********** FORM ***********/
     input, textarea{
         background-color: var(--baggrund_50);
         font-family: var(--mulish);
@@ -42,6 +45,8 @@
         gap: 20px;
         width: 334px;
     }
+
+    /*********** KNAP ***********/
     .send{
         color: var(--baggrund_50);
         border: 1px solid var(--baggrund_50);
@@ -52,6 +57,7 @@
         font-size: 15px;
         width: 113px;
         align-self: end;
+        cursor: pointer;
     }
     .send:hover{
         background-color: var(--baggrund_50);
@@ -65,9 +71,6 @@
             justify-content: space-between;
             padding-left: 167px;
             padding-right: 167px;
-        }
-        .tekst_formular{
-            padding-right: 137px;
         }
     }
 </style>

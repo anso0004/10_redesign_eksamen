@@ -116,6 +116,8 @@
 <style>
   /* -------------- MOBILE -------------- */
   @media (max-width: 800px) {
+  
+  /*********** HEADER STYLING ***********/
     header {
       z-index: 1000;
       display: flex;
@@ -130,6 +132,11 @@
       font-family: var(--nunito);
       color: var(--green_100);
     }
+    .menu {
+      display: block;
+      list-style: none;
+      padding: 0;
+    }
     .dropdown_button,
     .menupunkt {
       font-weight: 800;
@@ -138,20 +145,51 @@
       display: flex;
       white-space: nowrap;
     }
-    .menu {
-      display: block;
-      list-style: none;
+    .dropdown_content{
+      display: flex;
+      flex-direction: column;
+      margin-top: 8px;
+      gap: 8px;
+    }
+    nav li {
+      margin: 0;
       padding: 0;
     }
+    .menu {
+      display: none;
+    }
+    nav.active .menu {
+      display: block;
+      background-color: var(--baggrund_70);
+      position: absolute;
+      left: 0;
+      top: 75px;
+      height: 5000%;
+      z-index: 1;
+      width: 100%;
+    }
+    nav.active header {
+      background-color: var(--baggrund_70);
+    }
+    nav.active .menu li {
+      margin-left: 20px;
+      margin-top: 8px;
+      padding-top: 10px;
+      display: block;
+    }
+    
+  /*********** LOGO ***********/
     .logo_header img {
       width: 30%;
     }
-    .burger {
-      cursor: pointer;
-      flex: 1;
-    }
     .logo_header {
       order: 2;
+      flex: 1;
+    }
+  
+    /*********** BURGER ***********/
+    .burger {
+      cursor: pointer;
       flex: 1;
     }
     .burger .line {
@@ -161,13 +199,6 @@
       margin-bottom: 4px;
       transition: 0.2s linear;
       border-radius: 5px;
-    }
-    nav li {
-      margin: 0;
-      padding: 0;
-    }
-    .menu {
-      display: none;
     }
     .burger.active .line:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
@@ -181,24 +212,8 @@
       transform: rotate(-45deg) translate(5px, -5px);
       transition: 0.2s linear;
     }
-    nav.active .menu {
-      display: block;
-      background-color: var(--baggrund_70);
-      position: absolute;
-      left: 0;
-      top: 75px;
-      height: 1000%;
-      z-index: 1;
-    }
-    nav.active header {
-      background-color: var(--baggrund_70);
-    }
-    nav.active .menu li {
-      margin-left: 20px;
-      margin-top: 8px;
-      padding-top: 10px;
-      display: block;
-    }
+
+  /*********** IKONER ***********/
     .line {
       margin-right: 50%;
     }
@@ -213,20 +228,11 @@
       display: none;
     }
   }
+  
   /* -------------- DESKTOP -------------- */
   @media (min-width: 800px) {
-    .logo_header {
-      flex: 1;
-      width: 7%;
-      position: relative; /*For at kunne give en z-index*/
-      z-index: 10000; /*For at placere logo foran dropdown-boks*/
-    }
-    header:hover {
-      background-color: var(--baggrund_70); /* Definér din nye baggrundsfarve her */
-    }
-    .dropdown:hover .dropdown_content {
-      background-color: var(--baggrund_70); /* Samme baggrundsfarve */
-    }
+   
+  /*********** HEADER STYLING ***********/
     header {
       display: flex;
       justify-content: space-between;
@@ -238,32 +244,43 @@
       width: 100%;
       padding: 0.5% 2% 0.5% 1%;
     }
+    header:hover {
+      background-color: var(--baggrund_70); /* Definér din nye baggrundsfarve her */
+    }
     nav {
       display: flex;
       justify-content: flex-end;
       align-items: center;
     }
-
     /* Laver afstand mellem menupunkterne */
     nav ul li {
       display: inline-block;
       margin-right: 35px;
-    }
-
-    .menu {
-      display: flex;
-      padding-right: 53px;
     }
     nav a {
       text-decoration: none;
       list-style: none;
       color: var(--green_100);
     }
-
-    .dropdown_button:hover {
-      background-color: var(--baggrund_70);
+    .menu {
+      display: flex;
+      padding-right: 53px;
     }
-
+    .list_tekst_kategori {
+      font-size: 13px;
+      padding-left: 57vw;
+    }
+    .list_tekst_kollektion {
+      font-size: 13px;
+      padding-left: 64.5vw;
+    }
+    .head_icons {
+      display: flex;
+      gap: 11px;
+      flex: 1;
+    }
+  
+    /*********** DROPDOWN ***********/
     .dropdown_content {
       display: none;
       position: absolute;
@@ -280,30 +297,12 @@
       color: var(--green_100);
       white-space: nowrap; /* Sikrer, at tekst ikke brydes */
     }
-
-    .list_tekst_kategori {
-      font-size: 13px;
-      padding-left: 57vw;
-    }
-
-    .list_tekst_kollektion {
-      font-size: 13px;
-      padding-left: 64.5vw;
-    }
     .dropdown_content a:hover {
       text-decoration: underline;
     }
     .dropdown:hover .dropdown_content {
-      display: block;
-      left: 0;
-      right: 0; /* Sikrer, at dropdown-content fylder hele bredden af skærmen */
+      background-color: var(--baggrund_70); /* Samme baggrundsfarve */
     }
-    .head_icons {
-      display: flex;
-      gap: 11px;
-      flex: 1;
-    }
-    /* Tilføj denne regel til at give plads til pilen ved siden af teksten */
     .dropdown_button {
       position: relative; /* Til relativ positionering */
       padding-right: 20px; /* Juster pladsen til pilen */
@@ -320,6 +319,22 @@
     /* Roter pilen, når dropdown-indholdet er synligt */
     .dropdown:hover .dropdown_button svg {
       transform: rotate(180deg); /* Roter pilen 180 grader */
+    }
+    .dropdown_button:hover {
+      background-color: var(--baggrund_70);
+    }
+    .dropdown:hover .dropdown_content {
+      display: block;
+      left: 0;
+      right: 0; /* Sikrer, at dropdown-content fylder hele bredden af skærmen */
+    }
+    
+    /*********** LOGO ***********/
+    .logo_header {
+      flex: 1;
+      width: 7%;
+      position: relative; /*For at kunne give en z-index*/
+      z-index: 10000; /*For at placere logo foran dropdown-boks*/
     }
   }
 </style>

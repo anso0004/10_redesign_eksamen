@@ -1,10 +1,8 @@
 ---
-// Definerer en konstant, som gør det muligt at udskifte indholdet for hver gang komponentet bruges
-const {tal, tekst}=Astro.props;
+const {tal, tekst}=Astro.props; // Definerer en konstant, som gør det muligt at udskifte indholdet for hver gang komponentet bruges
 ---
 <div class="flex_col">
-    <!-- Slot gør det muligt at sætte et nyt billede ind hver gang komponentet bruges -->
-    <slot />
+    <slot /> <!-- Slot gør det muligt at sætte et nyt billede ind hver gang komponentet bruges -->
     <div class="tal_tekst_flex margen_h_mobil margen_v_mobil">
         <!-- Henter Astro.props konstanten, så tekstindholdet kan udskiftes hver gang konstanten bruges -->
         <p class="tal">{tal}</p>
@@ -19,18 +17,19 @@ const {tal, tekst}=Astro.props;
         width: 100%;
         height: auto;
     }
+    .tal_tekst_flex{
+        display: flex;
+        align-items: center;
+        margin-top: 39px;
+        gap: 13px;
+    }
+    /*********** TEKST ***********/
     .tal{
         font-family: var(--nunito);
         font-size: 151px;
         color: var(--green_100);
         font-weight: 200;
         margin-top: 60px;
-    }
-    .tal_tekst_flex{
-        display: flex;
-        align-items: center;
-        margin-top: 39px;
-        gap: 13px;
     }
     p{
         align-self: start;
