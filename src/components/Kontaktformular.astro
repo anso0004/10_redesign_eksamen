@@ -1,76 +1,78 @@
-
 <div class="flex_formular margen_h_mobil margen_v_mobil">
-<div>
-<h3>Har du spørgsmål?</h3>
-        <p>Har du spørgsmål om keramikprodukter, bestillinger eller andet, så benyt kontaktformularen for at få et hurtigt svar.<br /><br />
-        Husk at udfylde alle felter for at sikre den bedst mulige hjælp. Der bestræbes på at svare inden for 24 timer på hverdage.<br /><br /> 
-        Keramikken er skabt med omhu og præcision, og det er vigtigt, at alle føler sig trygge ved at handle her. Ingen spørgsmål er for små eller uvæsentlige. Om det drejer sig om materialer, fremstillingsprocessen eller vedligeholdelse, så er der altid hjælp at hente.<br /><br />
-        Du er også velkommen til at sende en henvendelse på tlf. +45 23 98 23 09 eller mail@hannebertelsen.dk.</p>
-</div>
-<div>
-<form class="flex_form" netlify>
-    <input type="text" id="navn" name="navn" required placeholder="Navn" netlify>
-    <input type="text" id="mail" name="mail" required placeholder="Mail" netlify>
-    <textarea name="besked" id="besked" placeholder="Skriv din besked her" netlify></textarea>
-    <button class="send">Send</button>
-</form>
-</div>
+  <div>
+    <h3>Har du spørgsmål?</h3>
+    <p>
+      Har du spørgsmål om keramikprodukter, bestillinger eller andet, så benyt kontaktformularen for at få et hurtigt svar.<br /><br />
+      Husk at udfylde alle felter for at sikre den bedst mulige hjælp. Der bestræbes på at svare inden for 24 timer på hverdage.<br /><br />
+      Keramikken er skabt med omhu og præcision, og det er vigtigt, at alle føler sig trygge ved at handle her. Ingen spørgsmål er for små eller uvæsentlige. Om det drejer sig om materialer, fremstillingsprocessen eller vedligeholdelse, så er der altid hjælp at hente.<br /><br />
+      Du er også velkommen til at sende en henvendelse på tlf. +45 23 98 23 09 eller mail@hannebertelsen.dk.
+    </p>
+  </div>
+  <div>
+    <form class="flex_form" netlify>
+      <input type="text" id="navn" name="navn" required placeholder="Navn" netlify />
+      <input type="text" id="mail" name="mail" required placeholder="Mail" netlify />
+      <textarea name="besked" id="besked" placeholder="Skriv din besked her" netlify></textarea>
+      <button class="send">Send</button>
+    </form>
+  </div>
 </div>
 
 <style>
-    /*********** TEKST ***********/
-    h3, p{
-        color: var(--baggrund_50);
-    }
+  /*********** TEKST ***********/
+  h3,
+  p {
+    color: var(--baggrund_50);
+  }
 
-    /*********** FORM ***********/
-    input, textarea{
-        background-color: var(--baggrund_50);
-        font-family: var(--mulish);
-        font-size: 15px;
-        color: var(--gray_80);
-        padding-left: 13px;
-        border: 0;
-    }
-    input{
-        height: 37px;
-    }
-    textarea{
-        height: 242px;
-        padding-top: 15px;
-    }
-    .flex_form{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 334px;
-    }
+  /*********** FORM ***********/
+  input,
+  textarea {
+    background-color: var(--baggrund_50);
+    font-family: var(--mulish);
+    font-size: 15px;
+    color: var(--gray_80);
+    padding-left: 13px;
+    border: 0;
+  }
+  input {
+    height: 37px;
+  }
+  textarea {
+    height: 242px;
+    padding-top: 15px;
+  }
+  .flex_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 334px;
+  }
 
-    /*********** KNAP ***********/
-    .send{
-        color: var(--baggrund_50);
-        border: 1px solid var(--baggrund_50);
-        background-color: var(--green_100);
-        padding: 5px 24px;
-        font-family: var(--mulish);
-        font-weight: 600;
-        font-size: 15px;
-        width: 113px;
-        align-self: end;
-        cursor: pointer;
-    }
-    .send:hover{
-        background-color: var(--baggrund_50);
-        color: var(--green_100);
-        z-index: 1;
-    }
+  /*********** KNAP ***********/
+  .send {
+    color: var(--baggrund_50);
+    border: 1px solid var(--baggrund_50);
+    background-color: var(--green_100);
+    padding: 5px 24px;
+    font-family: var(--mulish);
+    font-weight: 600;
+    font-size: 15px;
+    width: 113px;
+    align-self: end;
+    cursor: pointer;
+  }
+  .send:hover {
+    background-color: var(--baggrund_50);
+    color: var(--green_100);
+    z-index: 1;
+  }
 
-    @media (min-width: 800px){
-        .flex_formular{
-            display: flex;
-            justify-content: space-between;
-            padding-left: 167px;
-            padding-right: 167px;
-        }
+  @media (min-width: 800px) {
+    .flex_formular {
+      display: flex;
+      justify-content: center;
+      gap: 10%;
     }
+  }
 </style>

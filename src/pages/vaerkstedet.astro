@@ -8,7 +8,7 @@ import Stoebeproces from "../components/Stoebeproces.astro";
   <h1 class="centreret_overskrift">Værkstedet</h1>
   <section class="afsnit1">
     <img width="691" height="452" src="/img/hanne3.webp" alt="Hanne" class="order_1" />
-    <div class="margen_v_mobil margen_v_web margen_h_mobil">
+    <div class="om_virksomheden margen_v_mobil margen_h_mobil margen_v_web">
       <h2>OM VIRKSOMHEDEN</h2>
       <p>
         Hanne Bertelsen Keramik er en enkeltmandsvirksomhed i hjertet af København. Interessen for keramik har altid været der, og hvert produkt bliver udviklet med kærlighed og finesse.<br /><br /> På værkstedet udvikles både unikaværker og keramik til daglig brug, hvor mestring af håndværket og kunstneriske udtryk går hånd i hånd. Produkterne er designet
@@ -66,12 +66,19 @@ import Stoebeproces from "../components/Stoebeproces.astro";
   @media (min-width: 800px) {
     .afsnit1 {
       display: flex;
-      justify-content: space-between;
+      gap: 5%;
       margin-top: 125px;
     }
     /* Flytter Hanne billedet et plads bagud. Det betyder der byttes rundt på "Om virksomheden" og Hanne billedet. */
     .order_1 {
       order: 1;
+      width: 54%;
+    }
+    .om_virksomheden {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* margin-left: 154px; */
     }
     .afsnit3 {
       display: grid;
